@@ -1,14 +1,13 @@
-# Deviant Art Morgue Application
+# Marvel API Application
 
-This application uses the DeviantArt API to explore images by tags, create folders
-to save those images, and explore the 'More Like This Functionality' available in the API. It is deployed at
-http://donhenton-deviant-server.herokuapp.com/.
+This application uses the Marvel API. It is intended to be a demonstration
+of a mobile first Responsive Web Application.
 
 
 ### Running Locally
 
-DeviantArt API credentials are required and can be obtained at https://www.deviantart.com/developers/
-This key is then placed in the config/env/development.js file which IS NOT in the source tree.
+
+Place your Marvel API key  in the config/env/development.js file which IS NOT in the source tree.
 See config/env/production.js for how to create the development.js file with your api key.
 
 You will also need to set up a local mongodb instance, and configure the connection url in the
@@ -24,7 +23,7 @@ must be manually entered
 
 ### Starting the Server
 
-* start gulp default
+* start gulp default will run in front end mode
 
 ### Preparing For Heroku release
 
