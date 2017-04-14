@@ -1,7 +1,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Main from './components/main';
+import Home from './components/home';
 
 //import storageService from './services/storageService'
 
@@ -9,7 +9,7 @@ import Main from './components/main';
 //storageService.setUserId(mainData.userId);
 
 ReactDOM.render(
-        <Main /> 
+        <Home /> 
     
    
   , document.querySelector('#reactContainer'));

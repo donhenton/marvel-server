@@ -1,5 +1,18 @@
 
+function menuCall(callValue)
+{
 
+    postal.publish({
+        channel: "menu.channel",
+        topic: "select-page",
+        data: {page: callValue}
+    });
+    if ($(".label-trigger").hasClass('active'))
+    {
+        $(".label-trigger").click();
+    }
+
+}
 
 $(function () {
     //Set up the click behavior
@@ -29,7 +42,27 @@ $(function () {
         });
 
     });
+
+    //set up menu code
+    $("#Home").click(function (ev) {
+        ev.preventDefault();
+        menuCall("Home");
+    });
+    $("#Writers").click(function (ev) {
+        ev.preventDefault();
+        menuCall("Writers");
+    });
+    $("#Heros").click(function (ev) {
+        ev.preventDefault();
+        menuCall("Heros");
+    });
+
+
 });
+
+
+
+
 $(window).resize(function () {
     //console.log($(window).width());
     var w = $(window).width();
@@ -51,14 +84,13 @@ $(window).resize(function () {
         });
 
         //linear best fit from several widths to position thor at the center
-        var ex = "-"+(480 + (w-640))+"px";
+        var ex = "-" + (480 + (w - 640)) + "px";
         //background image handling
-        
-        mainContainer.attr( 'style','background-position-y: '+ ex );
-    }
-    else
+
+        mainContainer.attr('style', 'background-position-y: ' + ex);
+    } else
     {
         mainContainer.removeAttr('style');
     }
-        
+
 });

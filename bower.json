@@ -8,7 +8,7 @@
   ],
   "dependencies": {
     "jquery": "^2.2.3",
-    "jquery-ui": "^1.11.4"
+    "postal.js": "postal#^2.0.4"
   },
   "devDependencies": {}
 }

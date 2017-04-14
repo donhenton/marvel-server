@@ -1,10 +1,10 @@
 import React from 'react';
 import { Component } from 'react';
 import ReactDOM from 'react-dom';
- 
+  
 
 
-export default class WritersPage extends Component {
+export default class HerosPage extends Component {
         
   constructor()
   {
@@ -29,6 +29,6 @@ export default class WritersPage extends Component {
       var me = this;
            
       
-            return (<div>writers</div> );
+    return (<div>Heros</div> );
   }
 }

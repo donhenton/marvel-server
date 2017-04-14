@@ -178,7 +178,12 @@ gulp.task('frontend-watch', function () {
         gulp.start('react-build');
     });
     
-     watch(EJS_FILES, function (events, done) {
+    watch(EJS_FILES, function (events, done) {
+
+        livereload.reload(pageURL);
+    });
+
+     watch('./public_html/js/*.js', function (events, done) {
 
         livereload.reload(pageURL);
     });
