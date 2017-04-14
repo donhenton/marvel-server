@@ -8,6 +8,7 @@ The modular scale code
 //@import url(https://fonts.googleapis.com/css?family=Orbitron:400,700|Roboto:400,700italic,700);
 
 @include fontFace(graphikmedium, '../../css/fonts/graphikmedium-webfont');
+@include fontFace(graphikregularitalic, '../../css/fonts/graphikregularitalic-webfont');
 
 body,html
 {

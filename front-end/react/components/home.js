@@ -69,7 +69,24 @@ export default class Main extends Component {
               
                 default:
                 {
-                    return <div>Home</div>
+                    return (
+                <div>
+                
+                
+                        <h1>Marvel API Explorer</h1>
+                
+                        <div className="lead-block">
+                        Click on a menu option to explore various 
+                        options of the Marvel Universe!
+                        
+                        </div>
+                
+                
+                
+                
+                
+                </div>
+                )
                 }
               
               
