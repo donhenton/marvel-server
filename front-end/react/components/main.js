@@ -1,8 +1,7 @@
 import React from 'react';
 import { Component } from 'react';
-import { Link } from 'react-router';
 import postal from 'postal';
-
+//import { BrowserRouter as Router, Link} from 'react-router-dom';
 
 
 
@@ -41,42 +40,13 @@ export default class Main extends Component {
 
 
         return (
-                <div>
+                <Router>
+                    <div>
                 
-                    <header>
+                        This is from component main
                 
-                        
-                
-                        <nav className="topMenu grouping">
-                
-                
-                            <ul>
-                
-                                <li><Link to="/main">Explore Folders</Link></li>
-                                <li><Link to="/main/searchImages">Search For Images</Link></li>
-                                 
-                                <li><a href="/logout">Logout</a></li>
-                
-                            </ul>    
-                
-                
-                        </nav>
-                
-                
-                
-                
-                    </header>
-                
-                
-                
-                    <section id="main" className="grouping">
-                
-                        {this.props.children}
-                    </section>
-                
-                
-                </div>
-
+                    </div>
+                </Router>
                 );
 
 

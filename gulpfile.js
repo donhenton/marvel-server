@@ -3,6 +3,7 @@ var sass = require('gulp-sass');
 var concat = require('gulp-concat');
 var sass = require('gulp-sass');
 var watch = require('gulp-watch');
+var del = require('del');
 var livereload = require('gulp-livereload');
 var tap = require('gulp-tap');
 var nodemon = require('gulp-nodemon');
@@ -16,7 +17,7 @@ var streamify = require('gulp-streamify');
 var reactify = require('reactify');
 var argv = require('yargs').argv;
 var notify = require("./build_utils/build_utils").notify;
-var targetLocation = './public_html/'
+
 var appDependencies = require('./package.json').dependencies;
 var REACT_FILES = [ './front-end/react/**/*.js'];
 var SASS_FILES = [ './sass/**/*.scss']; 
@@ -32,53 +33,57 @@ var fs = require('fs')
  * 
  */
 var pageURL = 'http://localhost:3000';
-
+var targetLocation = './public_html/built/';
 
 var sassProcess =
         
             
             function () {
                 
-             return gulp.src(SASS_FILES)
+             return gulp.src('./sass/styles.scss')
             .pipe(sass().on('error', sass.logError))
             .pipe(concat('style.css'))
             // .pipe(uglifycss())
-            .pipe(gulp.dest('./public_html/css/'))
+            .pipe(gulp.dest(targetLocation+'css/'))
             
 
 }
          
 
-gulp.task('sass-build', function () {
+gulp.task('sass-dev', function () {
     sassProcess() ;
 
 });
 
- 
+gulp.task('clean', function (  ) {
+
+    del([(targetLocation+"css/"),(targetLocation+"js/")]);
+
+});
 
 
- function Bundle() {
+function Bundle(envType, debugType) {
 
-    
-    
+
     var Bundler = browserify({
         entries: './front-end/react/index.js',
-        transform: [["babelify", {"presets": ["es2015","react"]}]],
+        transform: [["babelify", {"presets": ["es2015", "react"]}], 
+            ["envify", {NODE_ENV: envType, 'global': true, '_': 'purge' }]],
         extensions: ['.js'],
-        debug: true,
+        debug: debugType,
         cache: {},
         packageCache: {},
         fullPaths: true
-    });  
+    });
     return Bundler
             .bundle()
             .on('error', notify);
 }
 
-gulp.task('react-build-watch', function () {
-    Bundle()
+gulp.task('react-build', function () {
+    Bundle('development',true)
            .pipe(source('bundle.js'))
-           .pipe(gulp.dest(targetLocation+'/js/'))
+           .pipe(gulp.dest(targetLocation+'js/'))
            .on('finish', function ( ) {
                 gutil.log("build bundle end");
                  livereload.reload(pageURL);
@@ -86,32 +91,7 @@ gulp.task('react-build-watch', function () {
     ;
 });
 
-gulp.task('react-build', function () {
-
-
-    function prodBundle()
-    {
-        var prodBundler = browserify({
-            entries: './front-end/react/index.js',
-            transform: [["babelify", {"presets": ["es2015", "react"]}], ["envify", {NODE_ENV: 'production', 'global': true, '_': 'purge', }]],
-            extensions: ['.js'],
-            debug: true,
-            cache: {},
-            packageCache: {},
-            fullPaths: false
-        });
-        return prodBundler
-                .bundle()
-                .on('error', notify);
-
-    }
-
-
-    prodBundle()
-            .pipe(source('bundle.js'))
-            .pipe(streamify(uglify()))
-            .pipe(gulp.dest(targetLocation + '/js/'));
-});
+ 
 
 
 /////////
@@ -127,29 +107,36 @@ gulp.task('react-build', function () {
 gulp.task('backend', function () {
 
     livereload.listen();
-   
+
     nodemon(
             {
                 script: 'server.js',
-                verbose: true,
-                ext: 'js ejs', //in the watched section
-                watch: ['./app'],
-               // ignore: ['./front-end/*','./public_html/js/*'], in the watched section
+                 
+                //  watch: ['*.scss','*.js','*.ejs'],
+                ext: 'js, css, ejs',
+                ignore: ['./gulpfile.js','./bundle.js'],
                 tasks: function (changedFiles)
                 {
                     var tasks = [];
-                    changedFiles.forEach(function (file)
+
+                    if (changedFiles)
                     {
-                        //gutil.log("file "+ path.dirname(file)+" "+/views/.test(path.dirname(file)) );
-                        if (path.extname(file) === '.js' && /react/.test(path.dirname(file))    && !~tasks.indexOf('react'))
+                        changedFiles.forEach(function (file)
                         {
-                          //console.log("react js file")
-                        }
-                         
-                        //
+                            gutil.log(path.basename(file)+" ");
+                            if (path.extname(file) === '.scss' && !~tasks.indexOf('sass-dev'))
+                            {
+                                tasks.push('sass-dev');
+                            }
+                            if (path.dirname(file).match('\/front-end\/') && path.extname(file) === '.js' && !~tasks.indexOf('react-build'))
+                            {
+                                gutil.log("1 "+path.basename(file)+" "+path.dirname(file).match('\/front-end\/'));
+                                tasks.push('react-build');
+                            }
+                            //
 
-                    });
-
+                        });
+                    }
                     return tasks;
 
                 }
@@ -158,8 +145,7 @@ gulp.task('backend', function () {
     {
         gutil.log('restarted!');
         livereload.reload(pageURL);
-        livereload.reload(pageURL);
-         
+
     });
 });
 /* end backend task ------------------------------------- */
@@ -188,7 +174,7 @@ gulp.task('frontend-watch', function () {
 
     watch(REACT_FILES, function (events, done) {
 
-        gulp.start('react-build-watch');
+        gulp.start('react-build');
     });
 
     
@@ -197,7 +183,7 @@ gulp.task('frontend-watch', function () {
 
 });
 
-gulp.task('default', ['backend', 'frontend-watch']);
+gulp.task('default', ['react-build','backend', 'frontend-watch']);
 gulp.task('release', ['sass-build', 'react-build']); // run as gulp release --production=true for compression
 
 /* end fronend task ---------------------------------------- */
