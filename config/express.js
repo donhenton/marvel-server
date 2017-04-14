@@ -60,23 +60,22 @@ module.exports = function () {
     
     
     
-    /* set up security */
-   //require('auth/initPassport')();
+ 
    
-   /* set up security */
- //  console.log("set up security")
+   /* set up security 
+ 
    var initPassport =  require('../passport/initPassport');
    initPassport(passport);
     app.use(passport.initialize());
     app.use(passport.session());
-    
+    */
     
     // Set the application view engine and 'views' folder
     app.set('views', './app/views');
     app.set('view engine', 'ejs');
 
     // Load the 'index' routing file
-    
+  /*  
     var deviantArtService = require('../app/services/deviantartService.js')(config);
     var deviantStoreService = require('../app/services/deviantStoreService.js')(config);
     
@@ -84,14 +83,9 @@ module.exports = function () {
     require('../app/routes/rest.routes.js')(app,deviantArtService); 
     require('../app/routes/deviantStore.routes.js')(app,deviantStoreService);
     require('../app/routes/passport.routes.js')(app,passport);
-
-    
-
-    /*
-     *  not used at this time
-     require('../app/routes/tmpl.server.routes.js')(app,fs,vm);
-     
-     */
+*/
+     require('../app/routes/main.routes.js')(app); 
+ 
 
     // Configure static file serving
     app.use(express.static('./public_html'));

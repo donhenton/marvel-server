@@ -14,7 +14,7 @@ export const createRoutes = () => (
     <Route path="/main/maintainFolders" component={MaintainFoldersPage} />  
     <Route path="/main/searchImages" component={ SearchImagesPage} /> 
     <Route path="/main/categoryDemo" component={ CategoryDemoPage} /> 
-            <Route path="/main/help" component={HelpPage} /> 
+    <Route path="/main/help" component={HelpPage} /> 
   </Route>
 );
 
