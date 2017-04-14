@@ -203,7 +203,7 @@ gulp.task('frontend-serve', function (cb) {
 });
 
 
-gulp.task('backend', ['react-build','backend', 'frontend-watch']);
+
 gulp.task('release', ['sass-build', 'react-build']); // run as gulp release --production=true for compression
 gulp.task('default', ['sass-dev','react-build','frontend-watch' ,'frontend-serve' ]);
 /* end fronend task ---------------------------------------- */

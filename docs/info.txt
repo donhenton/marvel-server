@@ -4,3 +4,18 @@ https://designshack.net/articles/css/masonry/
 https://github.com/reactjs/react-tabs
 
 https://code.tutsplus.com/tutorials/authenticating-nodejs-applications-with-passport--cms-21619
+
+
+
+http://fiveisprime.me/marvel-api/
+
+image sizes:
+
+see https://developer.marvel.com/documentation/images
+
+portrait_small          50x75px
+portrait_medium         100x150px
+portrait_xlarge         150x225px
+portrait_fantastic	168x252px
+portrait_uncanny	300x450px
+portrait_incredible	216x324px

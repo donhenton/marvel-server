@@ -76,7 +76,7 @@ module.exports = function () {
 
     // Load the 'index' routing file
   /*  
-    var deviantArtService = require('../app/services/deviantartService.js')(config);
+    
     var deviantStoreService = require('../app/services/deviantStoreService.js')(config);
     
    
@@ -84,8 +84,9 @@ module.exports = function () {
     require('../app/routes/deviantStore.routes.js')(app,deviantStoreService);
     require('../app/routes/passport.routes.js')(app,passport);
 */
+    var marvelService = require('../app/services/marvelService.js')(config);
      require('../app/routes/main.routes.js')(app); 
- 
+     require('../app/routes/rest.routes.js')(app,marvelService); 
 
     // Configure static file serving
     app.use(express.static('./public_html'));

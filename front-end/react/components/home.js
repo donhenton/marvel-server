@@ -76,8 +76,7 @@ export default class Main extends Component {
                         <h1>Marvel API Explorer</h1>
                 
                         <div className="lead-block">
-                        Click on a menu option to explore various 
-                        options of the Marvel Universe!
+                        Click on a menu option to explore the Marvel Universe!
                         
                         </div>
                 
