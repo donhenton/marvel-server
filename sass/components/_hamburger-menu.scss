@@ -1,0 +1,261 @@
+$comic-book-blue: #86aede;
+$comic-off-white: rgb(242,246,251);
+$orange-highlight: rgb(245,175,102);
+$comic-dark-blue: rgb(70,116,172);
+
+.body-container
+{
+    width: 100%;
+    height:100%;
+     overflow: hidden;
+
+    nav
+    { 
+
+        display: inline;
+
+        @include forLargeScreens(640) {
+
+
+        }
+
+        .menu {
+
+            margin: 0;
+            padding: 0;
+            position: fixed;
+            font-size: 1.4rem;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0; 
+            z-index: -100;
+
+            list-style: none;
+            @include forLargeScreens(640) {
+
+
+                // height: 20%;
+                z-index:  100;
+                display: inline;
+                border: none;
+                background-color:   $comic-book-blue ;
+                position: inherit;
+
+
+            }
+            //List items
+            li {
+                 width: 210px;
+                text-align: left;
+                background-color: $comic-book-blue;
+                border-bottom: 1px solid $comic-off-white;
+                
+                
+                @include forLargeScreens(640) {
+                    display: inline;
+                    border: none;
+                }
+                //Links themselves
+                a {
+                    display: block;
+                    padding: 1em 1em 1em 2em;
+                    color: $comic-off-white;
+                    text-decoration: none;
+                    &:hover
+                        {
+
+                            background-color: $orange-highlight;
+
+                        }
+                    @include forLargeScreens(640) {
+                        display: inline-block;
+
+                        padding:  1rem 3rem;
+                        background-color:$comic-book-blue; 
+                        color:  $comic-off-white   ;    
+                        height: 100%;
+                        
+
+                    }
+                }
+            }
+        }
+    }
+
+    .main-container {
+        // @include animation-nav-icon;
+
+        border-left: thin solid $comic-dark-blue;
+
+        height: 100%;
+
+        z-index:5;
+        left: 0px;
+        position:relative;
+
+        @include forLargeScreens(640) {
+            height: 92.8%;
+            border-left: none;
+            z-index:5;
+        }
+
+        /*
+                .flex-container
+                {
+                    border: thin solid yellow;
+                    align-items: center;  
+                    justify-content: center;
+        
+                    display: flex;
+                    height: 100%;
+                    flex-direction: column;
+                    @include forLargeScreens(640) {
+        
+                        flex-direction: row;
+                    }
+                    .box-item
+                    {
+        
+                        display: flex;
+                        align-items: center;  
+                        justify-content: center;
+                        color: black;
+                        background-color:  bisque;
+                        margin-top: 1%;
+                        height: 50%;
+                        width:100%;
+        
+        
+                        @include forLargeScreens(640) {
+        
+                            width: 32.5%;
+                            margin : 1%;
+                            &:first-of-type { margin-left: 0; }
+                            &:last-of-type { margin-right: 0; }
+                        }
+                        .center-item
+                        {
+                            border: thin solid $green_color;
+                            padding: 10px;
+                            width: 95%;
+        
+        
+        
+                        }
+        
+                    }
+                }
+        */
+
+        header,footer
+        {
+
+            z-index: 10;
+            background-color: $comic-book-blue;
+            color: $comic-off-white;
+        }
+
+
+        header 
+        {
+            height: 10%;
+
+            .header-title
+            {
+                float: right;
+                margin-right: 2rem;
+                //margin-top: 1rem;
+                font-size: 3.4rem;
+            }
+        }
+
+        .main-content
+        {
+            height: 85.5%;
+            background-color: white;
+            font-size: 1.4rem;
+            padding: 2rem;
+
+            // background-size: cover;
+            // background-repeat: no-repeat;
+            background: url('../../css/imgs/bpencil.png')   center center fixed   ; 
+            //-webkit-background-size: cover;
+           // -moz-background-size: cover;
+            //-o-background-size: cover;
+             
+            background-size: cover;
+            background-color: white;
+             
+            overflow: auto;
+            @include forLargeScreens(640) {
+                height: 93%;
+               width: 100%;
+                 // 
+            }
+
+             
+            
+
+        }
+
+
+        footer
+        {
+
+            height: 5%;
+            font-size: 1.2rem;
+            text-align: center;
+            .item-banner
+            {
+                 padding-top: 0.5rem;
+
+            }
+
+
+
+        }
+    }
+    .label-trigger {
+
+        @include forLargeScreens(640) {
+            display: none;
+
+        }
+
+
+
+        position: fixed;
+        left: 1rem;
+        top: 0.5rem;
+        z-index: 20;
+        height: 5rem;
+        width: 5rem;
+        cursor: pointer;
+        background: $comic-off-white;
+        //border-radius: 2px;
+        //border: 1px solid #ccc;
+        //Hamburger icon 
+        &:before {
+            display: block;
+            padding-top: 2.5rem;
+            text-align: center;
+            content: '≡';
+            font-size: 3rem;
+            line-height: 0;
+        }
+        //Active hamburger icon
+        &.active {
+            background: $orange-highlight;
+            color: #fff;
+        }
+        //Hide the term 'Menu' from displaying without sacrificing accessibility
+        span {
+            display: inline-block;
+            text-indent: -100%;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+    }
+
+}

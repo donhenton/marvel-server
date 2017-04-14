@@ -21,6 +21,7 @@ var notify = require("./build_utils/build_utils").notify;
 var appDependencies = require('./package.json').dependencies;
 var REACT_FILES = [ './front-end/react/**/*.js'];
 var SASS_FILES = [ './sass/**/*.scss']; 
+var EJS_FILES = [ './app/views/**/*.ejs']; 
 var gulpif = require('gulp-if');
 var uglify = require('gulp-uglify');
 var envify = require('envify');
@@ -176,16 +177,30 @@ gulp.task('frontend-watch', function () {
 
         gulp.start('react-build');
     });
-
     
+     watch(EJS_FILES, function (events, done) {
 
- 
+        livereload.reload(pageURL);
+    });
+
 
 });
 
-gulp.task('default', ['react-build','backend', 'frontend-watch']);
-gulp.task('release', ['sass-build', 'react-build']); // run as gulp release --production=true for compression
+gulp.task('frontend-serve', function (cb) {
+    exec('node ./server.js', function (err, stdout, stderr) {
+        console.log(stdout);
+        console.log(stderr);
+        cb(err);
+    });
 
+    livereload.listen();
+
+});
+
+
+gulp.task('backend', ['react-build','backend', 'frontend-watch']);
+gulp.task('release', ['sass-build', 'react-build']); // run as gulp release --production=true for compression
+gulp.task('default', ['sass-dev','react-build','frontend-watch' ,'frontend-serve' ]);
 /* end fronend task ---------------------------------------- */
 
 

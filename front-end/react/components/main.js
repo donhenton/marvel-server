@@ -40,13 +40,13 @@ export default class Main extends Component {
 
 
         return (
-                <Router>
+                 
                     <div>
                 
                         This is from component main
                 
                     </div>
-                </Router>
+                
                 );
 
 

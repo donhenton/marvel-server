@@ -1,14 +1,55 @@
 <html>
     <head>
         <title><%= title %></title>
-<script src="js/libs/jquery/dist/jquery.js" type="text/javascript"></script> 
+        <link href="css/foundation-icons.css" rel="stylesheet" type="text/css"/>
+        <link href="built/css/style.css" rel="stylesheet" type="text/css"/>
+        <script src="js/libs/jquery/dist/jquery.js" type="text/javascript"></script> 
  
  </head>
-    <body>
-    Main page 
+     
          
-    <div id='reactContainer'></div>
+   
     
- <script src="built/js/bundle.js" type="text/javascript"></script> 
+
+    
+
+<body class="body-container">
+
+        <!-- Hamburger icon -->
+        <label for="nav-trigger" class="label-trigger"><span>Menu</span></label>
+        <!-- Navigation -->
+
+        <!-- Main container -->
+        <main class="main-container">
+            <header>
+
+                <nav>
+                    <ul class="menu">
+                        <li><a href="#">Link 1</a></li>
+                        <li><a href="#">Link 2</a></li>
+                        <li><a href="#">Link 3</a></li>
+
+                    </ul>
+                </nav>
+                <span class='header-title'>Marvel API</span></header>
+            <div class='main-content'>
+
+                <div id='reactContainer'></div>
+ 
+            </div>
+
+           
+
+            <footer>
+                <div class='item-banner'>All Images are &copy Marvel Entertainment, 2017</div>
+            </footer>
+        </main>
+
+        <script src="js/hamburger-code.js" type="text/javascript"></script>
+        <script src="built/js/bundle.js" type="text/javascript"></script> 
     </body>
+
+
+
+
 </html>
