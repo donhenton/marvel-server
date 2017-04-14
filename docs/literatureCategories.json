@@ -1,0 +1,28 @@
+{
+    "categories": [{
+            "catpath": "/literature/characters",
+            "title": "Characters & Settings",
+            "has_subcategory": true,
+            "parent_catpath": "/literature"
+        }, {
+            "catpath": "/literature/fanfiction",
+            "title": "Fan Fiction",
+            "has_subcategory": true,
+            "parent_catpath": "/literature"
+        }, {
+            "catpath": "/literature/poetry",
+            "title": "Poetry",
+            "has_subcategory": true,
+            "parent_catpath": "/literature"
+        }, {
+            "catpath": "/literature/prose",
+            "title": "Prose",
+            "has_subcategory": true,
+            "parent_catpath": "/literature"
+        }, {
+            "catpath": "/literature/scripts",
+            "title": "Scripts & Screenplays",
+            "has_subcategory": true,
+            "parent_catpath": "/literature"
+        }]
+}

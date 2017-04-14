@@ -1,0 +1,19 @@
+
+###launch script in bin folder
+mongod -f /Users/dhenton/mongo_data/mongod.conf
+
+####contents of mongod.conf file
+#mongod.conf
+
+#logs
+logpath=/Users/dhenton/mongo_data/logs/mongolog.log
+logappend=true
+
+
+#path to database
+dbpath=/Users/dhenton/mongo_data/db
+
+
+empty data set: {user:<id as number>, data: {"key":"/0","name":"root","children":[]}}
+
+

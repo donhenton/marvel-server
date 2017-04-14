@@ -1,0 +1,38 @@
+.categoryDemo
+{
+
+    .categoryTree
+{
+
+    overflow: auto;
+    height: 300px;
+    border: $blue-color double;
+    width: 100%;
+
+}
+    
+    .categoryDemoList
+    {
+        //margin: 20px;
+        padding: 20px;
+        overflow: auto;
+        height: 300px;
+        width: 100%;
+        border: thin solid $green-color;
+        ul
+        {
+
+            list-style-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"><circle fill="#963019" cx="5" cy="5" r="4"/></svg>') ;
+            color: #16174f;
+            padding-bottom: 5px;
+            padding-top: 5px;
+            padding-left: 10px;
+
+
+        }
+    }
+
+
+
+
+}

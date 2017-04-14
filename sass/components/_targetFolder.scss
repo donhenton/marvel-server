@@ -1,0 +1,48 @@
+ 
+
+#targetFolderArea
+{ 
+    position: relative;
+    &.incoming
+    {
+        border: thin $red-color dashed;
+    }
+
+
+
+    .targetFolderTextContainer
+    {
+        width:100%;
+       
+        height:250px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 24px;
+    }
+
+
+
+
+    &.targetFolder
+    { 
+        width: 100%;
+        height: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+ 
+        #targetFolderIcon
+        {
+            color: $red-color;
+            font-size: 300px;
+
+
+        }
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "categories": [{
+            "catpath": "/literature/fanfiction/drama",
+            "title": "Drama",
+            "has_subcategory": false,
+            "parent_catpath": "/literature/fanfiction"
+        }, {
+            "catpath": "/literature/fanfiction/fantasy",
+            "title": "Fantasy",
+            "has_subcategory": false,
+            "parent_catpath": "/literature/fanfiction"
+        }, {
+            "catpath": "/literature/fanfiction/general",
+            "title": "General Fiction",
+            "has_subcategory": false,
+            "parent_catpath": "/literature/fanfiction"
+        }, {
+            "catpath": "/literature/fanfiction/horror",
+            "title": "Horror",
+            "has_subcategory": false,
+            "parent_catpath": "/literature/fanfiction"
+        }, {
+            "catpath": "/literature/fanfiction/humor",
+            "title": "Humor",
+            "has_subcategory": false,
+            "parent_catpath": "/literature/fanfiction"
+        }, {
+            "catpath": "/literature/fanfiction/romance",
+            "title": "Romance",
+            "has_subcategory": false,
+            "parent_catpath": "/literature/fanfiction"
+        }, {
+            "catpath": "/literature/fanfiction/scifi",
+            "title": "Sci-Fi",
+            "has_subcategory": false,
+            "parent_catpath": "/literature/fanfiction"
+        }]
+}

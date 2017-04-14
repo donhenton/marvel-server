@@ -1,0 +1,129 @@
+[{
+        "key": "/anthro",
+        "children": [],
+        "name": "Anthro"
+    }, {
+        "key": "/artisan",
+        "children": [],
+        "name": "Artisan Crafts"
+    }, {
+        "key": "/cartoons",
+        "children": [],
+        "name": "Cartoons & Comics"
+    }, {
+        "key": "/contests",
+        "children": [],
+        "name": "Contests"
+    }, {
+        "key": "/customization",
+        "children": [],
+        "name": "Customization"
+    }, {
+        "key": "/darelated",
+        "children": [],
+        "name": "DeviantArt Related"
+    }, {
+        "key": "/designs",
+        "children": [],
+        "name": "Designs & Interfaces"
+    }, {
+        "key": "/digitalart",
+        "children": [],
+        "name": "Digital Art"
+    }, {
+        "key": "/fanart",
+        "children": [],
+        "name": "Fan Art"
+    }, {
+        "key": "/film",
+        "children": [],
+        "name": "Film & Animation"
+    }, {
+        "key": "/flash",
+        "children": [],
+        "name": "Flash"
+    }, {
+        "key": "/journals",
+        "children": [],
+        "name": "Journals"
+    }, {
+        "key": "/literature",
+        "children": [{
+                "key": "/literature/characters",
+                "children": [],
+                "name": "Characters & Settings"
+            }, {
+                "key": "/literature/fanfiction",
+                "children": [{
+                        "key": "/literature/fanfiction/drama",
+                        "children": [],
+                        "name": "Drama"
+                    }, {
+                        "key": "/literature/fanfiction/fantasy",
+                        "children": [],
+                        "name": "Fantasy"
+                    }, {
+                        "key": "/literature/fanfiction/general",
+                        "children": [],
+                        "name": "General Fiction"
+                    }, {
+                        "key": "/literature/fanfiction/horror",
+                        "children": [],
+                        "name": "Horror"
+                    }, {
+                        "key": "/literature/fanfiction/humor",
+                        "children": [],
+                        "name": "Humor"
+                    }, {
+                        "key": "/literature/fanfiction/romance",
+                        "children": [],
+                        "name": "Romance"
+                    }, {
+                        "key": "/literature/fanfiction/scifi",
+                        "children": [],
+                        "name": "Sci-Fi"
+                    }],
+                "name": "Fan Fiction"
+            }, {
+                "key": "/literature/poetry",
+                "children": [],
+                "name": "Poetry"
+            }, {
+                "key": "/literature/prose",
+                "children": [],
+                "name": "Prose"
+            }, {
+                "key": "/literature/scripts",
+                "children": [],
+                "name": "Scripts & Screenplays"
+            }],
+        "name": "Literature"
+    }, {
+        "key": "/manga",
+        "children": [],
+        "name": "Manga & Anime"
+    }, {
+        "key": "/motionbooks",
+        "children": [],
+        "name": "Motion Books"
+    }, {
+        "key": "/photography",
+        "children": [],
+        "name": "Photography"
+    }, {
+        "key": "/projects",
+        "children": [],
+        "name": "Community Projects"
+    }, {
+        "key": "/resources",
+        "children": [],
+        "name": "Resources & Stock Images"
+    }, {
+        "key": "/scraps",
+        "children": [],
+        "name": "Scraps"
+    }, {
+        "key": "/traditional",
+        "children": [],
+        "name": "Traditional Art"
+    }]

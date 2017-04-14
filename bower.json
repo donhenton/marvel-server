@@ -1,0 +1,14 @@
+{
+  "name": "mvc-redesign",
+  "version": "1.0.0",
+  "main": "path/to/main.css",
+  "ignore": [
+    ".jshintrc",
+    "**/*.txt"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.3",
+    "jquery-ui": "^1.11.4"
+  },
+  "devDependencies": {}
+}
