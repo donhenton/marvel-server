@@ -2,6 +2,7 @@ import React from 'react';
 import { Component } from 'react';
 import ReactDOM from 'react-dom';
 import WaitIndicator from './../components/waitIndicator';
+import CharacterPanel from './../components/characterPanel';
 
 export default class CharactersPage extends Component {
 
@@ -18,7 +19,7 @@ export default class CharactersPage extends Component {
             channel: "data.channel",
             topic: "characters.inbound",
             callback: function (data, envelope) {
-
+               // console.log(JSON.stringify(data.characters))
                 me.setState({characterData: data.characters,isProcessing:false})
             }
         });
@@ -35,7 +36,7 @@ export default class CharactersPage extends Component {
     {
         postal.publish({
             channel: "data.channel",
-            topic: "characters.outbound",
+            topic: "characters.request",
             data: {requestType: 'initial-load'} 
         });
     }
@@ -47,6 +48,20 @@ export default class CharactersPage extends Component {
 
 
     }
+    
+    displayImages()
+    {
+        let images = [];
+        // console.log(JSON.stringify(this.state.characterData))
+        this.state.characterData.forEach(d => {
+            images.push(<CharacterPanel characterData={d} key={d.id} />);
+        })
+        
+       
+        return images;
+        
+        
+    }
 
     render() {
         var me = this;
@@ -55,7 +70,7 @@ export default class CharactersPage extends Component {
             
             return <WaitIndicator isProcessing={this.state.isProcessing} />;
         }
-
-        return (<div>Characters</div>);
+       
+         return (<div>{me.displayImages()}</div>);
     }
 }
