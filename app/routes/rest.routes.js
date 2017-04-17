@@ -14,7 +14,7 @@ module.exports = function (app, marvelService) {
     }
 
 
-    var simplifyData = function (data,portraitSize)
+    var simplifyData = function (data, portraitSize)
     {
         var returnedData = [];
         data.data.forEach(function (d)
@@ -22,12 +22,12 @@ module.exports = function (app, marvelService) {
             var imgData = null;
             if (d.thumbnail && d.thumbnail.path && d.thumbnail.extension)
             {
-                imgData = (d.thumbnail.path + "/"+portraitSize+"."+ d.thumbnail.extension)
+                imgData = (d.thumbnail.path + "/" + portraitSize + "." + d.thumbnail.extension)
             }
-            var p = {"name": d.name, 'imageUrl': imgData,id: d.id}
+            var p = {"name": d.name, 'imageUrl': imgData, id: d.id}
             returnedData.push(p);
         });
-  
+
         return returnedData;
 
     }
@@ -36,18 +36,46 @@ module.exports = function (app, marvelService) {
 
     var findAllCharacters = function (req, res)
     {
-        var count = 10;
-        var offset = req.query.offset;
-        if (!offset)
+        var count = 12;
+        var offset = 0;
+        var dir = req.query.dir;
+        logger.debug("check offset "+JSON.stringify(req.session['offsets']))
+        if (req.session['offsets'] === undefined)
         {
-            offset = 0;
+            req.session['offsets'] = {'characters': 0};
+            logger.debug("did the offset")
         }
-        
-        logger.debug("offset is "+offset)
-        
-        marvelService.findAllCharacters(count,offset).then(function (data)
+        var isOkay = false;
+        if (!dir)
         {
-            res.json(simplifyData(data,'portrait_medium'));
+            isOkay = true;
+        }
+        if (dir == 'prev')
+        {
+            offset = req.session.offsets['characters'] - count;
+            if (offset < 0)
+            {
+                offset = 0;
+            }
+            isOkay = true;
+        }
+        if (dir === 'next')
+        {
+            offset = req.session.offsets['characters'] + count;
+            isOkay = true;
+            
+        }
+        if (!isOkay)
+        {
+            throw new Error("next or prev only for characters/findAll")
+        }
+        // logger.debug("session "+JSON.stringify(req.session))
+        req.session.offsets['characters'] =   offset ;
+        logger.debug("offset is " + offset)
+
+        marvelService.findAllCharacters(count, offset).then(function (data)
+        {
+            res.json(simplifyData(data, 'portrait_medium'));
         }
 
 
@@ -80,7 +108,7 @@ module.exports = function (app, marvelService) {
     }
 
 
-    app.get(['/api/characters/findByName'],findCharacterByName);
+    app.get(['/api/characters/findByName'], findCharacterByName);
     app.get(['/api/characters/findAll'], findAllCharacters);
 
 };

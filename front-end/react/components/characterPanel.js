@@ -30,6 +30,7 @@ export default class CharacterIndicator extends Component {
                  
 
                 <div className='character-panel'>
+                <img src={this.state.characterData.imageUrl} /> 
                 {this.state.characterData.name}
                 </div>
                  
