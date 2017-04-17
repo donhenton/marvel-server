@@ -39,11 +39,11 @@ module.exports = function (app, marvelService) {
         var count = 12;
         var offset = 0;
         var dir = req.query.dir;
-        logger.debug("check offset "+JSON.stringify(req.session['offsets']))
+      //  logger.debug("check offset "+JSON.stringify(req.session['offsets']))
         if (req.session['offsets'] === undefined)
         {
             req.session['offsets'] = {'characters': 0};
-            logger.debug("did the offset")
+          //  logger.debug("did the offset")
         }
         var isOkay = false;
         if (!dir)
@@ -71,7 +71,7 @@ module.exports = function (app, marvelService) {
         }
         // logger.debug("session "+JSON.stringify(req.session))
         req.session.offsets['characters'] =   offset ;
-        logger.debug("offset is " + offset)
+      //  logger.debug("offset is " + offset)
 
         marvelService.findAllCharacters(count, offset).then(function (data)
         {

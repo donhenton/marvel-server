@@ -43,15 +43,15 @@ module.exports = function (config) {
 
     marvelService.findAllCharacters = function (count, offset)
     {
-        logger.debug(`in findAllCharacters count ${count} offset ${offset}`)
+       // logger.debug(`in findAllCharacters count ${count} offset ${offset}`)
 
         var foundData = [];
         var cK = Object.keys(characterCache);
-        logger.debug("Keys " + JSON.stringify(cK))
+     //   logger.debug("Keys " + JSON.stringify(cK))
         if (characterCache[offset])
         {
             //you are in the cache
-            logger.debug("in the cache")
+      //      logger.debug("in the cache")
             foundData = characterCache[offset];
             var cacheHit = Q.defer();
             cacheHit.resolve(foundData);
@@ -59,7 +59,7 @@ module.exports = function (config) {
         }
 
         foundData = marvelClient.characters.findAll(count, offset);
-        logger.debug("inserting into the cache")
+      //  logger.debug("inserting into the cache")
         characterCache[offset] = foundData;
         return foundData;
 
