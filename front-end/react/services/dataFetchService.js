@@ -43,7 +43,7 @@ class DataFetchService
                                 postal.publish({
                                     channel: "data.channel",
                                     topic: "characters.inbound",
-                                    data: {characters: items}
+                                    data: {characters: items.data, count: items.count, offset: items.offset}
                                 });
 
                             }).catch(function (err)
@@ -54,7 +54,7 @@ class DataFetchService
                 }
                 if (data.requestType === 'navigation')
                 {
-                    console.log("hit 1 "+data.dir)
+                  //  console.log("hit 1 "+data.dir)
                     this.proxyService.findAllCharacters(data.dir)
                             .then(function (data)
                             {
@@ -63,7 +63,7 @@ class DataFetchService
                                 postal.publish({
                                     channel: "data.channel",
                                     topic: "characters.inbound",
-                                    data: {characters: items}
+                                    data: {characters: items.data, count: items.count, offset: items.offset}
                                 });
 
                             }).catch(function (err)

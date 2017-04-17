@@ -24,12 +24,12 @@ export default class CharactersPage extends Component {
             topic: "characters.inbound",
             callback: function (data, envelope) {
                 // console.log(JSON.stringify(data.characters))
-                me.setState({characterData: data.characters, isProcessing: false, start: data.start, end: data.end})
+                me.setState({characterData: data.characters, count: data.count, offset: data.offset, isProcessing: false, start: data.start, end: data.end})
             }
         });
 
 
-        this.state = {characterData: [], isProcessing: true, start: 0, end: 0};
+        this.state = {characterData: [], isProcessing: true, count: 0, offset: 0};
         this.subscriptions.push(sub1);
 
 
@@ -79,6 +79,25 @@ export default class CharactersPage extends Component {
 
 
     }
+    
+    getDisplayString()
+    {
+        let str = "Displaying "
+        str = str + (this.state.offset+1)+ " To "+ (this.state.offset+this.state.count);
+        
+        return str;
+    }
+    
+    
+    renderPrevBtn()
+    {
+        let me = this;
+        if (this.state.offset === 0)
+        {
+            return null;
+        }
+        return <span onClick={me.navigate.bind(this, 'prev')} className='control-box control-left'><span className=' fi-arrow-left'></span></span>;
+    }
 
     render() {
         var me = this;
@@ -91,8 +110,8 @@ export default class CharactersPage extends Component {
         return (<div className='characters-page'>
             <div className='character-controls grouping'>
         
-                <span onClick={me.navigate.bind(this, 'prev')} className='control-box control-left'><span className=' fi-arrow-left'></span></span>
-                <div   className='control-text'>Displaying 1200 - 1120</div>
+                {me.renderPrevBtn()}
+                <div   className='control-text'>{me.getDisplayString()}</div>
                 <span onClick={me.navigate.bind(this, 'next')} className='control-box  control-right'><span className='  fi-arrow-right'></span></span>
             </div>
             <div className='flex-container'>{me.displayImages()}</div>

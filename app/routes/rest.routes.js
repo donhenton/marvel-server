@@ -75,7 +75,9 @@ module.exports = function (app, marvelService) {
 
         marvelService.findAllCharacters(count, offset).then(function (data)
         {
-            res.json(simplifyData(data, 'portrait_medium'));
+            var payload = {data: simplifyData(data, 'portrait_medium'), offset:offset,count: count};
+            
+            res.json(payload);
         }
 
 
