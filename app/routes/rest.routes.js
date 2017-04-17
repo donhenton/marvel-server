@@ -1,4 +1,5 @@
-// Invoke 'strict' JavaScript mode
+var log4js = require('log4js');
+var logger = log4js.getLogger('rest.routes');
 'use strict';
 var url = require("url");
 // Define the routes module' method
@@ -26,16 +27,25 @@ module.exports = function (app, marvelService) {
             var p = {"name": d.name, 'imageUrl': imgData,id: d.id}
             returnedData.push(p);
         });
-
+  
         return returnedData;
 
     }
 
 
 
-    var randomCharacters = function (req, res)
+    var findAllCharacters = function (req, res)
     {
-        marvelService.randomCharacters().then(function (data)
+        var count = 10;
+        var offset = req.query.offset;
+        if (!offset)
+        {
+            offset = 0;
+        }
+        
+        logger.debug("offset is "+offset)
+        
+        marvelService.findAllCharacters(count,offset).then(function (data)
         {
             res.json(simplifyData(data,'portrait_medium'));
         }
@@ -48,14 +58,14 @@ module.exports = function (app, marvelService) {
     }
 
 
-    var processFindByName = function (req, res)
+    var findCharacterByName = function (req, res)
     {
 
 
         var name = req.query.name;
 
 
-        marvelService.findByName(name).then(function (data)
+        marvelService.findCharcterByName(name).then(function (data)
         {
 
 
@@ -67,12 +77,11 @@ module.exports = function (app, marvelService) {
         {
             reportError(res, JSON.stringify(err));
         }).done();
-
     }
 
 
-    app.get(['/api/findByName'], processFindByName);
-    app.get(['/api/randomCharacters'], randomCharacters);
+    app.get(['/api/characters/findByName'],findCharacterByName);
+    app.get(['/api/characters/findAll'], findAllCharacters);
 
 };
 
