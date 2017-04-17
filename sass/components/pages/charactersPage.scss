@@ -1,5 +1,41 @@
 .characters-page
 { 
+    .character-controls
+    { 
+        text-align: center;
+        vertical-align:  central;
+        .control-text
+        {
+            padding-top: 1rem;
+            display: inline-table;
+        }
+         
+         
+        height: 4.5rem;
+        .control-box
+        {
+            //height: 2.5rem;
+            padding: 1rem;
+            color: $comic-off-white;
+            background-color:  $comic-book-blue;
+            font-size: 2rem;
+            border-radius: 15%;
+            cursor: pointer;
+            
+        }
+        .control-left
+        {
+            float: left;
+            margin-left: 2rem;
+            
+        }
+        .control-right
+        {
+            float: right;
+            margin-right: 2rem;
+            
+        }
+    }
 
     .flex-container
     {

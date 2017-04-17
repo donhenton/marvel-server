@@ -72,6 +72,12 @@ export default class CharactersPage extends Component {
         }
 
         return (<div className='characters-page'>
+            <div className='character-controls grouping'>
+           
+            <span className='control-box control-left'><span className=' fi-arrow-left'></span></span>
+            <div className='control-text'>Displaying 1200 - 1120</div>
+             <span className='control-box  control-right'><span className='  fi-arrow-right'></span></span>
+            </div>
             <div className='flex-container'>{me.displayImages()}</div>
         </div>
                 );
