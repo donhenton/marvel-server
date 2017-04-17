@@ -33,7 +33,7 @@ class DataFetchService
             {
                 if (data.requestType === 'initial-load')
                 {
-                     
+
 
                     this.proxyService.findAllCharacters()
                             .then(function (data)
@@ -43,7 +43,27 @@ class DataFetchService
                                 postal.publish({
                                     channel: "data.channel",
                                     topic: "characters.inbound",
-                                    data:  {characters:items}
+                                    data: {characters: items}
+                                });
+
+                            }).catch(function (err)
+                    {
+
+                        throw new Error(err.message);
+                    });
+                }
+                if (data.requestType === 'navigation')
+                {
+                    console.log("hit 1 "+data.dir)
+                    this.proxyService.findAllCharacters(data.dir)
+                            .then(function (data)
+                            {
+                                let items = JSON.parse(data);
+                                 console.log("hit 2\n\n"+items)
+                                postal.publish({
+                                    channel: "data.channel",
+                                    topic: "characters.inbound",
+                                    data: {characters: items}
                                 });
 
                             }).catch(function (err)
@@ -54,10 +74,7 @@ class DataFetchService
 
 
 
-
                 }
-
-
 
             }
 

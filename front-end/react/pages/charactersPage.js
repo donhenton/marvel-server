@@ -4,6 +4,10 @@ import ReactDOM from 'react-dom';
 import WaitIndicator from './../components/waitIndicator';
 import CharacterPanel from './../components/characterPanel';
 
+
+
+
+
 export default class CharactersPage extends Component {
 
     constructor()
@@ -20,12 +24,12 @@ export default class CharactersPage extends Component {
             topic: "characters.inbound",
             callback: function (data, envelope) {
                 // console.log(JSON.stringify(data.characters))
-                me.setState({characterData: data.characters, isProcessing: false})
+                me.setState({characterData: data.characters, isProcessing: false, start: data.start, end: data.end})
             }
         });
 
 
-        this.state = {characterData: [], isProcessing: true};
+        this.state = {characterData: [], isProcessing: true, start: 0, end: 0};
         this.subscriptions.push(sub1);
 
 
@@ -47,6 +51,19 @@ export default class CharactersPage extends Component {
         this.subscriptions = [];
 
 
+    }
+
+    navigate(dir)
+    {
+        console.log("navigate " + dir)
+        this.setState({isProcessing: true}, function ()
+        {
+            postal.publish({
+                channel: "data.channel",
+                topic: "characters.request",
+                data: {requestType: 'navigation', dir: dir}
+            });
+        });
     }
 
     displayImages()
@@ -73,10 +90,10 @@ export default class CharactersPage extends Component {
 
         return (<div className='characters-page'>
             <div className='character-controls grouping'>
-           
-            <span className='control-box control-left'><span className=' fi-arrow-left'></span></span>
-            <div className='control-text'>Displaying 1200 - 1120</div>
-             <span className='control-box  control-right'><span className='  fi-arrow-right'></span></span>
+        
+                <span onClick={me.navigate.bind(this, 'prev')} className='control-box control-left'><span className=' fi-arrow-left'></span></span>
+                <div   className='control-text'>Displaying 1200 - 1120</div>
+                <span onClick={me.navigate.bind(this, 'next')} className='control-box  control-right'><span className='  fi-arrow-right'></span></span>
             </div>
             <div className='flex-container'>{me.displayImages()}</div>
         </div>

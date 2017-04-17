@@ -10,12 +10,12 @@ export default class MarvelProxyService
            
     }
     
-    findAllCharacters(offset)
+    findAllCharacters(dir)
     {
         let offsetString = "";
-        if (offset)
+        if (dir)
         {
-            offsetString = '?offset='+offset;
+            offsetString = '?dir='+dir;
         }
         let url = this.rootURL+"characters/findAll"+offsetString;
        // console.log("url is "+url)
