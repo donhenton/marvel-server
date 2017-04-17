@@ -29,6 +29,6 @@ export default class HerosPage extends Component {
       var me = this;
            
       
-    return (<div>Heros</div> );
+    return (<div>Characters</div> );
   }
 }

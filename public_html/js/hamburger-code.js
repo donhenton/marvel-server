@@ -52,9 +52,9 @@ $(function () {
         ev.preventDefault();
         menuCall("Writers");
     });
-    $("#Heros").click(function (ev) {
+    $("#Characters").click(function (ev) {
         ev.preventDefault();
-        menuCall("Heros");
+        menuCall("Characters");
     });
 
 

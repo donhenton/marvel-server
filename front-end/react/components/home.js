@@ -2,7 +2,7 @@ import React from 'react';
 import { Component } from 'react';
 //import postal from 'postal'; postal is public via CDN
 //import { BrowserRouter as Router, Link} from 'react-router-dom';
-import Heros from './../pages/herosPage';
+import Characters from './../pages/charactersPage';
 import Writers from './../pages/writersPage';
 
 export default class Main extends Component {
@@ -61,10 +61,10 @@ export default class Main extends Component {
                     return <Writers />
                 }
                 
-              case 'Heros':
+              case 'Characters':
                 {
                     
-                    return <Heros />
+                    return <Characters />
                 }
               
                 default:
