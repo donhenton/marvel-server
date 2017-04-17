@@ -1,7 +1,4 @@
-$comic-book-blue: #86aede;
-$comic-off-white: rgb(242,246,251);
-$orange-highlight: rgb(245,175,102);
-$comic-dark-blue: rgb(70,116,172);
+
 
 .body-container
 {
@@ -100,53 +97,8 @@ $comic-dark-blue: rgb(70,116,172);
             z-index:5;
         }
 
-        /*
-                .flex-container
-                {
-                    border: thin solid yellow;
-                    align-items: center;  
-                    justify-content: center;
-        
-                    display: flex;
-                    height: 100%;
-                    flex-direction: column;
-                    @include forLargeScreens(640) {
-        
-                        flex-direction: row;
-                    }
-                    .box-item
-                    {
-        
-                        display: flex;
-                        align-items: center;  
-                        justify-content: center;
-                        color: black;
-                        background-color:  bisque;
-                        margin-top: 1%;
-                        height: 50%;
-                        width:100%;
-        
-        
-                        @include forLargeScreens(640) {
-        
-                            width: 32.5%;
-                            margin : 1%;
-                            &:first-of-type { margin-left: 0; }
-                            &:last-of-type { margin-right: 0; }
-                        }
-                        .center-item
-                        {
-                            border: thin solid $green_color;
-                            padding: 10px;
-                            width: 95%;
-        
-        
-        
-                        }
-        
-                    }
-                }
-        */
+         
+  
 
         header,footer
         {

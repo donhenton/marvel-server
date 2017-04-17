@@ -1,10 +1,44 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : Apr 17, 2017, 10:14:56 AM
-    Author     : dhenton
-*/
+.characters-page
+{ 
 
+    .flex-container
+    {
+
+        align-items: center;  
+        justify-content: center;
+        width:100%;
+        display: flex;
+
+        flex-direction: column;
+        @include forLargeScreens(640) {
+
+
+            position:relative;
+            flex-flow: row wrap;
+
+        }
+        .box-item
+        {
+
+            color: $comic-off-white;
+            background-color:  $comic-book-blue;
+            text-align:center;
+            padding: 1%;
+            margin-top: 1%;
+            width:100%;
+
+
+            @include forLargeScreens(640) {
+
+
+                margin : 1%;
+                max-width: 22%;
+
+            }
+
+
+        }
+    }
+
+
+}

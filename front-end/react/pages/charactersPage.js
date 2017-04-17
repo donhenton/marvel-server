@@ -19,13 +19,13 @@ export default class CharactersPage extends Component {
             channel: "data.channel",
             topic: "characters.inbound",
             callback: function (data, envelope) {
-               // console.log(JSON.stringify(data.characters))
-                me.setState({characterData: data.characters,isProcessing:false})
+                // console.log(JSON.stringify(data.characters))
+                me.setState({characterData: data.characters, isProcessing: false})
             }
         });
 
 
-        this.state = {characterData: [],isProcessing:true};
+        this.state = {characterData: [], isProcessing: true};
         this.subscriptions.push(sub1);
 
 
@@ -37,7 +37,7 @@ export default class CharactersPage extends Component {
         postal.publish({
             channel: "data.channel",
             topic: "characters.request",
-            data: {requestType: 'initial-load'} 
+            data: {requestType: 'initial-load'}
         });
     }
 
@@ -48,7 +48,7 @@ export default class CharactersPage extends Component {
 
 
     }
-    
+
     displayImages()
     {
         let images = [];
@@ -56,21 +56,24 @@ export default class CharactersPage extends Component {
         this.state.characterData.forEach(d => {
             images.push(<CharacterPanel characterData={d} key={d.id} />);
         })
-        
-       
+
+
         return images;
-        
-        
+
+
     }
 
     render() {
         var me = this;
         if (this.state.isProcessing)
         {
-            
+
             return <WaitIndicator isProcessing={this.state.isProcessing} />;
         }
-       
-         return (<div>{me.displayImages()}</div>);
+
+        return (<div className='characters-page'>
+            <div className='flex-container'>{me.displayImages()}</div>
+        </div>
+                );
     }
 }
