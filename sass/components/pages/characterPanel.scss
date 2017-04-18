@@ -6,7 +6,7 @@
     text-align:center;
     padding: 1%;
     margin-top: 1%;
-    min-height: 20rem;
+    height: 40%;
     width:75%;
 
 
@@ -37,6 +37,7 @@
     { 
 
         padding: 2%;
+        min-height: 17rem;
         border: thin solid $comic-dark-blue;
         .image-item
         {
