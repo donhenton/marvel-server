@@ -12,7 +12,9 @@ module.exports = function (config) {
             });
 
 
-    var characterCache = [];
+    var characterPageCache = [];
+    var individualCharacterCache = {};
+
 
     marvelService.createError = function (message, classVar)
     {
@@ -43,24 +45,52 @@ module.exports = function (config) {
 
     marvelService.findAllCharacters = function (count, offset)
     {
-       // logger.debug(`in findAllCharacters count ${count} offset ${offset}`)
+        // logger.debug(`in findAllCharacters count ${count} offset ${offset}`)
 
         var foundData = [];
-        var cK = Object.keys(characterCache);
-     //   logger.debug("Keys " + JSON.stringify(cK))
-        if (characterCache[offset])
+        //  var cK = Object.keys(characterPageCache);
+        //   logger.debug("Keys " + JSON.stringify(cK))
+        if (characterPageCache[offset])
         {
             //you are in the cache
-      //      logger.debug("in the cache")
-            foundData = characterCache[offset];
+            //      logger.debug("in the cache")
+            foundData = characterPageCache[offset];
             var cacheHit = Q.defer();
             cacheHit.resolve(foundData);
             return cacheHit.promise;
         }
 
-        foundData = marvelClient.characters.findAll(count, offset);
-      //  logger.debug("inserting into the cache")
-        characterCache[offset] = foundData;
+        foundData = marvelClient.characters.findAll(count, offset)
+                .then(function (data)
+                {
+                    var t = JSON.parse(JSON.stringify(data['data']));
+                      
+                    //logger.debug(Array.isArray(t))
+                   // logger.debug(JSON.stringify(data['data']))
+                    characterPageCache[offset] = data;
+                    
+                    
+                     t.forEach(function (d)
+                     {
+                       //  logger.debug("cache indiv " + d.id)
+                         individualCharacterCache[d.id] = d;
+                     })
+
+
+                    return data;
+                });
+       // logger.debug("inserting into the cache")
+
+
+
+
+
+
+
+
+
+
+
         return foundData;
 
 
