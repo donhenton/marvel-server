@@ -31,7 +31,7 @@ export default class CharactersPage extends Component {
             channel: "character.page",
             topic: "characters.modal",
             callback: function (data, envelope) {
-                me.setState({modalId: data.characterId,showDetail: true})
+                me.setState({modalData: data.characterData,showDetail: true})
             }
         });
 
@@ -39,7 +39,7 @@ export default class CharactersPage extends Component {
 
 
         this.state = {characterData: [], isProcessing: true, showDetail: false,
-            count: 0, offset: 0, total: 0, modalId: -1};
+            count: 0, offset: 0, total: 0, modalData: null};
         this.subscriptions.push(sub1);
         this.subscriptions.push(sub2);
 
@@ -112,7 +112,7 @@ export default class CharactersPage extends Component {
     
     returnCallBack()
     {
-        this.setState({modalId: null,showDetail: false})
+        this.setState({modalData: null,showDetail: false})
     }
 
     render() {
@@ -124,7 +124,7 @@ export default class CharactersPage extends Component {
         }
         if (this.state.showDetail)
         {
-            return <CharacterDetail characterId={this.state.modalId} returnCallBack={this.returnCallBack.bind(me)} />
+            return <CharacterDetail characterData={this.state.modalData} returnCallBack={this.returnCallBack.bind(me)} />
         }
 
         return (

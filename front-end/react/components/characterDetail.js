@@ -10,7 +10,8 @@ export default class CharacterDetail extends Component {
         super(props);
         
         this.state = {};
-        this.state['data'] = DataFetchService.readCharacterCache(props.characterId);
+        this.state['characterData'] = this.props.characterData;
+        
        
 
     }
@@ -35,7 +36,8 @@ export default class CharacterDetail extends Component {
                      <span className='fi-arrow-left'  />
                      </div>
                      <div className='title-area'>
-                    {JSON.stringify(this.state.data)}
+                     <img src={this.state.characterData.imageUrl} />
+                     <span className='character-name'>{this.state.characterData.name}</span>
                     </div>
                      
                 </div>

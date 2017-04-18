@@ -95,7 +95,7 @@ module.exports = function (config) {
         if (comicCache[characterId])
         {
             //you are in the cache
-           // logger.debug("in the cache for comics")
+            // logger.debug("in the cache for comics")
             foundData = comicCache[characterId];
             var cacheHit = Q.defer();
             cacheHit.resolve(foundData);

@@ -61,7 +61,7 @@ export default class CharacterIndicator extends Component {
          postal.publish({
             channel: "character.page",
             topic: "characters.modal",
-            data: {characterId: this.state.characterData.id }
+            data: {characterData: this.state.characterData }
         });
         
     }

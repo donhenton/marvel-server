@@ -10,8 +10,7 @@ class DataFetchService
 
         var baseURL = 'http://' + location.hostname + ":" + location.port + '/api/';
         this.proxyService = new MarvelProxyService(baseURL);
-        let boundRouter = this.router.bind(this);
-        this.characterCache = {};
+        let boundRouter = this.router.bind(this);    
         this.subscription = postal.subscribe({
             channel: "data.channel",
             topic: "#",
@@ -22,18 +21,6 @@ class DataFetchService
 
     }
     
-    updateCharacterCache(data) 
-    {
-        data.forEach(d => {
-            this.characterCache[d.id] = d;
-        })
-        
-    }
-    
-    readCharacterCache(id)
-    {
-        return this.characterCache[id];
-    }
 
     router(data, envelope)
     {
@@ -52,10 +39,6 @@ class DataFetchService
                             .then(function (data)
                             {
                                 let items = JSON.parse(data);
-                                
-                                me.updateCharacterCache(items.data);
-                                
-                                
                                 postal.publish({
                                     channel: "data.channel",
                                     topic: "characters.inbound",
@@ -78,7 +61,6 @@ class DataFetchService
                             .then(function (data)
                             {
                                 let items = JSON.parse(data);
-                                me.updateCharacterCache(items.data);
                                 postal.publish({
                                     channel: "data.channel",
                                     topic: "characters.inbound",
