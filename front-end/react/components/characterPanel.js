@@ -1,6 +1,7 @@
 import React from 'react';
 import { Component } from 'react';
 import ReactDOM  from 'react-dom';
+import CharacterModal from './modal/characterModal';
 
 const IMAGE_REF = 'imageRef';
 const LINK_TYPES =  
@@ -58,7 +59,7 @@ export default class CharacterIndicator extends Component {
     {
 
         return (
-                <div className='character-panel'>
+                <div className='character-panel grouping'>
                  <div className='character-name'>{this.state.characterData.name}</div>
                     <div className="character-block grouping">
                         <div className='image-item'><img ref='imageRef' src="css/imgs/medium_na.jpg" /> </div>

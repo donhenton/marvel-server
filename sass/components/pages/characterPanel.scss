@@ -6,7 +6,7 @@
     text-align:center;
     padding: 1%;
     margin-top: 1%;
-    height: 40%;
+    //height: 40%;
     width:75%;
 
 
@@ -37,7 +37,7 @@
     { 
 
         padding: 2%;
-        min-height: 17rem;
+        min-height: 15rem;
         border: thin solid $comic-dark-blue;
         .image-item
         {
@@ -50,16 +50,16 @@
         {
 
             margin-right: 5%;
-            margin-top: 5%;
+            
             float: right;
             width: 33%;
             
             text-align: left;
             li
             {
-                margin-top: 15%;
+                margin-top:  5%;
                 padding: 7.5%;
-                margin-bottom: 15%;
+                margin-bottom:  5%;
                 background-color: $comic-dark-blue;
                 text-align: center;
                 &:hover
