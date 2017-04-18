@@ -10,7 +10,7 @@ const LINK_TYPES =
         'comiclink': 'Comic Link'}
  ;
 
-export default class CharacterIndicator extends Component {
+export default class CharacterPanel extends Component {
 
     constructor(props)
     {
@@ -74,7 +74,7 @@ export default class CharacterIndicator extends Component {
                  <div  onClick={this.showModal.bind(this)} className='character-name'>{this.state.characterData.name}</div>
                     <div className="character-block grouping">
                         <div onClick={this.showModal.bind(this)} className='image-item'>
-                        <img ref='imageRef' src="css/imgs/medium_na.jpg" /> 
+                        <img ref={IMAGE_REF} src="css/imgs/medium_na.jpg" /> 
                         </div>
                         <div className="character-link-block">
                             {this.getCharacterLinks()}

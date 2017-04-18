@@ -90,7 +90,7 @@ class DataFetchService
                                 postal.publish({
                                     channel: "data.channel",
                                     topic: "comics.inbound",
-                                    data: items
+                                    data: {comicData: items, count: items.count}
                                 });
 
                             }).catch(function (err)
