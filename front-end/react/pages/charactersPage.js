@@ -24,12 +24,15 @@ export default class CharactersPage extends Component {
             topic: "characters.inbound",
             callback: function (data, envelope) {
                 // console.log(JSON.stringify(data.characters))
-                me.setState({characterData: data.characters, count: data.count, offset: data.offset, isProcessing: false, start: data.start, end: data.end})
+                me.setState({characterData: data.characters, count: data.count, 
+                    offset: data.offset, isProcessing: false,
+                    start: data.start, end: data.end,total: data.total})
             }
         });
 
 
-        this.state = {characterData: [], isProcessing: true, count: 0, offset: 0};
+        this.state = {characterData: [], isProcessing: true, 
+            count: 0, offset: 0,total: 0};
         this.subscriptions.push(sub1);
 
 
@@ -83,7 +86,9 @@ export default class CharactersPage extends Component {
     getDisplayString()
     {
         let str = "Displaying "
-        str = str + (this.state.offset+1)+ " To "+ (this.state.offset+this.state.count);
+        str = str + (this.state.offset+1)+ " To "
+                + (this.state.offset+this.state.count)
+                + " Of "+(this.state.total);
         
         return str;
     }

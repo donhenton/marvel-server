@@ -43,7 +43,10 @@ class DataFetchService
                                 postal.publish({
                                     channel: "data.channel",
                                     topic: "characters.inbound",
-                                    data: {characters: items.data, count: items.count, offset: items.offset}
+                                    data: {characters: items.data, 
+                                        count: items.count, 
+                                        offset: items.offset,
+                                        total: items.total}
                                 });
 
                             }).catch(function (err)
@@ -63,7 +66,10 @@ class DataFetchService
                                 postal.publish({
                                     channel: "data.channel",
                                     topic: "characters.inbound",
-                                    data: {characters: items.data, count: items.count, offset: items.offset}
+                                    data: {characters: items.data, 
+                                        count: items.count, 
+                                        total: items.total,
+                                        offset: items.offset}
                                 });
 
                             }).catch(function (err)
