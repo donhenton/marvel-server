@@ -3,7 +3,7 @@ import { Component } from 'react';
 import ReactDOM from 'react-dom';
 import WaitIndicator from './../components/waitIndicator';
 import CharacterPanel from './../components/characterPanel';
-
+import CharacterModal from './../components/modal/characterModal';
 
 
 
@@ -24,19 +24,35 @@ export default class CharactersPage extends Component {
             topic: "characters.inbound",
             callback: function (data, envelope) {
                 // console.log(JSON.stringify(data.characters))
-                me.setState({characterData: data.characters, count: data.count, 
+                me.setState({characterData: data.characters, count: data.count,
                     offset: data.offset, isProcessing: false,
-                    start: data.start, end: data.end,total: data.total})
+                    start: data.start, end: data.end, total: data.total})
+            }
+        });
+        let sub2 = postal.subscribe({
+            channel: "character.page",
+            topic: "characters.modal",
+            callback: function (data, envelope) {
+                //data.characterId
             }
         });
 
 
-        this.state = {characterData: [], isProcessing: true, 
-            count: 0, offset: 0,total: 0};
+
+
+        this.state = {characterData: [], isProcessing: true,
+            count: 0, offset: 0, total: 0};
         this.subscriptions.push(sub1);
 
 
 
+    }
+
+    showModal()
+    {
+
+
+        this.refs.selectionModal.open();
     }
 
     componentDidMount()
@@ -82,18 +98,17 @@ export default class CharactersPage extends Component {
 
 
     }
-    
+
     getDisplayString()
     {
-        let str = "Displaying "
-        str = str + (this.state.offset+1)+ " To "
-                + (this.state.offset+this.state.count)
-                + " Of "+(this.state.total);
-        
+        let str = "Displaying Marvel\u00A9 Character "
+        str = str + (this.state.offset + 1) + " To "
+                + (this.state.offset + this.state.count)
+                + " Of " + (this.state.total);
+
         return str;
     }
-    
-    
+
     renderPrevBtn()
     {
         let me = this;
@@ -113,14 +128,14 @@ export default class CharactersPage extends Component {
         }
 
         return (<div className='characters-page'>
-            <div className='character-controls grouping'>
-        
-                {me.renderPrevBtn()}
-                <div   className='control-text'>{me.getDisplayString()}</div>
-                <span onClick={me.navigate.bind(this, 'next')} className='control-box  control-right'><span className='  fi-arrow-right'></span></span>
-            </div>
-            <div className='flex-container'>{me.displayImages()}</div>
+        <div className='character-controls grouping'>
+    
+            {me.renderPrevBtn()}
+            <div   className='control-text'>{me.getDisplayString()}</div>
+            <span onClick={me.navigate.bind(this, 'next')} className='control-box  control-right'><span className='  fi-arrow-right'></span></span>
         </div>
+        <div className='flex-container'>{me.displayImages()}</div>
+    </div>
                 );
     }
 }

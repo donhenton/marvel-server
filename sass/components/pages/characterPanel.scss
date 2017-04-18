@@ -6,7 +6,7 @@
     text-align:center;
     padding: 1%;
     margin-top: 1%;
-    //height: 40%;
+   // height: 30%;
     width:75%;
 
 
@@ -79,6 +79,7 @@
         {
             display: inline;
             float: left;
+            cursor: pointer;
 
         }
     }
@@ -87,6 +88,7 @@
         margin-bottom: 1rem;
         background-color: $comic-dark-blue;
         color: $comic-off-white;
+        cursor: pointer;
     }
 }
 
