@@ -10,7 +10,7 @@ class DataFetchService
 
         var baseURL = 'http://' + location.hostname + ":" + location.port + '/api/';
         this.proxyService = new MarvelProxyService(baseURL);
-        let boundRouter = this.router.bind(this);    
+        let boundRouter = this.router.bind(this);
         this.subscription = postal.subscribe({
             channel: "data.channel",
             topic: "#",
@@ -20,7 +20,6 @@ class DataFetchService
         });
 
     }
-    
 
     router(data, envelope)
     {
@@ -42,8 +41,8 @@ class DataFetchService
                                 postal.publish({
                                     channel: "data.channel",
                                     topic: "characters.inbound",
-                                    data: {characters: items.data, 
-                                        count: items.count, 
+                                    data: {characters: items.data,
+                                        count: items.count,
                                         offset: items.offset,
                                         total: items.total}
                                 });
@@ -64,9 +63,9 @@ class DataFetchService
                                 postal.publish({
                                     channel: "data.channel",
                                     topic: "characters.inbound",
-                                    data: {characters: items.data, 
-                                        count: items.count, 
-                                        total: items.total, 
+                                    data: {characters: items.data,
+                                        count: items.count,
+                                        total: items.total,
                                         offset: items.offset}
                                 });
 
@@ -79,7 +78,27 @@ class DataFetchService
 
 
                 }
+                break;
+            }
+            case  'comics.request':
+            {
+                
+                  this.proxyService.findComicsForCharacter(data.characterId)
+                            .then(function (data)
+                            {
+                                let items = JSON.parse(data);
+                                postal.publish({
+                                    channel: "data.channel",
+                                    topic: "comics.inbound",
+                                    data: items
+                                });
 
+                            }).catch(function (err)
+                    {
+
+                        throw new Error(err.message);
+                    });
+                break;
             }
 
             default:

@@ -23,5 +23,16 @@ export default class MarvelProxyService
         
     }
     
+    findComicsForCharacter(characterId)
+    {
+        // api/characters/:characterId/comics
+        let url = this.rootURL+"characters/"+characterId+"/comics";
+       // console.log("url is "+url)
+        return rp(url);
+        
+        
+        
+    }
+    
 }
  
