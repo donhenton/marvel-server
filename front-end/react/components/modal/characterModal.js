@@ -1,7 +1,7 @@
- import React from 'react';
+import React from 'react';
 import { Component } from 'react';
 import Modal from './modal';
- 
+
 /**
  * simple modal
  * adapted from 
@@ -22,76 +22,65 @@ import Modal from './modal';
  * 
  */
 export default class CharacterModal extends Component {
-        
-   
+
     constructor(props)
     {
-         
-        super(props);
-        this.internalModal  = null;
-        this.list = null;
-         
-          
-    }
-    
-    
-   
-   componentDidMount()
-   {
-         
-            
-   }
-   
-   componentWillMount()
-        {
 
-                
-                this.state = {isOpen: false};
-                var me = this;
-                
-        }
-   
-   
-   
-    
+        super(props);
+        this.internalModal = null;
+        this.list = null;
+        this.state = {characterId: props.characterId}
+
+    }
+
+    componentDidMount()
+    {
+
+
+    }
+
+    componentWillMount()
+    {
+
+
+        this.state = {isOpen: false};
+        var me = this;
+
+    }
+
     componentWillReceiveProps(nextProps)
-   {
-      this.setState({isOpen: nextProps.isOpen});
-   } 
-    
-   cancel()
-   {
-        
+    {
+        this.setState({isOpen: nextProps.isOpen,characterId: nextProps.characterId});
+    } 
+
+    cancel()
+    {
+
         this.internalModal.cancel();
-   } 
-   
-   open()
-   {
-        
-       this.internalModal.open();
-   }
-   
- 
-    
-  render()
-   {
-            
-           var me = this;
-            
-            return (
-              <Modal modalLabel="Stuff" ref={(ref) =>me.internalModal = ref}>
-                     <div className="third-list">
-                         
-                        <div className="row">
-                            <button onClick={me.cancel.bind(me)} className="btn">Cancel</button>
-                        </div>
-                     </div>
-              </Modal>
-            ) 
-            
-         
-   }
-   
-  
+    } 
+
+    open()
+    {
+
+        this.internalModal.open();
+    }
+
+    render()
+    {
+
+        var me = this;
+
+        return (
+                <Modal modalClassName={this.props.modalClassName} modalLabel={this.state.characterId} ref={(ref) => me.internalModal = ref}>
+                    <div className="character-list">
+                
+                        
+                    </div>
+                </Modal>
+                )
+
+
+    }
+
 }
  

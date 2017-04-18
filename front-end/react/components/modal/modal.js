@@ -108,7 +108,7 @@ export default class Modal extends Component {
    
   
 }
- Modal.defaultProps = {
-    modalLabel: 'Default Label' ,
-    modalClassName: 'comparison-modal'
-};
+// Modal.defaultProps = {
+//    modalLabel: 'Default Label' ,
+//    modalClassName: 'comparison-modal'
+//};

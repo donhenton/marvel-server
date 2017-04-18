@@ -3,9 +3,7 @@ import { Component } from 'react';
 import ReactDOM from 'react-dom';
 import WaitIndicator from './../components/waitIndicator';
 import CharacterPanel from './../components/characterPanel';
-import CharacterModal from './../components/modal/characterModal';
-
-
+import CharacterDetail from './../components/characterDetail';
 
 
 export default class CharactersPage extends Component {
@@ -33,27 +31,21 @@ export default class CharactersPage extends Component {
             channel: "character.page",
             topic: "characters.modal",
             callback: function (data, envelope) {
-                //data.characterId
+                me.setState({modalId: data.characterId,showDetail: true})
             }
         });
 
 
 
 
-        this.state = {characterData: [], isProcessing: true,
-            count: 0, offset: 0, total: 0};
+        this.state = {characterData: [], isProcessing: true, showDetail: false,
+            count: 0, offset: 0, total: 0, modalId: -1};
         this.subscriptions.push(sub1);
-
+        this.subscriptions.push(sub2);
 
 
     }
 
-    showModal()
-    {
-
-
-        this.refs.selectionModal.open();
-    }
 
     componentDidMount()
     {
@@ -88,7 +80,6 @@ export default class CharactersPage extends Component {
     displayImages()
     {
         let images = [];
-        // console.log(JSON.stringify(this.state.characterData))
         this.state.characterData.forEach(d => {
             images.push(<CharacterPanel characterData={d} key={d.id} />);
         })
@@ -118,6 +109,11 @@ export default class CharactersPage extends Component {
         }
         return <span onClick={me.navigate.bind(this, 'prev')} className='control-box control-left'><span className=' fi-arrow-left'></span></span>;
     }
+    
+    returnCallBack()
+    {
+        this.setState({modalId: null,showDetail: false})
+    }
 
     render() {
         var me = this;
@@ -126,16 +122,23 @@ export default class CharactersPage extends Component {
 
             return <WaitIndicator isProcessing={this.state.isProcessing} />;
         }
+        if (this.state.showDetail)
+        {
+            return <CharacterDetail characterId={this.state.modalId} returnCallBack={this.returnCallBack.bind(me)} />
+        }
 
-        return (<div className='characters-page'>
-        <div className='character-controls grouping'>
-    
-            {me.renderPrevBtn()}
-            <div   className='control-text'>{me.getDisplayString()}</div>
-            <span onClick={me.navigate.bind(this, 'next')} className='control-box  control-right'><span className='  fi-arrow-right'></span></span>
-        </div>
-        <div className='flex-container'>{me.displayImages()}</div>
-    </div>
+        return (
+                <div className='characters-page'>
+                    <div className='character-controls grouping'>
+                
+                        {me.renderPrevBtn()}
+                        <div   className='control-text'>{me.getDisplayString()}</div>
+                        <span onClick={me.navigate.bind(this, 'next')} className='control-box  control-right'><span className='  fi-arrow-right'></span></span>
+                    </div>
+                    <div className='flex-container'>{me.displayImages()}</div>
+                    
+                </div>
                 );
     }
 }
+

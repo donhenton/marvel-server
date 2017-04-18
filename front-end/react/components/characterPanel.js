@@ -44,7 +44,7 @@ export default class CharacterIndicator extends Component {
         let links = [];
         this.state.characterData.urls.forEach(link => {
             let type = LINK_TYPES[link.type];
-            console.log("type is " + type)
+         //   console.log("type is " + type)
             let linkItem = <a className='character-link' target='_blank' href={link.url}>{type}</a>
 
             links.push(<li  key={link.type}  >{linkItem}</li>);

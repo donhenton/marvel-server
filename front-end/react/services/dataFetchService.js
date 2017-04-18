@@ -11,7 +11,7 @@ class DataFetchService
         var baseURL = 'http://' + location.hostname + ":" + location.port + '/api/';
         this.proxyService = new MarvelProxyService(baseURL);
         let boundRouter = this.router.bind(this);
-
+        this.characterCache = {};
         this.subscription = postal.subscribe({
             channel: "data.channel",
             topic: "#",
@@ -20,6 +20,19 @@ class DataFetchService
 
         });
 
+    }
+    
+    updateCharacterCache(data) 
+    {
+        data.forEach(d => {
+            this.characterCache[d.id] = d;
+        })
+        
+    }
+    
+    readCharacterCache(id)
+    {
+        return this.characterCache[id];
     }
 
     router(data, envelope)
@@ -39,13 +52,15 @@ class DataFetchService
                             .then(function (data)
                             {
                                 let items = JSON.parse(data);
-
+                                
+                                me.updateCharacterCache(items.data);
+                                
+                                
                                 postal.publish({
                                     channel: "data.channel",
                                     topic: "characters.inbound",
                                     data: {characters: items.data, 
                                         count: items.count, 
-                                        urls: items.urls,
                                         offset: items.offset,
                                         total: items.total}
                                 });
@@ -58,19 +73,18 @@ class DataFetchService
                 }
                 if (data.requestType === 'navigation')
                 {
-                  //  console.log("hit 1 "+data.dir)
+
                     this.proxyService.findAllCharacters(data.dir)
                             .then(function (data)
                             {
                                 let items = JSON.parse(data);
-                                 console.log("hit 2\n\n"+items)
+                                me.updateCharacterCache(items.data);
                                 postal.publish({
                                     channel: "data.channel",
                                     topic: "characters.inbound",
                                     data: {characters: items.data, 
                                         count: items.count, 
-                                        total: items.total,
-                                        urls: items.urls,
+                                        total: items.total, 
                                         offset: items.offset}
                                 });
 
