@@ -1,0 +1,54 @@
+.comic-panel
+{
+    text-align: center;
+    background-color: black;
+    padding: 0.5rem;
+    max-width: 100%;
+    min-width: 100%;
+    margin: 1%;
+    .comic-title
+    {
+        margin: 1rem  auto;
+    }
+
+    @include forLargeScreens(640) {
+
+
+        
+        max-width: 44%;
+        min-width: 44%;
+
+    }
+    /*  @include forLargeScreens(768) {
+  
+  
+          margin : 1%;
+          max-width: 30%;
+  
+      }
+  
+      @include forLargeScreens(1024) {
+  
+  
+          margin : 1%;
+          max-width: 22%;
+  
+      }
+    */
+    
+    
+    
+    .comic-info
+    {
+        .comic-price
+        {
+            float: left;
+            margin-left: 5%;
+        }
+        .comic-date
+        {
+            float: right;
+            margin-right: 5%;
+        }
+    }
+}
