@@ -14,7 +14,7 @@ module.exports = function (app, marvelService) {
     }
 
 
-    var simplifyData = function (data, portraitSize)
+    var simplifyCharacterData = function (data, portraitSize)
     {
         var returnedData = [];
         data.data.forEach(function (d)
@@ -75,7 +75,7 @@ module.exports = function (app, marvelService) {
 
         marvelService.findAllCharacters(count, offset).then(function (data)
         {
-            var payload = {data: simplifyData(data, 'portrait_medium'), offset:offset,count: count,total: data.meta.total};
+            var payload = {data: simplifyCharacterData(data, 'portrait_medium'), offset:offset,count: count,total: data.meta.total};
             
             res.json(payload);
         }
@@ -87,19 +87,40 @@ module.exports = function (app, marvelService) {
         }).done();
     }
 
-
-    var findCharacterByName = function (req, res)
+////comic data //////////////////////////////////////////////////////////////
+    
+    var simplifyComicData = function(data)
     {
-
-
-        var name = req.query.name;
-
-
-        marvelService.findCharcterByName(name).then(function (data)
+        var returnedData = [];
+        data.data.forEach(function (d)
         {
+            
+            var imgData = null;
+            if (d.thumbnail && d.thumbnail.path && d.thumbnail.extension)
+            {
+                imgData = (d.thumbnail.path + "/portrait_xlarge." + d.thumbnail.extension)
+            }
+            var p = {"title": d.title, 
+                 price: d.prices[0],
+                'description':d.description,
+                'date': d.dates[0].date,
+                'thumbnail':imgData ,
+                id: d.id }
+            returnedData.push(p);
+        });
 
-
-            res.json(data);
+        return returnedData;
+    }
+    
+    var findComicsForCharacter = function (req, res,next)
+    {
+        var characterId = req.params['characterId'];
+        
+        marvelService.findComicsForCharacter(characterId).then(function (data)
+        {
+            var payload = {count: data.meta.count,data: simplifyComicData(data)};
+            
+            res.json(payload);
         }
 
 
@@ -107,10 +128,11 @@ module.exports = function (app, marvelService) {
         {
             reportError(res, JSON.stringify(err));
         }).done();
+        
     }
 
 
-    app.get(['/api/characters/findByName'], findCharacterByName);
+    app.get(['/api/characters/:characterId/comics'], findComicsForCharacter);
     app.get(['/api/characters/findAll'], findAllCharacters);
 
 };
