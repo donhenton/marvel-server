@@ -1,11 +1,92 @@
 .character-panel
 {
-    text-align: center;
-    .image-item
+
+    color: $comic-off-white;
+    background-color:  $comic-book-blue;
+    text-align:center;
+    padding: 1%;
+    margin-top: 1%;
+    min-height: 20rem;
+    width:75%;
+
+
+    @include forLargeScreens(640) {
+
+
+        margin : 1%;
+        max-width: 44%;
+
+    }
+    @include forLargeScreens(768) {
+
+
+        margin : 1%;
+        max-width: 30%;
+
+    }
+
+    @include forLargeScreens(1024) {
+
+
+        margin : 1%;
+        max-width: 22%;
+
+    }
+
+    .character-block
+    { 
+
+        padding: 2%;
+        border: thin solid $comic-dark-blue;
+        .image-item
+        {
+            width: 100px;
+            height: 150px;
+
+        }
+
+        .character-link-block
+        {
+
+            margin-right: 5%;
+            margin-top: 5%;
+            float: right;
+            width: 33%;
+            
+            text-align: left;
+            li
+            {
+                margin-top: 15%;
+                padding: 5%;
+                margin-bottom: 15%;
+                background-color: $comic-dark-blue;
+                text-align: center;
+                &:hover
+                    {
+                    background-color: $orange-highlight
+                }
+            }
+            li a.character-link 
+            {
+                text-decoration: none;
+                 
+                color: $comic-off-white;
+                
+            }
+
+        }
+        .image-item 
+        {
+            display: inline;
+            float: left;
+
+        }
+    }
+    .character-name
     {
-        width: 100px;
-        height: 150px;
-        margin: 0 auto;
+        margin-bottom: 1rem;
+        background-color: $comic-dark-blue;
+        color: $comic-off-white;
     }
 }
 

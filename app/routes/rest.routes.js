@@ -24,7 +24,7 @@ module.exports = function (app, marvelService) {
             {
                 imgData = (d.thumbnail.path + "/" + portraitSize + "." + d.thumbnail.extension)
             }
-            var p = {"name": d.name, 'imageUrl': imgData, id: d.id}
+            var p = {"name": d.name, 'imageUrl': imgData, id: d.id,urls:d.urls}
             returnedData.push(p);
         });
 

@@ -45,6 +45,7 @@ class DataFetchService
                                     topic: "characters.inbound",
                                     data: {characters: items.data, 
                                         count: items.count, 
+                                        urls: items.urls,
                                         offset: items.offset,
                                         total: items.total}
                                 });
@@ -69,6 +70,7 @@ class DataFetchService
                                     data: {characters: items.data, 
                                         count: items.count, 
                                         total: items.total,
+                                        urls: items.urls,
                                         offset: items.offset}
                                 });
 

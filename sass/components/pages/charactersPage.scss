@@ -53,27 +53,7 @@
             flex-flow: row wrap;
 
         }
-        .box-item
-        {
-
-            color: $comic-off-white;
-            background-color:  $comic-book-blue;
-            text-align:center;
-            padding: 1%;
-            margin-top: 1%;
-            width:100%;
-
-
-            @include forLargeScreens(640) {
-
-
-                margin : 1%;
-                max-width: 22%;
-
-            }
-
-
-        }
+         
     }
 
 
