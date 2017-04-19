@@ -73,7 +73,7 @@ module.exports = function (app, marvelService) {
         req.session.offsets['characters'] =   offset ;
       //  logger.debug("offset is " + offset)
 
-        marvelService.findAllCharacters(count, offset).then(function (data)
+        marvelService.findAllCharacters(count, offset,req).then(function (data)
         {
             var payload = {data: simplifyCharacterData(data, 'portrait_medium'), offset:offset,count: count,total: data.meta.total};
             

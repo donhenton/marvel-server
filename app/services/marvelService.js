@@ -10,8 +10,7 @@ module.exports = function (config) {
             {publicKey: config.publicKey,
                 privateKey: config.privateKey
             });
-
-    var characterPageCache = [];
+ 
 
 
     marvelService.createError = function (message, classVar)
@@ -41,18 +40,22 @@ module.exports = function (config) {
         return Math.random() * (high - low) + low;
     }
 
-    marvelService.findAllCharacters = function (count, offset)
+    marvelService.findAllCharacters = function (count, offset,req)
     {
         // logger.debug(`in findAllCharacters count ${count} offset ${offset}`)
-
+        if (!req.session.characterPageCache)
+        {
+            req.session.characterPageCache = {};
+        }
+        
+        
         var foundData = [];
-        //  var cK = Object.keys(characterPageCache);
-        //   logger.debug("Keys " + JSON.stringify(cK))
-        if (characterPageCache[offset])
+
+        if (req.session.characterPageCache[offset])
         {
             //you are in the cache
             //      logger.debug("in the cache")
-            foundData = characterPageCache[offset];
+            foundData = req.session.characterPageCache[offset];
             var cacheHit = Q.defer();
             cacheHit.resolve(foundData);
             return cacheHit.promise;
@@ -62,37 +65,34 @@ module.exports = function (config) {
                 .then(function (data)
                 {
                     var t = JSON.parse(JSON.stringify(data['data']));
-                      
+
                     //logger.debug(Array.isArray(t))
-                   // logger.debug(JSON.stringify(data['data']))
-                    characterPageCache[offset] = data;
-                     
+                    // logger.debug(JSON.stringify(data['data']))
+                    req.session.characterPageCache[offset] = data;
+
 
 
                     return data;
                 });
-       // logger.debug("inserting into the cache")
+        // logger.debug("inserting into the cache")
         return foundData;
 
 
     }
     //defaults to offset 0 , limit 20
-    
-    marvelService.findComicsForCharacter = function(characterId)
+
+    marvelService.findComicsForCharacter = function (characterId)
     {
         var foundData = [];
-        //  var cK = Object.keys(characterPageCache);
-        //   logger.debug("Keys " + JSON.stringify(cK))
-         
 
         foundData = marvelClient.characters.comics(characterId)
                 .then(function (data)
                 {
-                    
-                     
+
+
                     return data;
                 });
-       // logger.debug("inserting into the cache")
+
         return foundData;
 
     }
