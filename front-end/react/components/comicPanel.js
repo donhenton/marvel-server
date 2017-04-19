@@ -34,29 +34,54 @@ export default class ComicPanel extends Component {
         img.src = newSrc;
 
     }
-    
+    //image_not_available
     getDate()
     {
         //"2008-10-29T00:00:00-0400",
-        let mm = moment(this.state.comicData.date,"YYYY-MM-DD");
+        let mm = moment(this.state.comicData.date, "YYYY-MM-DD");
         return  mm.format("MM/DD/YYYY")
+    }
+    getBigImage(ev)
+    {
+        ev.preventDefault();
+        let imageUrl = this.state.comicData.thumbnail.replace('xlarge', 'uncanny');
+        postal.publish({
+            channel: "image.request",
+            topic: "display.comic",
+            data: {imageUrl: imageUrl}
+        });
+
+    }
+
+    getBigImageLink()
+    {
+        if (this.state.comicData.thumbnail.indexOf('image_not_available') > 0)
+        {
+            return <img ref={COMIC_IMAGE_REF} src="css/imgs/xlarge_na.jpg" />;
+        } else
+        {
+            return <a href="#" onClick={this.getBigImage.bind(this)}>
+                <img ref={COMIC_IMAGE_REF} src="css/imgs/xlarge_na.jpg" /></a>;
+        }
+
+
     }
 
     render()
     {
 
         return (
-                <div className='comic-panel grouping'>
-                    <div className='comic-title'>{this.state.comicData.title}</div>
-                    <img ref={COMIC_IMAGE_REF} src="css/imgs/xlarge_na.jpg" /> 
+                    <div className='comic-panel grouping'>
+                        <div className='comic-title'>{this.state.comicData.title}</div>
+                        {this.getBigImageLink()}
                 
-                    <div className='comic-info'>
-                    
-                    <span className='comic-price'>$ {this.state.comicData.price.price}</span>
-                    <span className='comic-date'>{this.getDate()}</span>
+                        <div className='comic-info'>
+                
+                            <span className='comic-price'>$ {this.state.comicData.price.price}</span>
+                            <span className='comic-date'>{this.getDate()}</span>
+                        </div>
+                
                     </div>
-                
-                </div>
 
                 )
 

@@ -21,15 +21,14 @@ import Modal from './modal';
  * 
  * 
  */
-export default class CharacterModal extends Component {
+export default class ImageModal extends Component {
 
     constructor(props)
     {
 
         super(props);
         this.internalModal = null;
-        this.list = null;
-        this.state = {characterId: props.characterId}
+        this.state = {imageUrl: props.imageUrl}
 
     }
 
@@ -50,7 +49,7 @@ export default class CharacterModal extends Component {
 
     componentWillReceiveProps(nextProps)
     {
-        this.setState({isOpen: nextProps.isOpen,characterId: nextProps.characterId});
+        this.setState({isOpen: nextProps.isOpen,imageUrl: nextProps.imageUrl});
     } 
 
     cancel()
@@ -72,8 +71,8 @@ export default class CharacterModal extends Component {
 
         return (
                 <Modal modalClassName={this.props.modalClassName} modalLabel={this.state.characterId} ref={(ref) => me.internalModal = ref}>
-                    <div className="character-list">
-                
+                    <div className="big-image">
+                    <img src={this.state.imageUrl} />
                         
                     </div>
                 </Modal>

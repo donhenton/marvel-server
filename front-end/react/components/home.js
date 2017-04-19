@@ -4,6 +4,7 @@ import { Component } from 'react';
 //import { BrowserRouter as Router, Link} from 'react-router-dom';
 import Characters from './../pages/charactersPage';
 import Writers from './../pages/writersPage';
+import ImageModal from './modal/imageModal';
 
 export default class Main extends Component {
 
@@ -26,13 +27,28 @@ export default class Main extends Component {
             }
         });
 
-
-        this.state = {page: 'main'};
+        let showBind = me.showModal.bind(this)
+        let sub2 = postal.subscribe({
+            channel: "image.request",
+            topic: "display.comic",
+            callback: function (data, envelope) {
+                me.setState({imageUrl: data.imageUrl}, showBind)
+            }
+        });
+        this.state = {page: 'main', imageUrl: null};
         this.subscriptions.push(sub1);
-
+        this.subscriptions.push(sub2);
 
 
     }
+    
+     showModal()
+  {
+      
+        
+        this.refs.imageModal.open();
+  }
+
 
     componentDidMount()
     {
@@ -52,48 +68,52 @@ export default class Main extends Component {
     render() {
 
 
-          switch (this.state.page)
-          {
-              
-                case 'Writers':
-                {
-                    
-                    return <Writers />
-                }
-                
-              case 'Characters':
-                {
-                    
-                    return <Characters />
-                }
-              
-                default:
-                {
-                    return (
-                <div>
-                
-                
-                        <h1>Marvel API Explorer</h1>
-                
-                        <div className="lead-block">
-                        Click on a menu option to explore the Marvel Universe!
+        switch (this.state.page)
+        {
+
+            case 'Writers':
+            {
+
+                return <Writers />
+            }
+
+            case 'Characters':
+            {
+
+                return (
+                        <div>
+                            <Characters />
+                            <ImageModal ref='imageModal' modalClassName="image-modal" imageUrl={this.state.imageUrl} modalLabel={this.state.imageUrl} />
+                        </div>)
+            }
+
+            default:
+            {
+                return (
+                        <div>
+                        
+                        
+                            <h1>Marvel API Explorer</h1>
+                        
+                            <div className="lead-block">
+                                Click on a menu option to explore the Marvel Universe!
+                        
+                            </div>
+                        
+                        
+                        
+                        
                         
                         </div>
-                
-                
-                
-                
-                
-                </div>
-                )
-                }
-              
-              
-              
-              
-              
-              
-          }
+                        )
+            }
+
+
+
+
+
+
+        }
 
 
 
