@@ -18,6 +18,8 @@ class DataFetchService
 
 
         });
+        this.individualCharacterCache = {};
+        this.comicCache = {};
 
     }
 
@@ -83,14 +85,28 @@ class DataFetchService
             case  'comics.request':
             {
                 
+                if (me.comicCache[data.characterId])
+                {
+                     postal.publish({
+                                    channel: "data.channel",
+                                    topic: "comics.inbound",
+                                    data: me.comicCache[data.characterId]
+                                });
+                    return;
+                }
+                
+                
+                
                   this.proxyService.findComicsForCharacter(data.characterId)
-                            .then(function (data)
+                            .then(function (comicData)
                             {
-                                let items = JSON.parse(data);
+                                let items = JSON.parse(comicData);
+                                let sentData = {comicData: items, count: items.count};
+                                me.comicCache[data.characterId] = sentData;
                                 postal.publish({
                                     channel: "data.channel",
                                     topic: "comics.inbound",
-                                    data: {comicData: items, count: items.count}
+                                    data: sentData 
                                 });
 
                             }).catch(function (err)

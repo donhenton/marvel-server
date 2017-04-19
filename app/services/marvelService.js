@@ -11,10 +11,7 @@ module.exports = function (config) {
                 privateKey: config.privateKey
             });
 
-
     var characterPageCache = [];
-    var individualCharacterCache = {};
-    var comicCache = {};
 
 
     marvelService.createError = function (message, classVar)
@@ -69,13 +66,7 @@ module.exports = function (config) {
                     //logger.debug(Array.isArray(t))
                    // logger.debug(JSON.stringify(data['data']))
                     characterPageCache[offset] = data;
-                    
-                    
-                     t.forEach(function (d)
-                     {
-                       //  logger.debug("cache indiv " + d.id)
-                         individualCharacterCache[d.id] = d;
-                     })
+                     
 
 
                     return data;
@@ -92,21 +83,13 @@ module.exports = function (config) {
         var foundData = [];
         //  var cK = Object.keys(characterPageCache);
         //   logger.debug("Keys " + JSON.stringify(cK))
-        if (comicCache[characterId])
-        {
-            //you are in the cache
-            // logger.debug("in the cache for comics")
-            foundData = comicCache[characterId];
-            var cacheHit = Q.defer();
-            cacheHit.resolve(foundData);
-            return cacheHit.promise;
-        }
+         
 
         foundData = marvelClient.characters.comics(characterId)
                 .then(function (data)
                 {
                     
-                    comicCache[characterId] = data;
+                     
                     return data;
                 });
        // logger.debug("inserting into the cache")
