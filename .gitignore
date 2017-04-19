@@ -1,6 +1,6 @@
 /node_modules/
 /nbproject/private/
-/public/js/bower/
+/app/front-end/bower/
 /public/js/react/
 /config/env/development.js
 .DS_Store

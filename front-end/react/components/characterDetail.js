@@ -22,7 +22,7 @@ export default class CharacterDetail extends Component {
             channel: "data.channel",
             topic: "comics.inbound",
             callback: function (data, envelope) {
-                console.log("hit me\n"+JSON.stringify(data))
+            //    console.log("hit me\n"+JSON.stringify(data))
                 me.setState({comicData:  data.comicData,isProcessing: false})
             }
         });
