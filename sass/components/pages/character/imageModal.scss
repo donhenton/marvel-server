@@ -56,8 +56,8 @@
         background: black;
         border: thin solid $comic-off-white;
         width: 35rem;
-        height: 42rem; 
-        padding: 0.5rem;
+       // height: 42rem; 
+        padding: 1rem;
        // overflow:hidden;
        // font-family: graphikregularitalic, arial, sans-serif;
        
@@ -88,10 +88,11 @@
             {
                 border: 1px solid white;
                 float: right;
-               // padding: .5rem;
+                 padding: 0.5rem 3rem;
               //  margin-top: -5px;
-              //  margin-bottom: 5px;
+                 margin-bottom: 0.5rem;
                 cursor: pointer;
+                font-size:2rem;
 
                 &:hover
                     {
@@ -123,8 +124,8 @@
         .big-image
         {
             text-align: center;
-            width:40rem;
-            height: 50rem;
+           // width:40rem;
+           // height: 50rem;
             img
             {
                  

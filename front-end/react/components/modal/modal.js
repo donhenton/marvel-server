@@ -40,14 +40,14 @@ export default class Modal extends Component {
         {
             isOpen = this.props.isOpen;
         }
-        this.state = {isOpen: isOpen};
+        this.state = {isOpen: isOpen, displace: 0};
 
     }
 
     componentWillReceiveProps(nextProps)
     {
-        this.setState({isOpen: nextProps.isOpen});
-    } 
+        this.setState({isOpen: nextProps.isOpen, displace: nextProps.displace});
+    }
 
     cancel()
     {
@@ -56,12 +56,13 @@ export default class Modal extends Component {
             topic: "close",
             data: {}
         });
-        this.setState({isOpen: false});
-    } 
+        this.setState({isOpen: false,displace:0});
+    }
 
-    open()
+    open(displace)
     {
-        this.setState({isOpen: true})
+
+        this.setState({isOpen: true, displace: displace})
     }
 
     backgroundCSS()
@@ -76,20 +77,22 @@ export default class Modal extends Component {
         return bkgValue;
 
 
-    } 
+    }
 
     render()
     {
 
         var me = this;
+        let style = {top:this.state.displace};
+         let styleItem = {top:(this.state.displace+5)};
         if (this.state.isOpen)
         {
             return (
                     <div className={this.props.modalClassName}>
-                        <div className={this.backgroundCSS()}></div>
+                        <div  style={style} className={this.backgroundCSS()}></div>
                         <ReactCSSTransitionGroup  transitionName="modal-anim" transitionEnterTimeout={5} transitionLeaveTimeout={5}>
                     
-                            <div className="modal">
+                            <div  style={styleItem} className="modal">
                     
                                 <div className="modalHeader"><span>{this.props.modalLabel}</span> <span onClick={this.cancel.bind(this)} className='btnClose'>X</span></div>
                                 <div className="modalContent">

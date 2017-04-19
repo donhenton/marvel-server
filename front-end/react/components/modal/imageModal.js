@@ -60,8 +60,8 @@ export default class ImageModal extends Component {
 
     open()
     {
-
-        this.internalModal.open();
+        let top = $('.main-content').scrollTop();
+        this.internalModal.open(top);
     }
 
     render()
