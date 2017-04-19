@@ -10,11 +10,11 @@ export default class CharacterDetail extends Component {
     {
         super(props);
 
-        this.state = {isProcessing: true,comicData:[],characterData: this.props.characterData};    
+        this.state = {isProcessing: true, comicData: [], characterData: this.props.characterData};
         this.subscriptions = [];
 
     }
-    
+
     componentWillMount()
     {
         let me = this;
@@ -22,18 +22,15 @@ export default class CharacterDetail extends Component {
             channel: "data.channel",
             topic: "comics.inbound",
             callback: function (data, envelope) {
-            //    console.log("hit me\n"+JSON.stringify(data))
-                me.setState({comicData:  data.comicData,isProcessing: false})
+                //    console.log("hit me\n"+JSON.stringify(data))
+                me.setState({comicData: data.comicData, isProcessing: false})
             }
         });
-  
+
         this.subscriptions.push(sub1);
- 
+
     }
-    
-    
-    
-    
+
     componentWillUnmount() {
 
         this.subscriptions.forEach((s) => s.unsubscribe());
@@ -48,7 +45,7 @@ export default class CharacterDetail extends Component {
         postal.publish({
             channel: "data.channel",
             topic: "comics.request",
-            data: {requestType: 'load',characterId: this.state.characterData.id}
+            data: {requestType: 'load', characterId: this.state.characterData.id}
         });
 
     }
@@ -57,10 +54,10 @@ export default class CharacterDetail extends Component {
     {
         this.props.returnCallBack();
     }
-    
+
     getComicItems()
     {
-     
+
         let items = [];
         this.state.comicData.data.forEach(d => {
             items.push(<ComicPanel comicData={d} key={d.id} />);
@@ -70,7 +67,13 @@ export default class CharacterDetail extends Component {
         return items;
 
 
+
+    }
     
+    getSmallImageUrl()
+    {
+        return this.state.characterData.imageUrl.replace('medium','small');
+        
     }
 
     render()
@@ -85,17 +88,18 @@ export default class CharacterDetail extends Component {
         return (
                 <div className='character-detail'>
                     <div className='title-area' onClick={this.returnToList.bind(this)}>
-                    <span className='return-button' onClick={this.returnToList.bind(this)}>
-                        <span className='fi-arrow-left'  />
-                    </span>
-                        <img src={this.state.characterData.imageUrl} />
+                        <span className='return-button' onClick={this.returnToList.bind(this)}>
+                            <span className='fi-arrow-left'  />
+                        </span>
+                        <img src={this.getSmallImageUrl()} />
                         <span className='character-name'>{this.state.characterData.name}</span>
                     </div>
-                     <div className='comic-display grouping'>
-                        {this.getComicItems()}
+                    <div className="comic-scroll-container">
+                        <div className='comic-display grouping'>
+                            {this.getComicItems()}
+                        </div>
                     </div>
-                
-                
+                                
                 </div>
 
 
