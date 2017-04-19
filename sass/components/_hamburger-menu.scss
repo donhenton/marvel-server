@@ -4,7 +4,7 @@
 {
     width: 100%;
     height:100%;
-     overflow: hidden;
+    overflow: hidden;
 
     nav
     { 
@@ -43,12 +43,12 @@
             }
             //List items
             li {
-                 width: 210px;
+                width: 210px;
                 text-align: left;
                 background-color: $comic-book-blue;
                 border-bottom: 1px solid $comic-off-white;
-                
-                
+
+
                 @include forLargeScreens(640) {
                     display: inline;
                     border: none;
@@ -57,15 +57,15 @@
                 a {
                     display: block;
                     padding: 1rem 2rem;
-                    
+
                     color: $comic-off-white;
                     text-decoration: none;
                     &:hover
                         {
 
-                            background-color: $orange-highlight;
+                        background-color: $orange-highlight;
 
-                        }
+                    }
                     @include forLargeScreens(640) {
                         display: inline-block;
 
@@ -73,7 +73,7 @@
                         background-color:$comic-book-blue; 
                         color:  $comic-off-white   ;    
                         height: 100%;
-                        
+
 
                     }
                 }
@@ -98,8 +98,8 @@
             z-index:5;
         }
 
-         
-  
+
+
 
         header,footer
         {
@@ -135,22 +135,25 @@
             // background-repeat: no-repeat;
             background: url('../../css/imgs/bpencil.png')   center center fixed   ; 
             //-webkit-background-size: cover;
-           // -moz-background-size: cover;
+            // -moz-background-size: cover;
             //-o-background-size: cover;
-             
+
             background-size: cover;
             background-color: white;
-             
+
             overflow: auto;
             @include forLargeScreens(640) {
-               height: 93%;
-               width: 100%;
-               
-                 // 
+                height: 93%;
+                width: 100%;
+
+                // 
             }
 
-             
-            
+            &.no-scroll
+            {
+              //  overflow:hidden;
+            }
+
 
         }
 
@@ -163,7 +166,7 @@
             text-align: center;
             .item-banner
             {
-                 padding-top: 0.5rem;
+                padding-top: 0.5rem;
 
             }
 

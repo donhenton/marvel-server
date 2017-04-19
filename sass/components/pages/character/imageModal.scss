@@ -55,9 +55,9 @@
         color: $comic-off-white;
         background: black;
         border: thin solid $comic-off-white;
-        width: 45rem;
-        height: 49rem; 
-        padding: 1rem;
+        width: 35rem;
+        height: 42rem; 
+        padding: 0.5rem;
        // overflow:hidden;
        // font-family: graphikregularitalic, arial, sans-serif;
        
@@ -80,17 +80,17 @@
         {
             background-color: black;
             color: white;
-            height: 55px;
-            padding:10px;
+            height: 2rem;
+          //  padding:1rem;
             //#0088bc
 
             .btnClose
             {
                 border: 1px solid white;
                 float: right;
-                padding: 10px;
-                margin-top: -5px;
-                margin-bottom: 5px;
+               // padding: .5rem;
+              //  margin-top: -5px;
+              //  margin-bottom: 5px;
                 cursor: pointer;
 
                 &:hover
@@ -123,6 +123,8 @@
         .big-image
         {
             text-align: center;
+            width:40rem;
+            height: 50rem;
             img
             {
                  

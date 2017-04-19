@@ -42,10 +42,14 @@ export default class Main extends Component {
 
     }
     
-     showModal()
+  showModal()
   {
       
-        
+       postal.publish({
+            channel: "modal",
+            topic: "open",
+            data: {}
+        });
         this.refs.imageModal.open();
   }
 

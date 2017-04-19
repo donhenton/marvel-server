@@ -1,4 +1,20 @@
+let sub1 = postal.subscribe({
+            channel: "modal",
+            topic: "#",
+            callback: function (data, envelope) {
+                if (envelope.topic === 'open')
+                {
+                    $('.main-content').addClass('no-scroll');
+                }
+                if (envelope.topic === 'close')
+                {
+                    $('.main-content').removeClass('no-scroll');
+                }
+            }
+        });
 
+ 
+ //
 function menuCall(callValue)
 {
 
