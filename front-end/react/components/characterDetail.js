@@ -70,7 +70,7 @@ export default class CharacterDetail extends Component {
         }
         else
         {
-            return <h2 className="no-data">No Data Found</h2>
+            return <div className="no-data-container grouping"><h2 className="no-data-text">No Data Found</h2></div>
         }
 
     }
@@ -79,6 +79,18 @@ export default class CharacterDetail extends Component {
     {
         return this.state.characterData.imageUrl.replace('medium', 'small');
 
+    }
+    
+    getDetailCss()
+    {
+        let css = 'character-detail';
+        if (this.state.comicData.data && this.state.comicData.data.length == 0)
+        {
+            css = css + " no-data";
+         
+        }
+        
+        return css;
     }
 
     render()
@@ -92,7 +104,7 @@ export default class CharacterDetail extends Component {
 
 
         return (
-                <div className='character-detail'>
+                <div className={this.getDetailCss()}>
                     <div className='title-area' onClick={this.returnToList.bind(this)}>
                         <span className='return-button' onClick={this.returnToList.bind(this)}>
                             <span className='fi-arrow-left'  />

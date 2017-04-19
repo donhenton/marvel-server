@@ -7,7 +7,12 @@
     width:100%;
     min-width: 100%;
     max-width: 100%;
-     
+    
+    &.no-data
+    {
+        height:100%;
+    }
+
     top:0;
     left:0;
 
@@ -68,11 +73,16 @@
         .comic-display
         {
 
-            .no-data
-            {
-                margin-top: 10rem;
-                font-size: 5rem;
 
+            .no-data-container
+            { 
+                
+                .no-data-text
+                {
+
+                    margin: 10rem auto;
+
+                }
             }
 
 
