@@ -57,23 +57,28 @@ export default class CharacterDetail extends Component {
 
     getComicItems()
     {
-
-        let items = [];
-        this.state.comicData.data.forEach(d => {
-            items.push(<ComicPanel comicData={d} key={d.id} />);
-        })
+        if (this.state.comicData.data && this.state.comicData.data.length > 0)
+        {
 
 
-        return items;
+            let items = [];
+            this.state.comicData.data.forEach(d => {
+                items.push(<ComicPanel comicData={d} key={d.id} />);
+            })
+            return items;
 
-
+        }
+        else
+        {
+            return <h2 className="no-data">No Data Found</h2>
+        }
 
     }
-    
+
     getSmallImageUrl()
     {
-        return this.state.characterData.imageUrl.replace('medium','small');
-        
+        return this.state.characterData.imageUrl.replace('medium', 'small');
+
     }
 
     render()
@@ -84,6 +89,7 @@ export default class CharacterDetail extends Component {
 
             return <WaitIndicator isProcessing={this.state.isProcessing} />;
         }
+
 
         return (
                 <div className='character-detail'>
@@ -99,7 +105,7 @@ export default class CharacterDetail extends Component {
                             {this.getComicItems()}
                         </div>
                     </div>
-                                
+                
                 </div>
 
 
