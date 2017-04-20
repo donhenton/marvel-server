@@ -472,6 +472,9 @@ blockquote {
       display: none; }
   .image-modal .modal {
     position: absolute;
+    height: 98%;
+    max-height: 98%;
+    overflow: auto;
     z-index: 10;
     top: .5rem;
     left: 0;
