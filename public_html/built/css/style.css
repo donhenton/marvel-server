@@ -157,7 +157,8 @@ blockquote {
             border: none; } }
         .body-container nav .menu li a {
           display: block;
-          padding: 1rem 2rem;
+          padding: 2rem 2rem;
+          font-size: 2rem;
           color: #f2f6fb;
           text-decoration: none; }
           .body-container nav .menu li a:hover {
@@ -165,33 +166,35 @@ blockquote {
           @media (min-width: 40em) {
             .body-container nav .menu li a {
               display: inline-block;
+              font-size: 1.5rem;
               padding: 1rem 5%;
               background-color: #86aede;
-              color: #f2f6fb;
-              height: 100%; } }
+              color: #f2f6fb; } }
   .body-container .main-container {
     border-left: thin solid #4674ac;
     height: 100%;
     z-index: 5;
     left: 0px;
-    position: relative; }
-    @media (min-width: 40em) {
-      .body-container .main-container {
-        height: 92.8%;
-        border-left: none;
-        z-index: 5; } }
+    position: relative;
+    /*        @include forLargeScreens(640) {
+            height: 92.8%;
+            border-left: none;
+            z-index:5;
+        }*/ }
     .body-container .main-container header, .body-container .main-container footer {
       z-index: 10;
       background-color: #86aede;
       color: #f2f6fb; }
     .body-container .main-container header {
-      height: 10%; }
+      height: 10%x;
+      max-height: 10%;
+      min-height: 10%; }
       .body-container .main-container header .header-title {
         float: right;
         margin-right: 2rem;
         font-size: 3.4rem; }
     .body-container .main-container .main-content {
-      height: 85.5%;
+      height: 85%;
       position: relative;
       background-color: white;
       font-size: 1.4rem;
@@ -203,16 +206,16 @@ blockquote {
       overflow: auto; }
       @media (min-width: 40em) {
         .body-container .main-container .main-content {
-          height: 93%;
-          width: 100%; } }
+          /*                height: 93%;
+                width: 100%;*/ } }
       .body-container .main-container .main-content.no-scroll {
         overflow: hidden; }
     .body-container .main-container footer {
       height: 5%;
+      max-height: 5%;
+      min-height: 5%;
       font-size: 1.2rem;
       text-align: center; }
-      .body-container .main-container footer .item-banner {
-        padding-top: 0.5rem; }
   .body-container .label-trigger {
     position: fixed;
     left: 1rem;
