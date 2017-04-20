@@ -92,7 +92,18 @@ gulp.task('react-build', function () {
     ;
 });
 
- 
+ gulp.task('react-prod', function () {
+    Bundle('production',false)
+           .pipe(source('bundle.js'))
+            .pipe(streamify(uglify()))
+       //     .pipe(gulpif(argv.production, rename({suffix: '.min'})))
+           .pipe(gulp.dest(targetLocation+'js/'))
+           .on('finish', function ( ) {
+                gutil.log("build bundle end");
+                 livereload.reload(pageURL);
+            });
+    ;
+});
 
 
 /////////
@@ -204,7 +215,7 @@ gulp.task('frontend-serve', function (cb) {
 
 
 
-gulp.task('release', ['sass-build', 'react-build']); // run as gulp release --production=true for compression
+gulp.task('release', ['sass-dev', 'react-prod']); // run as gulp release --production=true for compression
 gulp.task('default', ['sass-dev','react-build','frontend-watch' ,'frontend-serve' ]);
 /* end fronend task ---------------------------------------- */
 
