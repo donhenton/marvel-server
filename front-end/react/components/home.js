@@ -44,13 +44,28 @@ export default class Main extends Component {
     
   showModal()
   {
-      
-       postal.publish({
+      let failImageUrl = 'css/imgs/big_na.png';
+      let img = new Image();
+      let me = this;
+      img.onload = function()
+      {
+            postal.publish({
             channel: "modal",
             topic: "open",
             data: {}
         });
-        this.refs.imageModal.open();
+        me.refs.imageModal.open(me.state.imageUrl);
+      }
+      img.onerror = function()
+      {
+           me.refs.imageModal.open(failImageUrl);
+      }
+      
+      
+      img.src = this.state.imageUrl;
+      
+      
+     
   }
 
 

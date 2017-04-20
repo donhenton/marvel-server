@@ -2,6 +2,7 @@ import React from 'react';
 import { Component } from 'react';
 import Modal from './modal';
 
+
 /**
  * simple modal
  * adapted from 
@@ -47,10 +48,7 @@ export default class ImageModal extends Component {
 
     }
 
-    componentWillReceiveProps(nextProps)
-    {
-        this.setState({isOpen: nextProps.isOpen,imageUrl: nextProps.imageUrl});
-    } 
+   
 
     cancel()
     {
@@ -58,10 +56,14 @@ export default class ImageModal extends Component {
         this.internalModal.cancel();
     } 
 
-    open(imageRef)
+    open(finalImageUrl)
     {
         let top = $('.main-content').scrollTop();
-        this.internalModal.open(top);
+        this.setState({imageUrl:finalImageUrl},function() 
+        {
+             this.internalModal.open(top);
+        })
+      
     }
 
     render()
