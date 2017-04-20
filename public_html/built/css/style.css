@@ -127,7 +127,8 @@ blockquote {
   height: 100%;
   overflow: hidden; }
   .body-container nav {
-    display: inline; }
+    display: inline;
+    overflow: hidden; }
     .body-container nav .menu {
       margin: 0;
       padding: 0;
@@ -157,7 +158,7 @@ blockquote {
             border: none; } }
         .body-container nav .menu li a {
           display: block;
-          padding: 2rem 2rem;
+          padding: 1.5rem 2rem;
           font-size: 2rem;
           color: #f2f6fb;
           text-decoration: none; }
@@ -166,8 +167,8 @@ blockquote {
           @media (min-width: 40em) {
             .body-container nav .menu li a {
               display: inline-block;
+              height: 100%;
               font-size: 1.5rem;
-              padding: 1rem 5%;
               background-color: #86aede;
               color: #f2f6fb; } }
   .body-container .main-container {
@@ -186,7 +187,7 @@ blockquote {
       background-color: #86aede;
       color: #f2f6fb; }
     .body-container .main-container header {
-      height: 10%x;
+      height: 10%;
       max-height: 10%;
       min-height: 10%; }
       .body-container .main-container header .header-title {
@@ -428,8 +429,7 @@ blockquote {
     */ }
   .comic-panel .comic-image {
     width: 100%;
-    max-width: 100%;
-    border: thin solid red; }
+    max-width: 100%; }
   .comic-panel .comic-title {
     margin: 1rem  auto; }
   @media (min-width: 40em) {
@@ -490,8 +490,8 @@ blockquote {
     color: #f2f6fb;
     background: black;
     border: thin solid #f2f6fb;
-    width: 65%;
-    max-width: 65%;
+    width: 95%;
+    max-width: 95%;
     padding: 1rem; }
     .image-modal .modal .modal-anim-enter {
       opacity: 0.00;
