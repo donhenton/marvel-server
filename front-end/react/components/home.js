@@ -32,7 +32,7 @@ export default class Main extends Component {
             channel: "image.request",
             topic: "display.comic",
             callback: function (data, envelope) {
-                me.setState({imageUrl: data.imageUrl}, showBind)
+                me.setState({imageUrl: data.imageUrl},function(){ showBind()})
             }
         });
         this.state = {page: 'main', imageUrl: null};

@@ -94,7 +94,7 @@ export default class Modal extends Component {
                     
                             <div  style={styleItem} className="modal">
                     
-                                <div className="modalHeader"><span>{this.props.modalLabel}</span> <span onClick={this.cancel.bind(this)} className='btnClose'>X</span></div>
+                                <div className="modalHeader grouping"><span>{this.props.modalLabel}</span> <span onClick={this.cancel.bind(this)} className='btnClose'>X</span></div>
                                 <div className="modalContent">
                                     {this.props.children}
                                 </div>

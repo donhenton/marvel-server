@@ -6,7 +6,7 @@
         margin-bottom: 10px;
         padding-top: 10px;
 
-    }*/
+    }
     .modal-cancel-link
     {
         color: $comic-book-blue;
@@ -21,7 +21,7 @@
         }
 
     }
-
+*/
 
     .modal-bkgMask
     { 
@@ -80,7 +80,7 @@
         {
             background-color: black;
             color: white;
-            height: 2rem;
+            height: auto;
           //  padding:1rem;
             //#0088bc
 
@@ -88,11 +88,11 @@
             {
                 border: 1px solid white;
                 float: right;
-                 padding: 0.5rem 3rem;
+                 padding: 0.5rem 1rem;
               //  margin-top: -5px;
                  margin-bottom: 0.5rem;
                 cursor: pointer;
-                font-size:2rem;
+                font-size:1.25rem;
 
                 &:hover
                     {
