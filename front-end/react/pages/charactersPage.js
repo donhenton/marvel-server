@@ -2,8 +2,8 @@ import React from 'react';
 import { Component } from 'react';
 import ReactDOM from 'react-dom';
 import WaitIndicator from './../components/waitIndicator';
-import CharacterPanel from './../components/characterPanel';
-import CharacterDetail from './../components/characterDetail';
+import CharacterPanel from './../components/character/characterPanel';
+import CharacterDetail from './../components/character/characterDetail';
 
 
 export default class CharactersPage extends Component {

@@ -64,9 +64,9 @@ $(function () {
         ev.preventDefault();
         menuCall("Home");
     });
-    $("#Writers").click(function (ev) {
+    $("#Stories").click(function (ev) {
         ev.preventDefault();
-        menuCall("Writers");
+        menuCall("Stories");
     });
     $("#Characters").click(function (ev) {
         ev.preventDefault();

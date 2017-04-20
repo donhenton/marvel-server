@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
  
 
 
-export default class WritersPage extends Component {
+export default class StoriesPage extends Component {
         
   constructor()
   {
@@ -29,6 +29,6 @@ export default class WritersPage extends Component {
       var me = this;
            
       
-            return (<div>writers</div> );
+            return (<div>stories</div> );
   }
 }

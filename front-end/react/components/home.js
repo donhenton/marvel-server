@@ -3,7 +3,7 @@ import { Component } from 'react';
 //import postal from 'postal'; postal is public via CDN
 //import { BrowserRouter as Router, Link} from 'react-router-dom';
 import Characters from './../pages/charactersPage';
-import Writers from './../pages/writersPage';
+import Stories from './../pages/storiesPage';
 import ImageModal from './modal/imageModal';
 
 export default class Main extends Component {
@@ -90,10 +90,10 @@ export default class Main extends Component {
         switch (this.state.page)
         {
 
-            case 'Writers':
+            case 'Stories':
             {
 
-                return <Writers />
+                return <Stories />
             }
 
             case 'Characters':

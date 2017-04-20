@@ -1,7 +1,7 @@
 import React from 'react';
 import { Component } from 'react';
-import DataFetchService from './../services/dataFetchService';
-import WaitIndicator from './../components/waitIndicator';
+import DataFetchService from './../../services/dataFetchService';
+import WaitIndicator from './../../components/waitIndicator';
 import ComicPanel from './comicPanel';
 
 export default class CharacterDetail extends Component {
