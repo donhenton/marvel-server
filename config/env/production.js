@@ -15,8 +15,8 @@ module.exports = {
 
 
 module.exports =  {
-     client_id: process.env.client_id,
-     client_secret: process.env.client_secret,
+     publicKey: process.env.publicKey,
+     privateKey: process.env.privateKey,
      deviantStorageDB: process.env.deviantStorageDB,
      sessionSecret: process.env.sessionSecret
 }
