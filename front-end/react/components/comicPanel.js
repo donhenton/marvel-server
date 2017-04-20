@@ -73,8 +73,9 @@ export default class ComicPanel extends Component {
         return (
                     <div className='comic-panel grouping'>
                         <div className='comic-title'>{this.state.comicData.title}</div>
+                        <div className="comic-image">
                         {this.getBigImageLink()}
-                
+                        </div>
                         <div className='comic-info'>
                 
                             <span className='comic-price'>$ {this.state.comicData.price.price}</span>

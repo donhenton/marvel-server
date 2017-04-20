@@ -423,6 +423,10 @@ blockquote {
   
       }
     */ }
+  .comic-panel .comic-image {
+    width: 100%;
+    max-width: 100%;
+    border: thin solid red; }
   .comic-panel .comic-title {
     margin: 1rem  auto; }
   @media (min-width: 40em) {
