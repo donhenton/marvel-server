@@ -480,7 +480,8 @@ blockquote {
     color: #f2f6fb;
     background: black;
     border: thin solid #f2f6fb;
-    width: 35rem;
+    width: 65%;
+    max-width: 65%;
     padding: 1rem; }
     .image-modal .modal .modal-anim-enter {
       opacity: 0.00;

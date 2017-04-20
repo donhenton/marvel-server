@@ -44,7 +44,7 @@ export default class ComicPanel extends Component {
     getBigImage(ev)
     {
         ev.preventDefault();
-        let imageUrl = this.state.comicData.thumbnail.replace('xlarge', 'uncanny');
+        let imageUrl = this.state.comicData.thumbnail.replace('portrait_xlarge', 'detail');
         postal.publish({
             channel: "image.request",
             topic: "display.comic",

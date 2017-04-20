@@ -20,7 +20,6 @@ must be manually entered
 * collections are users and morgueFiles
 * see models/mongo_data.zip for examples
 
-
 ### Starting the Server
 
 * start gulp default will run in front end mode
@@ -29,6 +28,10 @@ must be manually entered
 
 * run gulp release
 * the bundle.js under public_html/js/bundle.js will be compressed and will be expanded when development starts again
-* node server.js to see it running outside of dev mode
+* this needs to be checked into git first before release
+
+### Heroku Url
+
+http://marvel-server.herokuapp.com/
 
 

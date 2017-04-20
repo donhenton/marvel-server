@@ -55,8 +55,9 @@
         color: $comic-off-white;
         background: black;
         border: thin solid $comic-off-white;
-        width: 35rem;
-       // height: 42rem; 
+         width:65%;
+        max-width: 65%;
+       // height: 90rem; 
         padding: 1rem;
        // overflow:hidden;
        // font-family: graphikregularitalic, arial, sans-serif;
@@ -124,11 +125,12 @@
         .big-image
         {
             text-align: center;
-           // width:40rem;
-           // height: 50rem;
+            // overflow:auto;
+            //height: 70rem;
+          
             img
             {
-                 
+                
             }
         }
         
