@@ -3,9 +3,7 @@ import { Component } from 'react';
 import SimpleInfiniteScroll from './simpleInfiniteScroll';
 import ReactCSSTransitionGroup  from 'react-addons-css-transition-group';
 import WaitIndicator from './../waitIndicator';
-
 const REF_CONST = 'key_';
-
 export default class CharacterScroller extends Component {
 
     constructor(props)
@@ -15,7 +13,6 @@ export default class CharacterScroller extends Component {
         this.subscriptions = [];
         let me = this;
         this.loaderImage = new Image();
-
         let sub1 = postal.subscribe({
             channel: "data.channel",
             topic: "characters.inbound",
@@ -29,18 +26,14 @@ export default class CharacterScroller extends Component {
                     hasMore = false;
                 }
 
-                me.setState({characters: tCharacters, count: data.count,
+                me.setState({characters: tCharacters, count: data.count, selectedId: null,
                     offset: data.offset, isLoading: false, hasMore: hasMore,
                     start: data.start, end: data.end, total: data.total})
             }
         });
-
-
-        this.state = {characters: [], isLoading: true, hasMore: true,
+        this.state = {characters: [], isLoading: true, hasMore: true, selectedId: null,
             count: 0, offset: 0, total: 0, modalData: null};
         this.subscriptions.push(sub1);
-
-
     }
 
     componentDidUpdate() {
@@ -54,13 +47,14 @@ export default class CharacterScroller extends Component {
 
     requestStories(characterId)
     {
-        postal.publish({
-            channel: "story.channel",
-            topic: "stories.request",
-            data: {characterId: characterId}
+        this.setState({selectedId: characterId}, function ()
+        {
+            postal.publish({
+                channel: "story.channel",
+                topic: "stories.request",
+                data: {characterId: characterId}
+            });
         });
-
-        
     }
 
     componentDidMount()
@@ -75,22 +69,17 @@ export default class CharacterScroller extends Component {
                     });
                 };
         this.loaderImage.src = 'css/imgs/scroll-loader.gif';
-
-
     }
 
     componentWillUnmount() {
 
         this.subscriptions.forEach((s) => s.unsubscribe());
         this.subscriptions = [];
-
-
     }
 
     loadMore()
     {
         let me = this;
-
         me.setState({isLoading: true}, function () {
             postal.publish({
                 channel: "data.channel",
@@ -98,8 +87,6 @@ export default class CharacterScroller extends Component {
                 data: {requestType: 'navigation', dir: 'next'}
             });
         });
-
-
     }
 
     showLoader(type)
@@ -136,10 +123,16 @@ export default class CharacterScroller extends Component {
         let items = [];
         let me = this;
         this.state.characters.forEach(i => {
+            let css = 'scroll-item';
+            if (me.state.selectedId && i.id == me.state.selectedId)
+            {
+                css = css + ' highlight'
+            }
+
             items.push(
                     <div onClick={this.requestStories.bind(me, i.id)}
                          ref={node => this[(REF_CONST + i.id)] = node}   
-                         key={i.id} className="scroll-item">
+                         key={i.id} className={css}>
                     
                         <div className="flex-item character-name">{i.name}</div>
                         <div className="flex-item character-img">
@@ -160,8 +153,6 @@ export default class CharacterScroller extends Component {
     {
 
         var me = this;
-
-
         return (
                 <div className="character-scroller">
                     <div className="loader-area">

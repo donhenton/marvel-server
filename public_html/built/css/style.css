@@ -561,6 +561,10 @@ blockquote {
       margin: 1rem;
       padding: 1rem;
       color: #f2f6fb; }
+      .character-scroller .scroller-container .scroll-item.highlight {
+        color: #f5af66; }
+        .character-scroller .scroller-container .scroll-item.highlight img {
+          border: 2px solid #f5af66; }
       .character-scroller .scroller-container .scroll-item img {
         max-width: 95%; }
       .character-scroller .scroller-container .scroll-item .character-name {
