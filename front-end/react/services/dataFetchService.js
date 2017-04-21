@@ -138,7 +138,7 @@ class DataFetchService
                             {
                                 let items = JSON.parse(storiesData);
                                 let sentData = {storiesData: items, count: items.count};
-                                me.comicCache[data.characterId] = sentData;
+                                me.storiesCache[data.characterId] = sentData;
                                 postal.publish({
                                     channel: "data.channel",
                                     topic: "stories.inbound",

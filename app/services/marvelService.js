@@ -84,8 +84,8 @@ module.exports = function (config) {
     marvelService.findComicsForCharacter = function (characterId)
     {
         var foundData = [];
-
-        foundData = marvelClient.characters.comics(characterId)
+        //limit, offset
+        foundData = marvelClient.characters.comics(characterId,10,0)
                 .then(function (data)
                 {
 

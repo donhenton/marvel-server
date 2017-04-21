@@ -90,7 +90,7 @@
         border-left: thin solid $comic-dark-blue;
 
         height: 100%;
-
+       
         z-index:5;
         left: 0px;
         position:relative;
@@ -131,7 +131,7 @@
         .main-content
         {
             height: 85%;
-            
+            width:100%;
             position:relative;
             background-color: white;
             font-size: 1.4rem;

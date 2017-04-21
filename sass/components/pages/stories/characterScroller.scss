@@ -1,7 +1,10 @@
 .character-scroller
 {
     width: 33%;
+    height:100%;
+    
     background: $comic-off-white;
+    float: left;
     .loader-area
     {
         height: 5rem;
@@ -21,7 +24,7 @@
         .infinite-scroll
         {
             height: 85%;
-
+            width:99%;
             overflow-y: auto;
             overflow-x:hidden;
 

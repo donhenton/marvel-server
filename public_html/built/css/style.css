@@ -196,6 +196,7 @@ blockquote {
         font-size: 3.4rem; }
     .body-container .main-container .main-content {
       height: 85%;
+      width: 100%;
       position: relative;
       background-color: white;
       font-size: 1.4rem;
@@ -527,9 +528,14 @@ blockquote {
     .image-modal .modal .big-image {
       text-align: center; }
 
+.stories-page {
+  height: 100%; }
+
 .character-scroller {
   width: 33%;
-  background: #f2f6fb; }
+  height: 100%;
+  background: #f2f6fb;
+  float: left; }
   .character-scroller .loader-area {
     height: 5rem;
     border: thin solid #4674ac;
@@ -540,6 +546,7 @@ blockquote {
     position: relative; }
     .character-scroller .scroller-container .infinite-scroll {
       height: 85%;
+      width: 99%;
       overflow-y: auto;
       overflow-x: hidden; }
     .character-scroller .scroller-container .scroll-item {
@@ -559,3 +566,12 @@ blockquote {
         display: block;
         width: 100%;
         text-align: center; }
+
+.story-display {
+  float: right;
+  border: thin solid #4674ac;
+  position: relative;
+  width: 65%;
+  height: 100%;
+  padding: 2%;
+  overflow: auto; }

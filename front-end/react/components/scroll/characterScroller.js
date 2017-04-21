@@ -55,10 +55,12 @@ export default class CharacterScroller extends Component {
     requestStories(characterId)
     {
         postal.publish({
-            channel: "data.channel",
+            channel: "story.channel",
             topic: "stories.request",
-            data:  {characterId: characterId}
+            data: {characterId: characterId}
         });
+
+        
     }
 
     componentDidMount()
@@ -135,9 +137,9 @@ export default class CharacterScroller extends Component {
         let me = this;
         this.state.characters.forEach(i => {
             items.push(
-                    <div onClick={this.requestStories.bind(me,i.id)}
-                      ref={node => this[(REF_CONST + i.id)] = node}   
-                      key={i.id} className="scroll-item">
+                    <div onClick={this.requestStories.bind(me, i.id)}
+                         ref={node => this[(REF_CONST + i.id)] = node}   
+                         key={i.id} className="scroll-item">
                     
                         <div className="flex-item character-name">{i.name}</div>
                         <div className="flex-item character-img">
