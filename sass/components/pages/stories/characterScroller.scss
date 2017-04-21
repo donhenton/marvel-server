@@ -13,7 +13,8 @@
         padding-top: 1rem;
         img
         {
-
+            
+            max-width: 95%;
         }
     }
     .scroller-container
@@ -45,6 +46,8 @@
             img
             { 
               //   vertical-align: top;
+              max-width:95%;
+              
             }
             .character-name
             {

@@ -541,6 +541,8 @@ blockquote {
     border: thin solid #4674ac;
     text-align: center;
     padding-top: 1rem; }
+    .character-scroller .loader-area img {
+      max-width: 95%; }
   .character-scroller .scroller-container {
     border: thin solid #4674ac;
     position: relative; }
@@ -559,6 +561,8 @@ blockquote {
       margin: 1rem;
       padding: 1rem;
       color: #f2f6fb; }
+      .character-scroller .scroller-container .scroll-item img {
+        max-width: 95%; }
       .character-scroller .scroller-container .scroll-item .character-name {
         padding-bottom: 5%;
         border-bottom: #f2f6fb; }
@@ -575,3 +579,24 @@ blockquote {
   height: 100%;
   padding: 2%;
   overflow: auto; }
+
+.story-item .indent {
+  margin-left: 5%; }
+
+.story-item .story-title {
+  font-size: 26px; }
+
+.story-item .sub-head {
+  font-family: graphikregularitalic;
+  font-size: 22px; }
+
+.story-item .creator-list {
+  font-size: 16px;
+  text-transform: capitalize; }
+  .story-item .creator-list .role {
+    width: 12rem;
+    display: inline-table;
+    white-space: pre-wrap; }
+  .story-item .creator-list .creator-list-item {
+    padding: .5rem 0;
+    border-bottom: thin solid #4674ac; }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Component } from 'react';
 import WaitIndicator from './../../components/waitIndicator';
-import Title from './title';
+import StoryItem from './storyItem';
 
 
 
@@ -50,13 +50,13 @@ export default class StoryDisplay extends Component {
 
     }
 
-    renderTitles()
+    renderStoryItems()
     {
         let titles = [];
         if (this.state.storiesData && this.state.storiesData.data)
         {
             this.state.storiesData.data.forEach(s => {
-                  titles.push(<Title storyItem={s} key={s.id} />)
+                  titles.push(<StoryItem storyItem={s} key={s.id} />)
                
             })
         }
@@ -76,7 +76,7 @@ export default class StoryDisplay extends Component {
 
         return (
                 <div className='story-display'>
-                    {me.renderTitles()}
+                    {me.renderStoryItems()}
                 </div>
 
 
