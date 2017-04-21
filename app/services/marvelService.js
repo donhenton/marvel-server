@@ -85,7 +85,7 @@ module.exports = function (config) {
     {
         var foundData = [];
         //limit, offset
-        foundData = marvelClient.characters.comics(characterId,10,0)
+        foundData = marvelClient.characters.comics(characterId)
                 .then(function (data)
                 {
 
@@ -101,10 +101,10 @@ module.exports = function (config) {
     {
         var foundData = [];
 
-        foundData = marvelClient.characters.stories(characterId)
+        foundData = marvelClient.characters.stories(characterId,5,0)
                 .then(function (data)
                 {
-
+                 //   logger.debug(`id ${characterId}`)
 
                     return data;
                 });

@@ -162,7 +162,7 @@ module.exports = function (app, marvelService) {
              storyData.push(newItem);
              
          })
-        
+       //  logger.debug(`count in route ${storyData.length}`)
         return storyData;
         
     }
