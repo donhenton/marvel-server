@@ -20,6 +20,7 @@ class DataFetchService
         });
         this.individualCharacterCache = {};
         this.comicCache = {};
+        this.storiesCache = {};
 
     }
 
@@ -116,6 +117,44 @@ class DataFetchService
                     });
                 break;
             }
+            
+            case  'stories.request':
+            {
+                
+                if (me.storiesCache[data.characterId])
+                {
+                     postal.publish({
+                                    channel: "data.channel",
+                                    topic: "stories.inbound",
+                                    data: me.storiesCache[data.characterId]
+                                });
+                    return;
+                }
+                
+                
+                
+              return    this.proxyService.findStoriesForCharacter(data.characterId)
+                            .then(function (storiesData)
+                            {
+                                let items = JSON.parse(storiesData);
+                                let sentData = {storiesData: items, count: items.count};
+                                me.comicCache[data.characterId] = sentData;
+                                postal.publish({
+                                    channel: "data.channel",
+                                    topic: "stories.inbound",
+                                    data: sentData 
+                                });
+                            return storiesData;
+                            }).catch(function (err)
+                    {
+
+                        throw new Error(err.message);
+                    });
+                break;
+            }
+            
+            
+            
 
             default:
                 break;

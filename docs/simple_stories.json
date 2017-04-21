@@ -1,0 +1,185 @@
+{
+    "count": 7,
+    "data": [{
+            "title": "A Beginning",
+            "id": 26281,
+            "description": null,
+            "creators": [{
+                    "name": "Comicraft",
+                    "role": "letterer"
+                }, {
+                    "name": "Richard Starkings",
+                    "role": "letterer"
+                }, {
+                    "name": "Steve Buccellato",
+                    "role": "colorist"
+                }, {
+                    "name": "Electric Crayon",
+                    "role": "colorist"
+                }, {
+                    "name": "Roger Cruz",
+                    "role": "penciller"
+                }, {
+                    "name": "Steve Epting",
+                    "role": "penciller"
+                }, {
+                    "name": "Scott Lobdell",
+                    "role": "writer"
+                }, {
+                    "name": "Mark Waid",
+                    "role": "writer"
+                }],
+            "comics": [{
+                    "name": "X-Men: Alpha (1994) #1"
+                }, {
+                    "name": "X-Men: The Complete Age of Apocalypse Epic Book 2 (Trade Paperback)"
+                }]
+        }, {
+            "title": "Utility of Myth",
+            "id": 28352,
+            "description": "The X-Men begin to investigate the X-Corps after they discover that Banshee has been employing criminals.",
+            "creators": [{
+                    "name": "Joe Casey",
+                    "role": "writer"
+                }, {
+                    "name": "Hi Fi Design",
+                    "role": "colorist"
+                }, {
+                    "name": "Ron Garney",
+                    "role": "penciller"
+                }, {
+                    "name": "Mark Morales",
+                    "role": "inker"
+                }, {
+                    "name": "Richard Starkings",
+                    "role": "letterer"
+                }, {
+                    "name": "Saida Temofonte",
+                    "role": "letterer"
+                }],
+            "comics": [{
+                    "name": "Uncanny X-Men (1963) #402"
+                }]
+        }, {
+            "title": "Army Ants",
+            "id": 28356,
+            "description": "Banshee loses control over the former villains in the X-Corps, costing Sunpyre her life.",
+            "creators": [{
+                    "name": "Joe Casey",
+                    "role": "writer"
+                }, {
+                    "name": "Hi Fi Design",
+                    "role": "colorist"
+                }, {
+                    "name": "Sean Phillips",
+                    "role": "penciller"
+                }, {
+                    "name": "Richard Starkings",
+                    "role": "letterer"
+                }, {
+                    "name": "Saida Temofonte",
+                    "role": "letterer"
+                }],
+            "comics": [{
+                    "name": "Uncanny X-Men (1963) #404"
+                }]
+        }, {
+            "title": "Ballroom Blitzkrieg",
+            "id": 28358,
+            "description": "Mystique is revealed as the one responsible for organizing the takeover of the X-Corps.  Radius is killed and Banshee has his throat slit.",
+            "creators": [{
+                    "name": "Joe Casey",
+                    "role": "writer"
+                }, {
+                    "name": "Hi Fi Design",
+                    "role": "colorist"
+                }, {
+                    "name": "Sean Phillips",
+                    "role": "penciller"
+                }, {
+                    "name": "Richard Starkings",
+                    "role": "letterer"
+                }, {
+                    "name": "Saida Temofonte",
+                    "role": "letterer"
+                }],
+            "comics": [{
+                    "name": "Uncanny X-Men (1963) #405"
+                }]
+        }, {
+            "title": "Staring Contests are for Suckers",
+            "id": 28360,
+            "description": "The X-Men defeat the X-Corps in a battle that nearly destroys Paris.  Abyss sucks Mystique into a pocket dimension.",
+            "creators": [{
+                    "name": "Joe Casey",
+                    "role": "writer"
+                }, {
+                    "name": "Hi Fi Design",
+                    "role": "colorist"
+                }, {
+                    "name": "Aaron Lopresti",
+                    "role": "penciller"
+                }, {
+                    "name": "Danny K. Miki",
+                    "role": "inker"
+                }, {
+                    "name": "Mark Morales",
+                    "role": "inker"
+                }, {
+                    "name": "Richard Starkings",
+                    "role": "letterer"
+                }, {
+                    "name": "Saida Temofonte",
+                    "role": "letterer"
+                }],
+            "comics": [{
+                    "name": "Uncanny X-Men (1963) #406"
+                }]
+        }, {
+            "title": "The Draco Part One: Sins of the Father",
+            "id": 28407,
+            "description": "Azazel summons Nightcrawler and Abyss.  Juggernaut and Professor X talk about the abuse they both suffered as children.",
+            "creators": [{
+                    "name": "Chuck Austen",
+                    "role": "writer"
+                }, {
+                    "name": "Stan Lee",
+                    "role": "writer"
+                }, {
+                    "name": "Avalon Studio",
+                    "role": "colorist"
+                }, {
+                    "name": "Philip Tan",
+                    "role": "penciller"
+                }, {
+                    "name": "Rus Wooton",
+                    "role": "letterer"
+                }],
+            "comics": [{
+                    "name": "Uncanny X-Men (1963) #429"
+                }]
+        }, {
+            "title": "The Draco Part Three",
+            "id": 28411,
+            "description": "Azazel vs. the X-Men.  Polaris tells how she survived the destruction of Genosha, and of how she learned she was Magneto's daughter.  Mystique escapes from Abyss.",
+            "creators": [{
+                    "name": "Chuck Austen",
+                    "role": "writer"
+                }, {
+                    "name": "Stan Lee",
+                    "role": "writer"
+                }, {
+                    "name": "Avalon Studio",
+                    "role": "colorist"
+                }, {
+                    "name": "Philip Tan",
+                    "role": "penciller"
+                }, {
+                    "name": "Rus Wooton",
+                    "role": "letterer"
+                }],
+            "comics": [{
+                    "name": "Uncanny X-Men (1963) #431"
+                }]
+        }]
+}

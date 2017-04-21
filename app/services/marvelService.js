@@ -96,6 +96,22 @@ module.exports = function (config) {
         return foundData;
 
     }
+    
+    marvelService.findStoriesForCharacter = function (characterId)
+    {
+        var foundData = [];
+
+        foundData = marvelClient.characters.stories(characterId)
+                .then(function (data)
+                {
+
+
+                    return data;
+                });
+
+        return foundData;
+
+    }
 
     return marvelService;
 }

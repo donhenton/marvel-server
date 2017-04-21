@@ -24,7 +24,7 @@ module.exports = function (app, marvelService) {
             {
                 imgData = (d.thumbnail.path + "/" + portraitSize + "." + d.thumbnail.extension)
             }
-            var p = {"name": d.name, 'imageUrl': imgData, id: d.id,urls:d.urls}
+            var p = {"name": d.name, 'imageUrl': imgData, id: d.id, urls: d.urls}
             returnedData.push(p);
         });
 
@@ -39,11 +39,11 @@ module.exports = function (app, marvelService) {
         var count = 12;
         var offset = 0;
         var dir = req.query.dir;
-      //  logger.debug("check offset "+JSON.stringify(req.session['offsets']))
+        //  logger.debug("check offset "+JSON.stringify(req.session['offsets']))
         if (req.session['offsets'] === undefined)
         {
             req.session['offsets'] = {'characters': 0};
-          //  logger.debug("did the offset")
+            //  logger.debug("did the offset")
         }
         var isOkay = false;
         if (!dir)
@@ -63,20 +63,20 @@ module.exports = function (app, marvelService) {
         {
             offset = req.session.offsets['characters'] + count;
             isOkay = true;
-            
+
         }
         if (!isOkay)
         {
             throw new Error("next or prev only for characters/findAll")
         }
         // logger.debug("session "+JSON.stringify(req.session))
-        req.session.offsets['characters'] =   offset ;
-      //  logger.debug("offset is " + offset)
+        req.session.offsets['characters'] = offset;
+        //  logger.debug("offset is " + offset)
 
-        marvelService.findAllCharacters(count, offset,req).then(function (data)
+        marvelService.findAllCharacters(count, offset, req).then(function (data)
         {
-            var payload = {data: simplifyCharacterData(data, 'portrait_medium'), offset:offset,count: count,total: data.meta.total};
-            
+            var payload = {data: simplifyCharacterData(data, 'portrait_medium'), offset: offset, count: count, total: data.meta.total};
+
             res.json(payload);
         }
 
@@ -88,38 +88,38 @@ module.exports = function (app, marvelService) {
     }
 
 ////comic data //////////////////////////////////////////////////////////////
-    
-    var simplifyComicData = function(data)
+
+    var simplifyComicData = function (data)
     {
         var returnedData = [];
         data.data.forEach(function (d)
         {
-            
+
             var imgData = null;
             if (d.thumbnail && d.thumbnail.path && d.thumbnail.extension)
             {
                 imgData = (d.thumbnail.path + "/portrait_xlarge." + d.thumbnail.extension)
             }
-            var p = {"title": d.title, 
-                 price: d.prices[0],
-                'description':d.description,
+            var p = {"title": d.title,
+                price: d.prices[0],
+                'description': d.description,
                 'date': d.dates[0].date,
-                'thumbnail':imgData ,
-                id: d.id }
+                'thumbnail': imgData,
+                id: d.id}
             returnedData.push(p);
         });
 
         return returnedData;
     }
-    
-    var findComicsForCharacter = function (req, res,next)
+
+    var findComicsForCharacter = function (req, res, next)
     {
         var characterId = req.params['characterId'];
-        
+
         marvelService.findComicsForCharacter(characterId).then(function (data)
         {
-            var payload = {count: data.meta.count,data: simplifyComicData(data)};
-            
+            var payload = {count: data.meta.count, data: simplifyComicData(data)};
+
             res.json(payload);
         }
 
@@ -128,11 +128,66 @@ module.exports = function (app, marvelService) {
         {
             reportError(res, JSON.stringify(err));
         }).done();
-        
+
     }
 
 
+    var simplifyStoryData = function(storiesInArray)
+    {
+        
+        var storyData= [];
+        
+        
+        
+         storiesInArray.forEach(function(story) {
+             var desc = null;
+             if (story.description && story.description.length > 0)
+             {
+                 desc = story.description;
+             }
+             
+             var newItem = {title: story.title,id: story.id,
+                description: desc, creators: [], comics: []
+             };
+             
+             story.creators.items.forEach(function(c)
+             {
+                 newItem.creators.push({name: c.name,role: c.role})
+             })
+             story.comics.items.forEach(function(c)
+             {
+                 newItem.comics.push({name: c.name})
+             })
+             
+             storyData.push(newItem);
+             
+         })
+        
+        return storyData;
+        
+    }
+
+    var findStoriesForCharacter = function (req, res, next)
+    {
+        var characterId = req.params['characterId'];
+
+        marvelService.findStoriesForCharacter(characterId).then(function (data)
+        {
+            var payload = {count: data.meta.count, data: simplifyStoryData(data.data)};
+
+            res.json(payload);
+        }
+
+
+        ).fail(function (err)
+        {
+            reportError(res, JSON.stringify(err));
+        }).done();
+
+    }
+
     app.get(['/api/characters/:characterId/comics'], findComicsForCharacter);
+    app.get(['/api/characters/:characterId/stories'], findStoriesForCharacter);
     app.get(['/api/characters/findAll'], findAllCharacters);
 
 };

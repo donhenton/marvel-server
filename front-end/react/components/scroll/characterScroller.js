@@ -42,20 +42,25 @@ export default class CharacterScroller extends Component {
 
 
     }
-    
+
     componentDidUpdate() {
-//        let lastId =  REF_CONST + this.state.characters[this.state.characters.length-1].id;
-//        if (this.state.characters.length < 15)
-//        {
-//            return;
-//        }
-//        this[lastId].scrollIntoView();
+
     }
 
     componentWillMount()
     {
 
     }
+
+    requestStories(characterId)
+    {
+        postal.publish({
+            channel: "data.channel",
+            topic: "stories.request",
+            data:  {characterId: characterId}
+        });
+    }
+
     componentDidMount()
     {
         this.loaderImage.onload =
@@ -84,15 +89,15 @@ export default class CharacterScroller extends Component {
     {
         let me = this;
 
-        me.setState({isLoading:true}, function () {
+        me.setState({isLoading: true}, function () {
             postal.publish({
                 channel: "data.channel",
                 topic: "characters.request",
                 data: {requestType: 'navigation', dir: 'next'}
             });
         });
-        
-        
+
+
     }
 
     showLoader(type)
@@ -127,15 +132,18 @@ export default class CharacterScroller extends Component {
     renderCharacters()
     {
         let items = [];
+        let me = this;
         this.state.characters.forEach(i => {
             items.push(
-                    <div  ref={node => this[(REF_CONST+i.id)] = node}   key={i.id} className="scroll-item">
+                    <div onClick={this.requestStories.bind(me,i.id)}
+                      ref={node => this[(REF_CONST + i.id)] = node}   
+                      key={i.id} className="scroll-item">
                     
-                         <div className="flex-item character-name">{i.name} {i.id}</div>
+                        <div className="flex-item character-name">{i.name}</div>
                         <div className="flex-item character-img">
                             <img src={i.imageUrl} />
                         </div>
-                       
+                    
                     </div>
 
 
