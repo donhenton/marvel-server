@@ -131,7 +131,7 @@ export default class CharacterScroller extends Component {
             items.push(
                     <div  ref={node => this[(REF_CONST+i.id)] = node}   key={i.id} className="scroll-item">
                     
-                         <div className="flex-item character-name">{i.name}</div>
+                         <div className="flex-item character-name">{i.name} {i.id}</div>
                         <div className="flex-item character-img">
                             <img src={i.imageUrl} />
                         </div>

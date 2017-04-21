@@ -217,6 +217,9 @@ blockquote {
       min-height: 5%;
       font-size: 1.2rem;
       text-align: center; }
+      .body-container .main-container footer .item-banner a {
+        text-decoration: none;
+        color: #f2f6fb; }
   .body-container .label-trigger {
     position: fixed;
     left: 1rem;
