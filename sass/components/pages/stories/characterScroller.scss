@@ -1,12 +1,71 @@
 .character-scroller
 {
-    
-    .infinite-scroll
+    width: 33%;
+    background: $comic-off-white;
+    .loader-area
     {
-        height: 25rem;
-        overflow:scroll;
+        height: 5rem;
+        border: thin solid $comic-dark-blue;
+        text-align: center;
+        padding-top: 1rem;
+        img
+        {
+
+        }
     }
-    
-    
+    .scroller-container
+    {
+        border: thin solid $comic-dark-blue;
+        position: relative;
+
+        .infinite-scroll
+        {
+            height: 85%;
+
+            overflow-y: auto;
+            overflow-x:hidden;
+
+        }
+
+        .scroll-item
+        {
+            background-color:$comic-dark-blue;
+            cursor: pointer;
+            width:100%;
+            display:flex;
+            flex-direction: row;
+            flex-wrap:wrap;
+            margin: 1rem;
+            padding: 1rem;
+            color: $comic-off-white;
+
+            img
+            { 
+              //   vertical-align: top;
+            }
+            .character-name
+            {
+              padding: 3%;
+              width:70%;
+              max-width:70%;
+            }
+            .character-image
+            {
+                width:30%;
+            }
+            .flex-item
+            {
+                display:block;
+                
+                
+            }
+        }
+
+
+    }
+
+
 }
+
+
 

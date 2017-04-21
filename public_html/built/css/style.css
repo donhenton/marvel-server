@@ -524,6 +524,36 @@ blockquote {
     .image-modal .modal .big-image {
       text-align: center; }
 
-.character-scroller .infinite-scroll {
-  height: 25rem;
-  overflow: scroll; }
+.character-scroller {
+  width: 33%;
+  background: #f2f6fb; }
+  .character-scroller .loader-area {
+    height: 5rem;
+    border: thin solid #4674ac;
+    text-align: center;
+    padding-top: 1rem; }
+  .character-scroller .scroller-container {
+    border: thin solid #4674ac;
+    position: relative; }
+    .character-scroller .scroller-container .infinite-scroll {
+      height: 85%;
+      overflow-y: auto;
+      overflow-x: hidden; }
+    .character-scroller .scroller-container .scroll-item {
+      background-color: #4674ac;
+      cursor: pointer;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      margin: 1rem;
+      padding: 1rem;
+      color: #f2f6fb; }
+      .character-scroller .scroller-container .scroll-item .character-name {
+        padding: 3%;
+        width: 70%;
+        max-width: 70%; }
+      .character-scroller .scroller-container .scroll-item .character-image {
+        width: 30%; }
+      .character-scroller .scroller-container .scroll-item .flex-item {
+        display: block; }

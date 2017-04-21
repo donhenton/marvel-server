@@ -2,7 +2,7 @@ import React from 'react';
 import { Component } from 'react';
 import SimpleInfiniteScroll from './simpleInfiniteScroll';
 import ReactCSSTransitionGroup  from 'react-addons-css-transition-group';
-
+import WaitIndicator from './../waitIndicator';
 
 export default class CharacterScroller extends Component {
 
@@ -11,37 +11,49 @@ export default class CharacterScroller extends Component {
 
         super(props);
         this.subscriptions = [];
-
-
-    }
-
-    componentWillMount()
-    {
         let me = this;
+        this.loaderImage = new Image();
+
         let sub1 = postal.subscribe({
             channel: "data.channel",
             topic: "characters.inbound",
             callback: function (data, envelope) {
                 // console.log(JSON.stringify(data.characters))
-                me.setState({characters: data.characters, count: data.count,
+                let tCharacters = [].concat(me.state.characters);
+                tCharacters = tCharacters.concat(data.characters)
+
+                me.setState({characters: tCharacters, count: data.count,
                     offset: data.offset, isLoading: false,
                     start: data.start, end: data.end, total: data.total})
             }
         });
 
 
-        this.state = {characters: [], isLoading: true, hasMore: true,
+        this.state = {characters: [], isLoading: true, hasMore: false,
             count: 0, offset: 0, total: 0, modalData: null};
         this.subscriptions.push(sub1);
+
+
+    }
+
+    componentWillMount()
+    {
 
     }
     componentDidMount()
     {
-        postal.publish({
-            channel: "data.channel",
-            topic: "characters.request",
-            data: {requestType: 'initial-load'}
-        });
+        this.loaderImage.onload =
+                function ()
+                {
+                    postal.publish({
+                        channel: "data.channel",
+                        topic: "characters.request",
+                        data: {requestType: 'initial-load'}
+                    });
+                };
+        this.loaderImage.src = 'css/imgs/scroll-loader.gif';
+
+
     }
 
     componentWillUnmount() {
@@ -62,16 +74,32 @@ export default class CharacterScroller extends Component {
         });
     }
 
-    showLoader()
+    showLoader(type)
     {
+        let showBlock = {dipslay: 'inline'};
+        let hideBlock = {display: 'none'}
         if (this.state.isLoading)
         {
-            return <div className="scroll-loader"><img src='css/imgs/scroll-loader.gif' /></div>
+            if (type === 'img')
+            {
+                return showBlock;
+            }
+            if (type === 'text')
+            {
+                return hideBlock;
+            }
         }
-//        else
-//        {
-//            return <div>{JSON.stringify(this.state.characters)}</div>
-//        }
+        if (!this.state.isLoading)
+        {
+            if (type === 'img')
+            {
+                return hideBlock;
+            }
+            if (type === 'text')
+            {
+                return showBlock;
+            }
+        }
 
     }
 
@@ -81,8 +109,11 @@ export default class CharacterScroller extends Component {
         this.state.characters.forEach(i => {
             items.push(
                     <div key={i.id} className="scroll-item">
-                        <span className="character-name">i.name</span>
-                        <span className="character-img"><img src={i.imageUrl} /></span>
+                    
+                        <span className="flex-item character-img">
+                        <img src={i.imageUrl} />
+                        </span>
+                        <span className="flex-item character-name">{i.name}</span>
                     </div>
 
 
@@ -101,18 +132,22 @@ export default class CharacterScroller extends Component {
 
         return (
                 <div className="character-scroller">
+                    <div className="loader-area">
+                        <img style={this.showLoader('img')} src='css/imgs/scroll-loader.gif' />  
+                        <span style={this.showLoader('text')}>Complete  </span>
+                    </div>
+                    <div className='scroller-container'>  
+                        <WaitIndicator isProcessing={this.state.isLoading} />
+                          <SimpleInfiniteScroll hasMore={this.state.hasMore} 
+                                              threshold={75}
+                                              freezeWhileLoading={this.state.isLoading}  
+                                              loadMoreCallback={this.loadMore.bind(this)} >
+                                              
+                            {this.renderCharacters()}  
                 
-                    {this.showLoader()}
+                        </SimpleInfiniteScroll>        
                 
-                
-                    <SimpleInfiniteScroll hasMore={this.state.hasMore} 
-                                          threshold={75}
-                                          freezeWhileLoading={this.state.isLoading}  
-                                          loadMoreCallback={this.loadMore.bind(this)} >
-                
-                        {this.renderCharacters()}  
-                
-                    </SimpleInfiniteScroll>
+                    </div>
                 </div>
                 )
 
@@ -123,11 +158,8 @@ export default class CharacterScroller extends Component {
 
 /*
  
- <ReactCSSTransitionGroup  transitionName="modal-anim" transitionEnterTimeout={15} transitionLeaveTimeout={15}>
  
  
- </ReactCSSTransitionGroup>
  
  
- * 
  */
