@@ -11,6 +11,22 @@ export default class StoryItem extends Component {
         super(props);
 
     }
+    
+    getComicsList()
+    {
+         let comics = [];
+        let cc = 0;
+        this.props.storyItem.comics.forEach(c => {
+           comics.push(  <li className="comic-list-item" key={'comic_key_'+cc+"_"+this.props.storyItem.id}>
+                 
+                <span className='name'>{c.name} {this.props.storyItem.comics.length}</span>
+            </li>)
+            cc++;
+
+        })
+        
+        return <ul className='creator-list-items'>{comics}</ul>
+    }
 
     getCreatorList()
     {
@@ -50,13 +66,17 @@ export default class StoryItem extends Component {
     {
         return <div className='story-item'>
             <div className='story-title'>
-                {this.props.storyItem.title} {this.props.storyItem.creators.length}
+                {this.props.storyItem.title}  
             </div>
             <div className='indent'>
                 {this.getDescription()}   
                 <div className='sub-head'>Creators</div>
                 <div className='indent creator-list'>
                     {this.getCreatorList()}
+                </div>
+                <div className='sub-head'>Comics</div>
+                 <div className='indent comics-list'>
+                    {this.getComicsList()}
                 </div>
             </div>
         </div>

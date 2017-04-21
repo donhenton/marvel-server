@@ -1,6 +1,10 @@
 .story-item
 {
 
+    margin: 2% 0;
+    border: thin solid $comic-dark-blue;
+    padding: 1.5%;
+    
     .indent
     {
         margin-left: 5%;
@@ -15,6 +19,7 @@
     {
         font-family: graphikregularitalic;
         font-size: ms(1);
+        margin: 1rem 0;
     }
 
     .creator-list
