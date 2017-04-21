@@ -1,34 +1,34 @@
 import React from 'react';
 import { Component } from 'react';
 import ReactDOM from 'react-dom';
- 
-
+import WaitIndicator from './../components/waitIndicator';
+import CharacterScroller from './../components/scroll/characterScroller';
 
 export default class StoriesPage extends Component {
+
+    constructor()
+    {
+        super();
         
-  constructor()
-  {
-      super();
-    
-  }
-  
- 
-  componentWillMount()
-  {
+    }
 
-  }
-  
-  componentWillUnmount () {
-                        
-    
+    componentWillMount()
+    {
       
-  } 
- 
 
-  render() {
-      var me = this;
-           
-      
-            return (<div>stories</div> );
-  }
+
+
+    }
+
+    
+
+    render() {
+        var me = this;
+
+        return (<div className='stories-page'>
+                <CharacterScroller />
+
+                </div>
+              );
+    }
 }

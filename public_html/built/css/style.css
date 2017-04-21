@@ -523,3 +523,7 @@ blockquote {
       transform: scale(0.7); }
     .image-modal .modal .big-image {
       text-align: center; }
+
+.character-scroller .infinite-scroll {
+  height: 25rem;
+  overflow: scroll; }

@@ -36,7 +36,7 @@ class DataFetchService
                 {
 
 
-                    this.proxyService.findAllCharacters()
+                 return   this.proxyService.findAllCharacters()
                             .then(function (data)
                             {
                                 let items = JSON.parse(data);
@@ -48,7 +48,7 @@ class DataFetchService
                                         offset: items.offset,
                                         total: items.total}
                                 });
-
+                                return data;
                             }).catch(function (err)
                     {
 
@@ -58,7 +58,7 @@ class DataFetchService
                 if (data.requestType === 'navigation')
                 {
 
-                    this.proxyService.findAllCharacters(data.dir)
+                 return   this.proxyService.findAllCharacters(data.dir)
                             .then(function (data)
                             {
                                 let items = JSON.parse(data);
@@ -70,7 +70,7 @@ class DataFetchService
                                         total: items.total,
                                         offset: items.offset}
                                 });
-
+                             return data;   
                             }).catch(function (err)
                     {
 
@@ -97,7 +97,7 @@ class DataFetchService
                 
                 
                 
-                  this.proxyService.findComicsForCharacter(data.characterId)
+              return    this.proxyService.findComicsForCharacter(data.characterId)
                             .then(function (comicData)
                             {
                                 let items = JSON.parse(comicData);
@@ -108,7 +108,7 @@ class DataFetchService
                                     topic: "comics.inbound",
                                     data: sentData 
                                 });
-
+                            return comicData;
                             }).catch(function (err)
                     {
 
