@@ -578,7 +578,8 @@ blockquote {
   width: 65%;
   height: 100%;
   padding: 2%;
-  overflow: auto; }
+  overflow: auto;
+  background: #f2f6fb; }
 
 .story-item .indent {
   margin-left: 5%; }
@@ -597,6 +598,13 @@ blockquote {
     width: 12rem;
     display: inline-table;
     white-space: pre-wrap; }
+  .story-item .creator-list .name {
+    width: 12rem;
+    display: inline-table;
+    margin-left: 12%; }
+    @media (min-width: 40em) {
+      .story-item .creator-list .name {
+        margin-left: 8%; } }
   .story-item .creator-list .creator-list-item {
     padding: .5rem 0;
     border-bottom: thin solid #4674ac; }
