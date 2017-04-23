@@ -126,14 +126,16 @@
                 margin-right: 2rem;
                 //margin-top: 1rem;
                 font-size: 3.4rem;
+                font-size: ms(3);
             }
 
             #view-report
             {
-                 
+
                 position: absolute;
-                top: 4%;
+                top: 2%;
                 left: 55%;
+                font-size: ms(1);
                 color: blue;
             }
 
