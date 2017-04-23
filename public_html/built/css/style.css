@@ -126,51 +126,6 @@ blockquote {
   width: 100%;
   height: 100%;
   overflow: hidden; }
-  .body-container nav {
-    display: inline;
-    overflow: hidden; }
-    .body-container nav .menu {
-      margin: 0;
-      padding: 0;
-      position: fixed;
-      font-size: 1.4rem;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      z-index: -100;
-      list-style: none; }
-      @media (min-width: 40em) {
-        .body-container nav .menu {
-          z-index: 100;
-          display: inline;
-          border: none;
-          background-color: #86aede;
-          position: inherit; } }
-      .body-container nav .menu li {
-        width: 210px;
-        text-align: left;
-        background-color: #86aede;
-        border-bottom: 1px solid #f2f6fb; }
-        @media (min-width: 40em) {
-          .body-container nav .menu li {
-            display: inline;
-            border: none; } }
-        .body-container nav .menu li a {
-          display: block;
-          padding: 1.5rem 2rem;
-          font-size: 2rem;
-          color: #f2f6fb;
-          text-decoration: none; }
-          .body-container nav .menu li a:hover {
-            background-color: #f5af66; }
-          @media (min-width: 40em) {
-            .body-container nav .menu li a {
-              display: inline-block;
-              height: 100%;
-              font-size: 1.5rem;
-              background-color: #86aede;
-              color: #f2f6fb; } }
   .body-container .main-container {
     border-left: thin solid #4674ac;
     height: 100%;
@@ -189,17 +144,83 @@ blockquote {
     .body-container .main-container header {
       height: 10%;
       max-height: 10%;
-      min-height: 10%;
-      postition: relative; }
+      min-height: 10%; }
+      @media (min-width: 40em) {
+        .body-container .main-container header {
+          display: flex;
+          align-content: center; } }
+      @media (min-width: 40em) {
+        .body-container .main-container header .header-item {
+          margin: auto  0; } }
+      .body-container .main-container header nav {
+        display: inline;
+        overflow: hidden;
+        border: thin solid green; }
+        @media (min-width: 40em) {
+          .body-container .main-container header nav {
+            flex-grow: 1; } }
+        .body-container .main-container header nav .menu {
+          margin: 0;
+          border: thin solid red;
+          padding: 0;
+          position: fixed;
+          font-size: 1.4rem;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          z-index: -100;
+          list-style: none; }
+          @media (min-width: 40em) {
+            .body-container .main-container header nav .menu {
+              flex-grow: 3; } }
+          @media (min-width: 40em) {
+            .body-container .main-container header nav .menu {
+              z-index: 100;
+              display: inline;
+              border: none;
+              background-color: #86aede;
+              position: inherit; } }
+          .body-container .main-container header nav .menu li {
+            text-align: left;
+            background-color: #86aede;
+            border-bottom: 1px solid #f2f6fb; }
+            @media (min-width: 40em) {
+              .body-container .main-container header nav .menu li {
+                display: inline;
+                border: none; } }
+            .body-container .main-container header nav .menu li a {
+              display: block;
+              padding: 1.5rem 2rem;
+              font-size: 26px;
+              color: #f2f6fb;
+              text-decoration: none; }
+              .body-container .main-container header nav .menu li a:hover {
+                background-color: #f5af66; }
+              @media (min-width: 40em) {
+                .body-container .main-container header nav .menu li a {
+                  display: inline-block;
+                  font-size: 22px;
+                  padding: 1rem 2%;
+                  background-color: #86aede;
+                  color: #f2f6fb; } }
+              @media (min-width: 50em) {
+                .body-container .main-container header nav .menu li a {
+                  font-size: 26px; } }
       .body-container .main-container header .header-title {
-        float: right;
         margin-right: 2rem;
-        font-size: 3.4rem;
-        font-size: 35px; }
+        text-align: right;
+        float: right;
+        font-size: 42px; }
+        @media (min-width: 40em) {
+          .body-container .main-container header .header-title {
+            flex-grow: 1;
+            border: thin solid blue;
+            float: inherit; } }
+        @media (min-width: 40em) {
+          .body-container .main-container header .header-title {
+            float: inherit; } }
       .body-container .main-container header #view-report {
-        position: absolute;
-        top: 2%;
-        left: 55%;
         font-size: 22px;
         color: blue; }
         @media (orientation: landscape) {
