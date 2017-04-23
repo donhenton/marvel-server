@@ -1,40 +1,53 @@
 .characters-page
 { 
-     
+
     .character-controls
     { 
         text-align: center;
         vertical-align:  central;
         .control-text
         {
-            padding-top: 1rem;
-            display: inline-table;
+            // padding-top: 4%;
+            // display: inline-table;
+          //  border: thin solid green;
+            position: absolute;
+            left: 50%;
+            top:50%;
+            width: 50rem;
+            height: 2rem;
+            
+ 
+            margin: -1rem 0 0 -25rem;  
+
         }
-         
-         
-        height: 4.5rem;
+
+
+        //height: 5%;
+        position: relative;
+      //  border: thin solid red;
         .control-box
         {
             //height: 2.5rem;
-            padding: 1rem;
+            padding: 1.25rem;
             color: $comic-off-white;
             background-color:  $comic-book-blue;
-            font-size: 2rem;
+            font-size: 4rem;
             border-radius: 15%;
             cursor: pointer;
-            
+            display: inline-table;
+
         }
         .control-left
         {
             float: left;
             margin-left: 2rem;
-            
+
         }
         .control-right
         {
             float: right;
             margin-right: 2rem;
-            
+
         }
     }
 
@@ -54,7 +67,7 @@
             flex-flow: row wrap;
 
         }
-         
+
     }
 
 
