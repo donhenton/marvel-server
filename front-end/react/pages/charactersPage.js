@@ -31,7 +31,7 @@ export default class CharactersPage extends Component {
             channel: "character.page",
             topic: "characters.modal",
             callback: function (data, envelope) {
-                me.setState({modalData: data.characterData,showDetail: true})
+                me.setState({modalData: data.characterData, showDetail: true})
             }
         });
 
@@ -45,7 +45,6 @@ export default class CharactersPage extends Component {
 
 
     }
-
 
     componentDidMount()
     {
@@ -92,7 +91,7 @@ export default class CharactersPage extends Component {
 
     getDisplayString()
     {
-        let str = "Displaying Marvel\u00A9 Character "
+        let str = "Displaying Character "
         str = str + (this.state.offset + 1) + " To "
                 + (this.state.offset + this.state.count)
                 + " Of " + (this.state.total);
@@ -109,10 +108,10 @@ export default class CharactersPage extends Component {
         }
         return <span onClick={me.navigate.bind(this, 'prev')} className='control-box control-left'><span className=' fi-arrow-left'></span></span>;
     }
-    
+
     returnCallBack()
     {
-        this.setState({modalData: null,showDetail: false})
+        this.setState({modalData: null, showDetail: false})
     }
 
     render() {
@@ -130,13 +129,15 @@ export default class CharactersPage extends Component {
         return (
                 <div className='characters-page'>
                     <div className='character-controls grouping'>
-                
-                        {me.renderPrevBtn()}
                         <div   className='control-text'>{me.getDisplayString()}</div>
-                        <span onClick={me.navigate.bind(this, 'next')} className='control-box  control-right'><span className='  fi-arrow-right'></span></span>
+                        <div>
+                            {me.renderPrevBtn()}
+                            <span onClick={me.navigate.bind(this, 'next')} 
+                                  className='control-box  control-right'><span className='  fi-arrow-right'></span></span>
+                        </div>
                     </div>
                     <div className='flex-container'>{me.displayImages()}</div>
-                    
+                
                 </div>
                 );
     }

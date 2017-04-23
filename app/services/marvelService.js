@@ -101,7 +101,7 @@ module.exports = function (config) {
     {
         var foundData = [];
 
-        foundData = marvelClient.characters.stories(characterId,5,0)
+        foundData = marvelClient.characters.stories(characterId,15,0)
                 .then(function (data)
                 {
                  //   logger.debug(`id ${characterId}`)
