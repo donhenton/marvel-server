@@ -178,10 +178,10 @@ blockquote {
     left: 0px;
     position: relative;
     /*        @include forLargeScreens(640) {
-            height: 92.8%;
-            border-left: none;
-            z-index:5;
-        }*/ }
+                    height: 92.8%;
+                    border-left: none;
+                    z-index:5;
+                }*/ }
     .body-container .main-container header, .body-container .main-container footer {
       z-index: 10;
       background-color: #86aede;
@@ -189,11 +189,17 @@ blockquote {
     .body-container .main-container header {
       height: 10%;
       max-height: 10%;
-      min-height: 10%; }
+      min-height: 10%;
+      postition: relative; }
       .body-container .main-container header .header-title {
         float: right;
         margin-right: 2rem;
         font-size: 3.4rem; }
+      .body-container .main-container header #view-report {
+        position: absolute;
+        top: 4%;
+        left: 55%;
+        color: blue; }
     .body-container .main-container .main-content {
       height: 85%;
       width: 100%;
@@ -209,7 +215,7 @@ blockquote {
       @media (min-width: 40em) {
         .body-container .main-container .main-content {
           /*                height: 93%;
-                width: 100%;*/ } }
+                                width: 100%;*/ } }
       .body-container .main-container .main-content.no-scroll {
         overflow: hidden; }
     .body-container .main-container footer {

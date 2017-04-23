@@ -76,12 +76,13 @@ $(function () {
 
 });
 
-
+$('#view-report').text("["+window.innerWidth+","+window.innerHeight+']')
 
 
 $(window).resize(function () {
     //console.log($(window).width());
-    var w = $(window).width();
+    var w = window.innerWidth;
+    $('#view-report').text("["+window.innerWidth+","+window.innerHeight+']')
     var mainContainer = $('.main-content');
     if (w > 640)
     {
