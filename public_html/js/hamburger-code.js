@@ -1,3 +1,5 @@
+
+document.body.style.transform = 'scale(1)';
 let sub1 = postal.subscribe({
             channel: "modal",
             topic: "#",

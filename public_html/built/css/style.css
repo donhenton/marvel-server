@@ -581,7 +581,6 @@ blockquote {
 
 .character-scroller {
   width: 33%;
-  height: 100%;
   background: #f2f6fb;
   float: left; }
   .character-scroller .loader-area {
