@@ -1,27 +1,7 @@
 .image-modal
 { 
-    /*    .modal-row
-        {
-            margin-top: 10px;
-            margin-bottom: 10px;
-            padding-top: 10px;
-    
-        }
-        .modal-cancel-link
-        {
-            color: $comic-book-blue;
-            float: right;
-            cursor: pointer;
-            margin: 10px 10px;
-    
-            &:hover 
-                {
-                color: #00aeef;
-                text-decoration:underline;
-            }
-    
-        }
-    */
+
+
 
     .modal-bkgMask
     { 
@@ -47,10 +27,6 @@
 
 
         position: relative;
-      //  height:95%;
-      //  max-height: 95%;
-      //  max-width:95%;
-      //  max-height:95%;
         overflow:auto;
         z-index: 10;
         top: .5rem;
@@ -80,28 +56,20 @@
         .modalContent
         {
 
-            //width:70%;
-            // margin: 20px auto;
-            // padding: 20px 5px;
-
 
         }
         .modalHeader
         {
             background-color: black;
             color: white;
-
             display:block;
             height: auto;
-            //  padding:1rem;
-            //#0088bc
 
             .btnClose
             {
                 border: 1px solid white;
                 float: right;
                 padding:  1rem;
-                //  margin-top: -5px;
                 margin-bottom: 1rem;
                 cursor: pointer;
                 font-size:3.5rem;
@@ -142,8 +110,12 @@
 
             img
             {
-              width:85%;
-              height:auto;
+                width:auto;
+                height:75%;
+                @include forLargeScreens(640) {
+                    width:85%;
+                    height:auto;
+                }
             }
         }
 

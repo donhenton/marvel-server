@@ -219,10 +219,7 @@
 
             overflow: auto;
             @include forLargeScreens(640) {
-                /*                height: 93%;
-                                width: 100%;*/
 
-                // 
             }
 
             &.no-scroll
