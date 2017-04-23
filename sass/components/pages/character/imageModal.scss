@@ -113,8 +113,8 @@
                 width:auto;
                 height:75%;
                 @include forLargeScreens(640) {
-                    width:85%;
-                    height:auto;
+                   
+                    height:80%;
                 }
             }
         }
