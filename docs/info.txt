@@ -19,3 +19,8 @@ portrait_xlarge         150x225px
 portrait_fantastic	168x252px
 portrait_uncanny	300x450px
 portrait_incredible	216x324px
+
+
+viewport stuff:
+
+https://www.payetteforward.com/my-responsive-website-isnt-working-the-fix-viewport/

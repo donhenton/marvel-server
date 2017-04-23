@@ -175,7 +175,7 @@
 
                 font-size: ms(1);
                 color: blue;
-               // display:none;
+                display:none;
                 #view-portrait
                 { 
                     @media (orientation: landscape) {
@@ -243,7 +243,7 @@
             max-height: 5%;
             min-height:5%;
             // padding: 1rem;
-            font-size: ms(2);
+             font-size: ms(0);
             text-align: center;
             .item-banner
             {

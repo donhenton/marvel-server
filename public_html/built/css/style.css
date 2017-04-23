@@ -217,7 +217,8 @@ blockquote {
             float: inherit; } }
       .body-container .main-container header #view-report {
         font-size: 22px;
-        color: blue; }
+        color: blue;
+        display: none; }
         @media (orientation: landscape) {
           .body-container .main-container header #view-report #view-portrait {
             display: none; } }
@@ -255,7 +256,7 @@ blockquote {
       justify-content: center;
       max-height: 5%;
       min-height: 5%;
-      font-size: 26px;
+      font-size: 16px;
       text-align: center; }
       .body-container .main-container footer .item-banner {
         margin: auto 0; }
@@ -496,27 +497,27 @@ blockquote {
 
 .image-modal {
   /*    .modal-row
-    {
-        margin-top: 10px;
-        margin-bottom: 10px;
-        padding-top: 10px;
-
-    }
-    .modal-cancel-link
-    {
-        color: $comic-book-blue;
-        float: right;
-        cursor: pointer;
-        margin: 10px 10px;
-
-        &:hover 
-            {
-            color: #00aeef;
-            text-decoration:underline;
+        {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            padding-top: 10px;
+    
         }
-
-    }
-*/ }
+        .modal-cancel-link
+        {
+            color: $comic-book-blue;
+            float: right;
+            cursor: pointer;
+            margin: 10px 10px;
+    
+            &:hover 
+                {
+                color: #00aeef;
+                text-decoration:underline;
+            }
+    
+        }
+    */ }
   .image-modal .modal-bkgMask {
     background-color: rgba(0, 0, 0, 0.7);
     width: 100%;
@@ -529,8 +530,6 @@ blockquote {
       display: none; }
   .image-modal .modal {
     position: relative;
-    height: 98%;
-    max-height: 98%;
     overflow: auto;
     z-index: 10;
     top: .5rem;
@@ -542,8 +541,6 @@ blockquote {
     color: #f2f6fb;
     background: black;
     border: thin solid #f2f6fb;
-    width: 95%;
-    max-width: 95%;
     padding: 1rem; }
     .image-modal .modal .modal-anim-enter {
       opacity: 0.00;
@@ -575,6 +572,9 @@ blockquote {
       transform: scale(0.7); }
     .image-modal .modal .big-image {
       text-align: center; }
+      .image-modal .modal .big-image img {
+        width: 85%;
+        height: auto; }
 
 .stories-page {
   height: 100%; }
