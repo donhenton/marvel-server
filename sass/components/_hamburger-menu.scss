@@ -137,6 +137,24 @@
                 left: 55%;
                 font-size: ms(1);
                 color: blue;
+                #view-portrait
+                { 
+                    @media (orientation: landscape) {
+                        display: none
+                    }
+                    @media (orientation: portrait) {
+                        display: block
+                    }
+                }
+                #view-landscape
+                { 
+                    @media (orientation: landscape) {
+                        display: block
+                    }
+                    @media (orientation: portrait) {
+                        display: none
+                    }
+                } 
             }
 
         }
