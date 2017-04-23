@@ -62,16 +62,16 @@
 
                 display: inline;
                 overflow:hidden;
-                border: thin solid green;
+                
                 @include forLargeScreens(640) {
                     flex-grow: 1;
-
+                   // border: thin solid green;
                 }
 
                 .menu {
 
                     margin: 0;
-                    border: thin solid red;
+                 
                     padding: 0;
                     position: fixed;
                     @include forLargeScreens(640) {
@@ -104,11 +104,11 @@
                         text-align: left;
                         background-color: $comic-book-blue;
                         border-bottom: 1px solid $comic-off-white;
-
+                        
 
                         @include forLargeScreens(640) {
                             display: inline;
-                            border: none;
+                            
                         }
                         //Links themselves
                         a {
@@ -128,7 +128,7 @@
                                 display: inline-block;
                                 // height: 100%;
                                 font-size: ms(1);
-                                padding: 1rem 2%;
+                               // padding:   2%;
                                 background-color:$comic-book-blue; 
                                 color:  $comic-off-white   ;    
 
@@ -156,7 +156,7 @@
                  float: right;
                  @include forLargeScreens(640) {
                     flex-grow: 1;
-                    border: thin solid blue;
+                  //  border: thin solid blue;
                     float: inherit;
 
                 }
@@ -237,14 +237,18 @@
         footer
         {
             height: 5%;
+            display:flex;
+            align-content: center;
+            justify-content: center;
             max-height: 5%;
             min-height:5%;
             // padding: 1rem;
-            font-size: 1.2rem;
+            font-size: ms(2);
             text-align: center;
             .item-banner
             {
                 // padding-top: 0.5rem;
+                margin: auto 0;
                 a {
                     text-decoration: none;
                     color: $comic-off-white;
