@@ -213,7 +213,8 @@ blockquote {
       .body-container .main-container header #view-report {
         font-size: 22px;
         color: blue;
-        margin-left: 10rem; }
+        margin-left: 10rem;
+        display: none; }
         @media (orientation: landscape) {
           .body-container .main-container header #view-report #view-portrait {
             display: none; } }
@@ -510,11 +511,17 @@ blockquote {
   display: flex;
   justify-content: space-around;
   flex-direction: column;
+  width: 75%;
+  margin: 0 auto;
   align-content: center;
   color: #f2f6fb;
   background: black;
   border: thin solid #f2f6fb;
   padding: 1rem; }
+  @media (min-width: 56.25em) {
+    .image-modal .modal {
+      height: 95%;
+      width: 50%; } }
   .image-modal .modal .modal-anim-enter {
     opacity: 0.00;
     transform: scale(0.7);
@@ -527,10 +534,9 @@ blockquote {
     .image-modal .modal .modalHeader .btnClose {
       border: 1px solid white;
       float: right;
-      padding: 1rem;
       margin-bottom: 1rem;
       cursor: pointer;
-      font-size: 3.5rem; }
+      font-size: 2rem; }
       .image-modal .modal .modalHeader .btnClose:hover {
         background-color: #86aede; }
   .image-modal .modal .modal-anim-enter.modal-anim-enter-active {
@@ -547,8 +553,8 @@ blockquote {
     text-align: center; }
     .image-modal .modal .big-image img {
       width: auto;
-      height: 75%; }
-      @media (min-width: 40em) {
+      height: 90%; }
+      @media (min-width: 56.25em) {
         .image-modal .modal .big-image img {
           height: 80%; } }
 

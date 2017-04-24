@@ -34,6 +34,15 @@
         display: flex;
         justify-content: space-around;
         flex-direction: column;
+        width:75%;
+       // height: 80%;
+        margin: 0 auto;
+        
+         @include forLargeScreens(900) {
+                   
+                    height:95%;
+                    width:50%;
+                }
 
         align-content: center;
         // right: 0;
@@ -69,10 +78,10 @@
             {
                 border: 1px solid white;
                 float: right;
-                padding:  1rem;
+               // padding:  1rem;
                 margin-bottom: 1rem;
                 cursor: pointer;
-                font-size:3.5rem;
+                font-size:2rem;
 
 
                 &:hover
@@ -105,14 +114,15 @@
         .big-image
         {
             text-align: center;
+             
             // overflow:auto;
             //height: 70rem;
 
             img
             {
-                width:auto;
-                height:75%;
-                @include forLargeScreens(640) {
+                 width:auto;
+                 height:90%;
+                @include forLargeScreens(900) {
                    
                     height:80%;
                 }
