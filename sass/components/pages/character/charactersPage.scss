@@ -1,6 +1,6 @@
 .characters-page
 { 
-
+    font-size: ms(1);
     .character-controls
     { 
         text-align: center;
@@ -9,7 +9,7 @@
         {
             // padding-top: 4%;
             // display: inline-table;
-          //  border: thin solid green;
+            //  border: thin solid green;
             position: absolute;
             left: 50%;
             top:1%;
@@ -22,7 +22,7 @@
 
         //height: 5%;
         position: relative;
-      //  border: thin solid red;
+        //  border: thin solid red;
         .control-box
         {
             //height: 2.5rem;

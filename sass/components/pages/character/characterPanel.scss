@@ -5,10 +5,11 @@
     background-color:  $comic-book-blue;
     text-align:center;
     padding: 1%;
-    margin-top: 1%;
-   // height: 30%;
+    margin-top: 4%;
+    // height: 30%;
     width:75%;
-
+    height: 67%;
+    min-height: 67%;
 
     @include forLargeScreens(640) {
 
@@ -37,29 +38,29 @@
     { 
 
         padding: 2%;
-        min-height: 15rem;
+        height: 85%;
+        margin-top: 5%;
+        margin-bottom: 5%;
         border: thin solid $comic-dark-blue;
         .image-item
         {
-            width: 100px;
-            height: 150px;
 
         }
 
         .character-link-block
         {
 
-            margin-right: 5%;
-            
-            float: right;
-            width: 33%;
-            
+            // margin-right: 5%;
+
+            // float: right;
+            // width: 33%;
+
             text-align: left;
             li
             {
-                margin-top:  5%;
-                padding: 7.5%;
-                margin-bottom:  5%;
+                margin-top:  2.5%;
+                padding: 3%;
+                margin-bottom:  2.5%;
                 background-color: $comic-dark-blue;
                 text-align: center;
                 &:hover
@@ -71,14 +72,15 @@
             {
                 text-decoration: none;
                 color: $comic-off-white;
-                
+
             }
 
         }
         .image-item 
         {
             display: inline;
-            float: left;
+            //  float: left;
+            text-align:center;
             cursor: pointer;
 
         }
