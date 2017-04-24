@@ -131,12 +131,7 @@ blockquote {
     height: 100%;
     z-index: 5;
     left: 0px;
-    position: relative;
-    /*        @include forLargeScreens(640) {
-                    height: 92.8%;
-                    border-left: none;
-                    z-index:5;
-                }*/ }
+    position: relative; }
     .body-container .main-container header, .body-container .main-container footer {
       z-index: 10;
       background-color: #86aede;
@@ -240,7 +235,7 @@ blockquote {
       padding: 2rem;
       left: -0.1rem;
       background: url("../../css/imgs/bpencil.png") center center fixed;
-      background-size: cover;
+      background-size: contain;
       background-color: white;
       overflow: auto; }
       .body-container .main-container .main-content.no-scroll {
