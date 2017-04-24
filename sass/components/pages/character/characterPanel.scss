@@ -6,10 +6,19 @@
     text-align:center;
     padding: 1%;
     margin-top: 4%;
-    // height: 30%;
     width:75%;
-    height: 60%;
-    min-height: 60%;
+    
+    //landscape
+    height: 35rem;
+    min-height:35rem;
+    @include forLargeHeight(700) {
+
+        height: 75%;
+        min-height:75%;
+        
+      
+    }
+    
 
     @include forLargeScreens(640) {
 
@@ -38,7 +47,7 @@
     { 
 
         padding: 2%;
-        height: 85%;
+      //  height: 85%;
         margin-top: 5%;
         margin-bottom: 5%;
         //  border: thin solid $comic-dark-blue;

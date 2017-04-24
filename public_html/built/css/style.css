@@ -353,8 +353,12 @@ blockquote {
   padding: 1%;
   margin-top: 4%;
   width: 75%;
-  height: 60%;
-  min-height: 60%; }
+  height: 35rem;
+  min-height: 35rem; }
+  @media (min-height: 43.75em) {
+    .character-panel {
+      height: 75%;
+      min-height: 75%; } }
   @media (min-width: 40em) {
     .character-panel {
       margin: 1%;
@@ -369,7 +373,6 @@ blockquote {
       max-width: 22%; } }
   .character-panel .character-block {
     padding: 2%;
-    height: 85%;
     margin-top: 5%;
     margin-bottom: 5%; }
     .character-panel .character-block .character-link-block {
