@@ -6,11 +6,12 @@
     text-align:center;
     padding: 1%;
     margin-top: 4%;
+     
     width:75%;
     
     //landscape
-    height: 35rem;
-    min-height:35rem;
+    height: auto;
+    min-height:auto;
     @include forLargeHeight(700) {
 
         height: 75%;

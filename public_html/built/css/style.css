@@ -344,7 +344,8 @@ blockquote {
     @media (min-width: 40em) {
       .characters-page .flex-container {
         position: relative;
-        flex-flow: row wrap; } }
+        flex-flow: row wrap;
+        align-items: flex-start; } }
 
 .character-panel {
   color: #f2f6fb;
@@ -353,8 +354,8 @@ blockquote {
   padding: 1%;
   margin-top: 4%;
   width: 75%;
-  height: 35rem;
-  min-height: 35rem; }
+  height: auto;
+  min-height: auto; }
   @media (min-height: 43.75em) {
     .character-panel {
       height: 75%;
