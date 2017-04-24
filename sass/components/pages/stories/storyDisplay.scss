@@ -11,4 +11,18 @@
     overflow:auto;
     background: $comic-off-white;
     
+    .no-data
+    {
+        font-size: ms(3);
+        width: 25rem;
+        height: 4rem;
+        text-align:center;
+        position:absolute;
+        top: 50%;
+        left:50%;
+        margin-left: -12.5rem;
+        margin-top: -2rem;
+        
+        
+    }
 }

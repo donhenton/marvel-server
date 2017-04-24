@@ -73,6 +73,16 @@ export default class StoryDisplay extends Component {
 
             return  <div className='story-display'><WaitIndicator isProcessing={this.state.isProcessing} /></div>;
         }
+        if (this.state.storiesData && this.state.storiesData.data 
+                && this.state.storiesData.data.length == 0)
+        {
+            return (
+                    <div className='story-display'>
+                    <div className="no-data">No Data Found</div> 
+                        
+                    </div>
+            )
+        }
 
         return (
                 <div className='story-display'>
