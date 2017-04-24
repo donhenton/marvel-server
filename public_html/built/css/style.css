@@ -357,12 +357,14 @@ blockquote {
   padding: 1%;
   margin-top: 4%;
   width: 75%;
-  height: 67%;
-  min-height: 67%; }
+  height: 75%;
+  min-height: 75%; }
   @media (min-width: 40em) {
     .character-panel {
       margin: 1%;
-      max-width: 44%; } }
+      max-width: 44%;
+      height: 67%;
+      min-height: 67%; } }
   @media (min-width: 48em) {
     .character-panel {
       margin: 1%;

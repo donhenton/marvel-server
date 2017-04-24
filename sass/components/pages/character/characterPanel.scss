@@ -8,15 +8,16 @@
     margin-top: 4%;
     // height: 30%;
     width:75%;
-    height: 67%;
-    min-height: 67%;
+    height: 75%;
+    min-height: 75%;
 
     @include forLargeScreens(640) {
 
 
         margin : 1%;
         max-width: 44%;
-
+        height: 67%;
+        min-height: 67%;
     }
     @include forLargeScreens(768) {
 
@@ -41,7 +42,7 @@
         height: 85%;
         margin-top: 5%;
         margin-bottom: 5%;
-      //  border: thin solid $comic-dark-blue;
+        //  border: thin solid $comic-dark-blue;
         .image-item
         {
 
@@ -50,7 +51,7 @@
         .character-link-block
         {
 
-              margin-top: 5%;
+            margin-top: 5%;
 
             // float: right;
             // width: 33%;
