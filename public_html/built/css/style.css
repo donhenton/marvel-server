@@ -213,7 +213,7 @@ blockquote {
       .body-container .main-container header #view-report {
         font-size: 22px;
         color: blue;
-        display: none; }
+        margin-left: 10rem; }
         @media (orientation: landscape) {
           .body-container .main-container header #view-report #view-portrait {
             display: none; } }
@@ -353,7 +353,8 @@ blockquote {
   padding: 1%;
   margin-top: 4%;
   width: 75%;
-  min-height: 75%; }
+  height: 60%;
+  min-height: 60%; }
   @media (min-width: 40em) {
     .character-panel {
       margin: 1%;
