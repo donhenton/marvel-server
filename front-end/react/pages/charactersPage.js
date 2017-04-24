@@ -91,7 +91,7 @@ export default class CharactersPage extends Component {
 
     getDisplayString()
     {
-        let str = "Displaying Character "
+        let str = "Character "
         str = str + (this.state.offset + 1) + " To "
                 + (this.state.offset + this.state.count)
                 + " Of " + (this.state.total);

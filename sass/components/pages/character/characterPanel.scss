@@ -8,7 +8,7 @@
     margin-top: 4%;
     // height: 30%;
     width:75%;
-    height: 75%;
+  //  height: 75%;
     min-height: 75%;
 
     @include forLargeScreens(640) {
@@ -16,8 +16,7 @@
 
         margin : 1%;
         max-width: 44%;
-        height: 67%;
-        min-height: 67%;
+      
     }
     @include forLargeScreens(768) {
 

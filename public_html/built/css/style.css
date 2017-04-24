@@ -235,7 +235,7 @@ blockquote {
       padding: 2rem;
       left: -0.1rem;
       background: url("../../css/imgs/bpencil.png") center center fixed;
-      background-size: contain;
+      background-size: cover;
       background-color: white;
       overflow: auto; }
       .body-container .main-container .main-content.no-scroll {
@@ -311,6 +311,7 @@ blockquote {
   font-size: 22px; }
   .characters-page .character-controls {
     text-align: center;
+    height: 15%;
     vertical-align: central;
     position: relative; }
     .characters-page .character-controls .control-text {
@@ -352,14 +353,11 @@ blockquote {
   padding: 1%;
   margin-top: 4%;
   width: 75%;
-  height: 75%;
   min-height: 75%; }
   @media (min-width: 40em) {
     .character-panel {
       margin: 1%;
-      max-width: 44%;
-      height: 67%;
-      min-height: 67%; } }
+      max-width: 44%; } }
   @media (min-width: 48em) {
     .character-panel {
       margin: 1%;
