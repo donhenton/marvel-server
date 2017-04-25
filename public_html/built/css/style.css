@@ -500,12 +500,14 @@ blockquote {
     width: 100%;
     max-width: 100%; }
     .comic-panel .comic-image a {
-      text-decoration: none; }
-      .comic-panel .comic-image a:hover {
-        color: #f5af66;
-        background-color: #f5af66; }
+      text-decoration: none;
+      color: #f2f6fb; }
+      .comic-panel .comic-image a:link {
+        color: #f2f6fb; }
       .comic-panel .comic-image a:visited {
         color: #f2f6fb; }
+      .comic-panel .comic-image a:hover {
+        color: #f5af66; }
   .comic-panel .comic-title {
     margin: 1rem  auto; }
   @media (min-width: 40em) {

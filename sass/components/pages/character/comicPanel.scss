@@ -3,7 +3,7 @@
     text-align: center;
     background-color: black;
     padding: 0.5rem;
-    
+
     margin: 1%;
 
 
@@ -14,17 +14,22 @@
         //  border: thin solid red;
         a {
             text-decoration: none;
-            
-            &:hover
+            color: $comic-off-white;
+            &:link
                 {
-                color: $orange-highlight;
-                background-color: $orange-highlight;
-
+                color: $comic-off-white;
             }
             &:visited
                 {
                 color: $comic-off-white;
             }
+            &:hover
+                {
+                color: $orange-highlight;
+
+
+            }
+
         }
     }
 
@@ -49,7 +54,7 @@
 
         max-width: 44%;
         min-width: 44%;
-       // height: 27.5rem;
+        // height: 27.5rem;
     }
     /*  @include forLargeScreens(768) {
   
