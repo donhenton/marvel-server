@@ -109,7 +109,7 @@
                         //Links themselves
                         a {
                             display: block;
-                            padding: .5rem .75rem;
+                            padding: 2rem .75rem;
                             @include forLargeScreens(650) {
                                 float: inherit;
                                 padding:  .5rem 1.25rem;

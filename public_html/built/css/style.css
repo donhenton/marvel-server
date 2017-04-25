@@ -185,7 +185,7 @@ blockquote {
                 display: inline; } }
             .body-container .main-container header nav .menu li a {
               display: block;
-              padding: .5rem .75rem;
+              padding: 2rem .75rem;
               font-size: 26px;
               color: #f2f6fb;
               text-decoration: none; }
