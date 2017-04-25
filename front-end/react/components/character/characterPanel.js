@@ -73,9 +73,12 @@ export default class CharacterPanel extends Component {
                 <div className='character-panel grouping'>
                  <div  onClick={this.showModal.bind(this)} className='character-name'>{this.state.characterData.name}</div>
                     <div className="character-block grouping">
+                    
                         <div onClick={this.showModal.bind(this)} className='image-item'>
                         <img ref={IMAGE_REF} src="css/imgs/medium_na.jpg" /> 
-                        </div>
+                       
+                        <div className="link-action">(Click for More)</div>
+                         </div>
                         <div className="character-link-block">
                             {this.getCharacterLinks()}
                         </div>

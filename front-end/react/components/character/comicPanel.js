@@ -55,13 +55,16 @@ export default class ComicPanel extends Component {
 
     getBigImageLink()
     {
-        if (this.state.comicData.thumbnail.indexOf('image_not_available') > 0)
+        if (this.state.comicData.thumbnail.indexOf('image_not_available') > 0
+                || window.innerHeight < 600  )
         {
             return <img ref={COMIC_IMAGE_REF} src="css/imgs/xlarge_na.jpg" />;
         } else
         {
             return <a href="#" onClick={this.getBigImage.bind(this)}>
-                <img ref={COMIC_IMAGE_REF} src="css/imgs/xlarge_na.jpg" /></a>;
+                <img ref={COMIC_IMAGE_REF} src="css/imgs/xlarge_na.jpg" />
+                <div className="link-action">(Click for More)</div>
+            </a>;
         }
 
 
@@ -71,18 +74,18 @@ export default class ComicPanel extends Component {
     {
 
         return (
-                    <div className='comic-panel grouping'>
-                        <div className='comic-title'>{this.state.comicData.title}</div>
-                        <div className="comic-image">
+                <div className='comic-panel grouping'>
+                    <div className='comic-title'>{this.state.comicData.title}</div>
+                    <div className="comic-image">
                         {this.getBigImageLink()}
-                        </div>
-                        <div className='comic-info'>
-                
-                            <span className='comic-price'>$ {this.state.comicData.price.price}</span>
-                            <span className='comic-date'>{this.getDate()}</span>
-                        </div>
-                
                     </div>
+                    <div className='comic-info'>
+                
+                        <span className='comic-price'>$ {this.state.comicData.price.price}</span>
+                        <span className='comic-date'>{this.getDate()}</span>
+                    </div>
+                
+                </div>
 
                 )
 
