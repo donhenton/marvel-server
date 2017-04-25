@@ -34,8 +34,9 @@
         display: flex;
         justify-content: space-around;
         flex-direction: column;
-        width:75%;
-       // height: 80%;
+        width:auto;
+        
+       
         margin: 0 auto;
         
          @include forLargeScreens(900) {

@@ -84,7 +84,7 @@ export default class Modal extends Component {
 
         var me = this;
         let style = {top:this.state.displace};
-         let styleItem = {top:(this.state.displace+5)};
+         let styleItem = {top:(this.state.displace-15)};
         if (this.state.isOpen)
         {
             return (

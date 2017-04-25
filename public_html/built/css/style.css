@@ -467,8 +467,6 @@ blockquote {
   text-align: center;
   background-color: black;
   padding: 0.5rem;
-  max-width: 100%;
-  min-width: 100%;
   margin: 1%;
   /*  @include forLargeScreens(768) {
   
@@ -529,7 +527,7 @@ blockquote {
   display: flex;
   justify-content: space-around;
   flex-direction: column;
-  width: 75%;
+  width: auto;
   margin: 0 auto;
   align-content: center;
   color: #f2f6fb;
