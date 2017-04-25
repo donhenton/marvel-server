@@ -322,6 +322,8 @@ blockquote {
 .link-action {
   font-size: 16px;
   font-family: graphikregularitalic; }
+  .link-action:hover {
+    color: #f5af66; }
 
 .characters-page {
   font-size: 22px; }
@@ -585,21 +587,33 @@ blockquote {
   width: 33%;
   background: #f2f6fb;
   float: left; }
+  .character-scroller .scroller-explain {
+    background-color: #86aede;
+    color: #f2f6fb;
+    font-size: 16px;
+    font-family: graphikregularitalic;
+    text-align: center;
+    padding: 1rem; }
   .character-scroller .loader-area {
-    height: 5rem;
     border: thin solid #4674ac;
     text-align: center;
     padding-top: 1rem; }
     .character-scroller .loader-area img {
+      height: auto;
       max-width: 95%; }
+    .character-scroller .loader-area span {
+      margin-bottom: .5rem; }
   .character-scroller .scroller-container {
     border: thin solid #4674ac;
     position: relative; }
     .character-scroller .scroller-container .infinite-scroll {
-      height: 85%;
+      height: 75%;
       width: 99%;
       overflow-y: auto;
       overflow-x: hidden; }
+      @media (min-height: 40em) {
+        .character-scroller .scroller-container .infinite-scroll {
+          height: 85%; } }
     .character-scroller .scroller-container .scroll-item {
       background-color: #4674ac;
       cursor: pointer;
@@ -629,7 +643,7 @@ blockquote {
   border: thin solid #4674ac;
   position: relative;
   width: 65%;
-  height: 99%;
+  height: 100%;
   padding: 2%;
   overflow: auto;
   background: #f2f6fb; }

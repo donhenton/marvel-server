@@ -91,29 +91,17 @@ export default class CharacterScroller extends Component {
 
     showLoader(type)
     {
-        let showBlock = {dipslay: 'inline'};
-        let hideBlock = {display: 'none'}
+        let showBlock = {visibility: 'visible'};
+        let hideBlock = {visibility: 'hidden'};
         if (this.state.isLoading)
         {
-            if (type === 'img')
-            {
-                return showBlock;
-            }
-            if (type === 'text')
-            {
-                return hideBlock;
-            }
+            return showBlock;
         }
         if (!this.state.isLoading)
         {
-            if (type === 'img')
-            {
-                return hideBlock;
-            }
-            if (type === 'text')
-            {
-                return showBlock;
-            }
+
+            return hideBlock;
+
         }
 
     }
@@ -155,9 +143,10 @@ export default class CharacterScroller extends Component {
         var me = this;
         return (
                 <div className="character-scroller">
+                    <div className="scroller-explain">Click On A Character</div>
                     <div className="loader-area">
                         <img style={this.showLoader('img')} src='css/imgs/scroll-loader.gif' />  
-                        <span style={this.showLoader('text')}>Complete  </span>
+                
                     </div>
                     <div className='scroller-container'>  
                         <WaitIndicator isProcessing={this.state.isLoading} />

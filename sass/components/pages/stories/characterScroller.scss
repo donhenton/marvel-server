@@ -1,21 +1,36 @@
 .character-scroller
 {
     width: 33%;
-    
+    .scroller-explain
+    {
+        background-color: $comic-book-blue;
+        color: $comic-off-white;
+        font-size: ms(0);
+        font-family: graphikregularitalic;
+        text-align: center;
+        padding: 1rem;
+ 
+    }
     
     background: $comic-off-white;
     float: left;
     .loader-area
     {
-        height: 5rem;
+
         border: thin solid $comic-dark-blue;
         text-align: center;
         padding-top: 1rem;
         img
         {
-            
+            height:auto;
             max-width: 95%;
+             
         }
+        span
+        {
+            margin-bottom: .5rem;
+        }
+        
     }
     .scroller-container
     {
@@ -24,10 +39,15 @@
 
         .infinite-scroll
         {
-            height: 85%;
+            height: 75%;
             width:99%;
             overflow-y: auto;
             overflow-x:hidden;
+            
+              @include forLargeHeight(640) {
+
+                 height: 85%;
+            }
 
         }
 
