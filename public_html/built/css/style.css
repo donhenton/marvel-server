@@ -185,7 +185,7 @@ blockquote {
                 display: inline; } }
             .body-container .main-container header nav .menu li a {
               display: block;
-              padding: 2rem .75rem;
+              padding: 4rem .75rem;
               font-size: 26px;
               color: #f2f6fb;
               text-decoration: none; }
@@ -380,6 +380,8 @@ blockquote {
     .character-panel {
       height: 75%;
       min-height: 75%; } }
+  .character-panel .link-action {
+    margin-top: 1.5rem; }
   @media (min-width: 40em) {
     .character-panel {
       margin: 1%;
