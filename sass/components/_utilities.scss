@@ -29,8 +29,13 @@
 {
     font-size: ms(0);
     font-family: graphikregularitalic;
+    text-decoration: none;
     &:hover
         {
         color:$orange-highlight;
+    }
+    &:visited
+        {
+       color: $comic-off-white ;
     }
 }

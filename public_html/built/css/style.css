@@ -323,9 +323,12 @@ blockquote {
 
 .link-action {
   font-size: 16px;
-  font-family: graphikregularitalic; }
+  font-family: graphikregularitalic;
+  text-decoration: none; }
   .link-action:hover {
     color: #f5af66; }
+  .link-action:visited {
+    color: #f2f6fb; }
 
 .characters-page {
   font-size: 22px; }

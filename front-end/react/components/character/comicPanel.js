@@ -63,7 +63,7 @@ export default class ComicPanel extends Component {
         {
             return <a href="#" onClick={this.getBigImage.bind(this)}>
                 <img ref={COMIC_IMAGE_REF} src="css/imgs/xlarge_na.jpg" />
-                <div className="link-action">(Click for More)</div>
+                <div className="link-action">(Click To Expand)</div>
             </a>;
         }
 
