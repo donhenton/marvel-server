@@ -246,9 +246,10 @@ blockquote {
       background: url("../../css/imgs/bpencil.png") center center fixed;
       background-size: cover;
       background-color: white;
-      overflow: auto; }
+      overflow-x: hidden;
+      overflow-y: auto; }
       .body-container .main-container .main-content.no-scroll {
-        overflow: hidden; }
+        overflow-y: hidden; }
     .body-container .main-container footer {
       height: 5%;
       display: flex;

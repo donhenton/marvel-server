@@ -105,7 +105,7 @@ export default class CharacterDetail extends Component {
 
         return (
                 <div className={this.getDetailCss()}>
-                    <div className='title-area' onClick={this.returnToList.bind(this)}>
+                    <div className='title-area'>
                         <span className='return-button' onClick={this.returnToList.bind(this)}>
                             <span className='fi-arrow-left'  />
                         </span>

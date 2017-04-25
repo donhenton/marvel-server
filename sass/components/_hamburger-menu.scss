@@ -217,15 +217,15 @@
 
             background-size: cover;
             background-color: white;
-
-            overflow: auto;
+            overflow-x: hidden;
+            overflow-y: auto;
             @include forLargeScreens(640) {
 
             }
 
             &.no-scroll
             {
-                overflow:hidden;
+                overflow-y:hidden;
             }
 
 
