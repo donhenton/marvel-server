@@ -1,28 +1,57 @@
 .story-display
 {
-    
-     
+
+
     float: right;
     border: thin solid $comic-dark-blue;
     position: relative;
     width: 65%;
-    height: 100%;
+
     padding: 2%;
-    overflow:auto;
+
     background: $comic-off-white;
-    
+    .story-label
+    {
+        background-color: $comic-dark-blue;
+        color: $comic-off-white;
+        padding: 1rem;
+    }
+    .story-display-container
+    {
+        overflow:auto;
+        height: 70%;
+        margin-bottom: 1%;
+        margin-top: 2%;
+        border: thin solid $comic-dark-blue;
+        @include forLargeHeight(640) {
+
+            height: 82%;
+        }
+    }
+
+
     .no-data
     {
-        font-size: ms(3);
-        width: 25rem;
-        height: 4rem;
         text-align:center;
         position:absolute;
         top: 50%;
         left:50%;
-        margin-left: -12.5rem;
+        font-size: ms(2);
+        width: 20rem;
+        height: 4rem;
+        margin-left: -10rem;
         margin-top: -2rem;
-        
-        
+
+        @include forLargeScreens(640) {
+
+           font-size: ms(3);
+            width: 25rem;
+            height: 4rem;
+            margin-left: -12.5rem;
+            margin-top: -2rem;
+        }
+
+
+
     }
 }

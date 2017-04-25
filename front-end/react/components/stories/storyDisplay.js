@@ -26,7 +26,7 @@ export default class StoryDisplay extends Component {
             topic: "stories.request",
             callback: function (data, envelope) {
                 // console.log(JSON.stringify(data.characters))
-                me.setState({isProcessing: true, characterId: data.characterId}, function ()
+                me.setState({isProcessing: true, characterId: data.characterId, characterName: data.characterName}, function ()
                 {
                     //make a data request for story info
                     postal.publish({
@@ -39,7 +39,7 @@ export default class StoryDisplay extends Component {
         });
         this.subscriptions.push(sub1);
         this.subscriptions.push(sub2);
-        this.state = {isProcessing: false, characterId: null, storiesData: null};
+        this.state = {isProcessing: false, characterId: null, storiesData: null, characterName: null};
     }
 
     componentWillUnmount() {
@@ -56,12 +56,17 @@ export default class StoryDisplay extends Component {
         if (this.state.storiesData && this.state.storiesData.data)
         {
             this.state.storiesData.data.forEach(s => {
-                  titles.push(<StoryItem storyItem={s} key={s.id} />)
-               
+                titles.push(<StoryItem storyItem={s} key={s.id} />)
+
             })
         }
 
         return titles;
+    }
+    
+    getStoryLabel()
+    {
+        return this.state.characterName;
     }
 
     render()
@@ -71,25 +76,43 @@ export default class StoryDisplay extends Component {
         if (this.state.isProcessing)
         {
 
-            return  <div className='story-display'><WaitIndicator isProcessing={this.state.isProcessing} /></div>;
+            return  (
+                    <div  className='story-display'>
+                        <div className="story-label">
+                            Processing ...
+                        </div>
+                        <div className='story-display-container'>
+                            <WaitIndicator isProcessing={this.state.isProcessing} />
+                        </div>
+                    </div>
+                    );
         }
-        if (this.state.storiesData && this.state.storiesData.data 
+        if (this.state.storiesData && this.state.storiesData.data
                 && this.state.storiesData.data.length == 0)
         {
             return (
-                    <div className='story-display'>
-                    <div className="no-data">No Data Found</div> 
-                        
+                     <div  className='story-display'>
+                        <div className="story-label">
+                             {me.getStoryLabel()}
+                        </div>
+                        <div className='story-display-container'>
+                            <div className="no-data">No Data Found</div> 
+                    
+                        </div>
                     </div>
-            )
+                    )
         }
 
         return (
-                <div className='story-display'>
-                    {me.renderStoryItems()}
+                 <div  className='story-display'>
+                    <div className="story-label">
+                        {me.getStoryLabel()}
+                    </div>
+                    <div className='story-display-container'>
+                        {me.renderStoryItems()}
+                    </div>
+                
                 </div>
-
-
 
 
 

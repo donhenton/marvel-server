@@ -45,14 +45,14 @@ export default class CharacterScroller extends Component {
 
     }
 
-    requestStories(characterId)
+    requestStories(character)
     {
-        this.setState({selectedId: characterId}, function ()
+        this.setState({selectedId: character.id}, function ()
         {
             postal.publish({
                 channel: "story.channel",
                 topic: "stories.request",
-                data: {characterId: characterId}
+                data: {characterId: character.id,characterName: character.name}
             });
         });
     }
@@ -118,7 +118,7 @@ export default class CharacterScroller extends Component {
             }
 
             items.push(
-                    <div onClick={this.requestStories.bind(me, i.id)}
+                    <div onClick={this.requestStories.bind(me, i)}
                          ref={node => this[(REF_CONST + i.id)] = node}   
                          key={i.id} className={css}>
                     
