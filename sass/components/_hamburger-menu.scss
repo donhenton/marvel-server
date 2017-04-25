@@ -13,7 +13,7 @@
         border-left: thin solid black;
 
         height: 100%;
- 
+
         left: 0px;
         position:relative;
 
@@ -157,19 +157,14 @@
                 margin-right: 2rem;
                 text-align: right;
                 float: right;
-                @include forLargeScreens(640) {
-                    flex-grow: 1;
-                    //  border: thin solid blue;
-                    float: inherit;
+                margin-top: -1rem;
+                @include forLargeHeight(500) {
+
+                    margin-top:0rem;
 
                 }
-                //margin-top: 1rem;
-                // font-size: 3.4rem;
-                font-size: ms(4);
-                @include forLargeScreens(640) {
-                    float: inherit;
+               font-size: ms(4);
 
-                }
             }
 
             #view-report
@@ -222,7 +217,7 @@
 
             background-size: cover;
             background-color: white;
-            
+
             overflow: auto;
             @include forLargeScreens(640) {
 
