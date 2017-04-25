@@ -7,7 +7,7 @@
     position: relative;
     width: 65%;
 
-    padding: 2%;
+    padding: 1%;
 
     background: $comic-off-white;
     .story-label
@@ -22,7 +22,8 @@
         height: 70%;
         margin-bottom: 1%;
         margin-top: 2%;
-        border: thin solid $comic-dark-blue;
+        padding: 1%;
+        border: 2px solid $orange-highlight;
         @include forLargeHeight(640) {
 
             height: 82%;
