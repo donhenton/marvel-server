@@ -10,18 +10,17 @@
     .main-container {
         // @include animation-nav-icon;
 
-        border-left: thin solid $comic-dark-blue;
+        border-left: thin solid black;
 
         height: 100%;
-
-        z-index:5;
+ 
         left: 0px;
         position:relative;
 
         header,footer
         {
 
-            z-index: 10;
+            z-index: 70;
             background-color: $comic-book-blue;
             color: $comic-off-white;
         }
@@ -29,14 +28,19 @@
 
         header 
         {
-            height: 10%;
-            max-height: 10%;
-            min-height: 10%;
+            height: 11%;
+            margin: 0;
+
+            max-height: 11%;
+            min-height: 11%;
             // postition:relative;
             @include forLargeScreens(640) {
 
                 display:flex;
                 align-content: center;
+                max-height: 10%;
+                min-height: 10%;
+                height: 10%;
             }
 
             .header-item
@@ -53,16 +57,16 @@
 
                 display: inline;
                 overflow:hidden;
-                
+
                 @include forLargeScreens(640) {
                     flex-grow: 1;
-                   // border: thin solid green;
+                    // border: thin solid green;
                 }
 
                 .menu {
 
                     margin: 0;
-                 
+
                     padding: 0;
                     position: fixed;
                     @include forLargeScreens(640) {
@@ -84,29 +88,37 @@
                         z-index:  100;
                         display: inline;
                         border: none;
-                        background-color:   $comic-book-blue ;
+                        // background-color:   $comic-book-blue ;
+                        // background-color:  red;
                         position: inherit;
 
 
                     }
                     //List items
                     li {
-                       // width: 210px;
+                        // width: 210px;
                         text-align: left;
                         background-color: $comic-book-blue;
                         border-bottom: 1px solid $comic-off-white;
-                        
+
 
                         @include forLargeScreens(640) {
                             display: inline;
-                            
+
                         }
                         //Links themselves
                         a {
                             display: block;
-                            padding: 1.5rem 2rem;
-
-                             font-size: ms(2);
+                            padding: .5rem .75rem;
+                            @include forLargeScreens(650) {
+                                float: inherit;
+                                padding:  .5rem 1.25rem;
+                            }
+                            @include forLargeScreens(700) {
+                                float: inherit;
+                                padding:  .5rem 2rem;
+                            }
+                            font-size: ms(2);
                             color: $comic-off-white;
                             text-decoration: none;
                             &:hover
@@ -119,16 +131,16 @@
                                 display: inline-block;
                                 // height: 100%;
                                 font-size: ms(1);
-                               // padding:   2%;
+                                // padding:   2%;
                                 background-color:$comic-book-blue; 
                                 color:  $comic-off-white   ;    
 
 
 
                             }
-                             @include forLargeScreens(800) {
-                                 
-                                  font-size: ms(2.2);
+                            @include forLargeScreens(800) {
+
+                                font-size: ms(2.2);
 
                             }
                         }
@@ -141,18 +153,18 @@
 
             .header-title
             {
-                             
-                 margin-right: 2rem;
-                 text-align: right;
-                 float: right;
-                 @include forLargeScreens(640) {
+
+                margin-right: 2rem;
+                text-align: right;
+                float: right;
+                @include forLargeScreens(640) {
                     flex-grow: 1;
-                  //  border: thin solid blue;
+                    //  border: thin solid blue;
                     float: inherit;
 
                 }
                 //margin-top: 1rem;
-               // font-size: 3.4rem;
+                // font-size: 3.4rem;
                 font-size: ms(4);
                 @include forLargeScreens(640) {
                     float: inherit;
@@ -167,8 +179,8 @@
                 font-size: ms(1);
                 color: blue;
                 margin-left: 10rem;
-                
-                 display:none;
+
+                display:none;
                 #view-portrait
                 { 
                     @media (orientation: landscape) {
@@ -197,6 +209,7 @@
             width:100%;
             position:relative;
             background-color: white;
+            border-left: thin solid black;
             font-size: 1.4rem;
             padding: 2rem;
             left: -0.1rem;
@@ -206,10 +219,10 @@
             //-webkit-background-size: cover;
             // -moz-background-size: cover;
             //-o-background-size: cover;
-            
+
             background-size: cover;
             background-color: white;
-
+            
             overflow: auto;
             @include forLargeScreens(640) {
 
@@ -233,7 +246,7 @@
             max-height: 5%;
             min-height:5%;
             // padding: 1rem;
-             font-size: ms(0);
+            font-size: ms(0);
             text-align: center;
             .item-banner
             {

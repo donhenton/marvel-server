@@ -127,23 +127,26 @@ blockquote {
   height: 100%;
   overflow: hidden; }
   .body-container .main-container {
-    border-left: thin solid #4674ac;
+    border-left: thin solid black;
     height: 100%;
-    z-index: 5;
     left: 0px;
     position: relative; }
     .body-container .main-container header, .body-container .main-container footer {
-      z-index: 10;
+      z-index: 70;
       background-color: #86aede;
       color: #f2f6fb; }
     .body-container .main-container header {
-      height: 10%;
-      max-height: 10%;
-      min-height: 10%; }
+      height: 11%;
+      margin: 0;
+      max-height: 11%;
+      min-height: 11%; }
       @media (min-width: 40em) {
         .body-container .main-container header {
           display: flex;
-          align-content: center; } }
+          align-content: center;
+          max-height: 10%;
+          min-height: 10%;
+          height: 10%; } }
       @media (min-width: 40em) {
         .body-container .main-container header .header-item {
           margin: auto  0; } }
@@ -172,7 +175,6 @@ blockquote {
               z-index: 100;
               display: inline;
               border: none;
-              background-color: #86aede;
               position: inherit; } }
           .body-container .main-container header nav .menu li {
             text-align: left;
@@ -183,10 +185,18 @@ blockquote {
                 display: inline; } }
             .body-container .main-container header nav .menu li a {
               display: block;
-              padding: 1.5rem 2rem;
+              padding: .5rem .75rem;
               font-size: 26px;
               color: #f2f6fb;
               text-decoration: none; }
+              @media (min-width: 40.625em) {
+                .body-container .main-container header nav .menu li a {
+                  float: inherit;
+                  padding: .5rem 1.25rem; } }
+              @media (min-width: 43.75em) {
+                .body-container .main-container header nav .menu li a {
+                  float: inherit;
+                  padding: .5rem 2rem; } }
               .body-container .main-container header nav .menu li a:hover {
                 background-color: #f5af66; }
               @media (min-width: 40em) {
@@ -232,6 +242,7 @@ blockquote {
       width: 100%;
       position: relative;
       background-color: white;
+      border-left: thin solid black;
       font-size: 1.4rem;
       padding: 2rem;
       left: -0.1rem;
