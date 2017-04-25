@@ -78,7 +78,10 @@ export default class CharacterPanel extends Component {
 
     getBigImageLink()
     {
-        if (window.innerHeight < 600)
+        
+       var nAIdx = this.state.characterData.imageUrl.indexOf("image_not_available");
+        
+        if (window.innerHeight < 600 || nAIdx > 0)
         {
             return (
                     <div  className='image-item no-pointer'>
