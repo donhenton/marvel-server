@@ -30,44 +30,52 @@ export default class Main extends Component {
         let showBind = me.showModal.bind(this)
         let sub2 = postal.subscribe({
             channel: "image.request",
-            topic: "display.comic",
+            topic: "display.#",
             callback: function (data, envelope) {
-                me.setState({imageUrl: data.imageUrl},function(){ showBind()})
+                let modalClass = "detail-image-modal";
+                let displaceAmt = 0;
+                if (envelope.topic === 'display.character')
+                {
+                    modalClass = 'character-image-modal';
+                    displaceAmt = 10;
+                }
+                me.setState({modalClass: modalClass, imageUrl: data.imageUrl,displaceAmt:displaceAmt}, function () {
+                    showBind()
+                })
             }
         });
-        this.state = {page: 'main', imageUrl: null};
+        this.state = {page: 'main', imageUrl: null, modalClass: null,displaceAmt: -15};
         this.subscriptions.push(sub1);
         this.subscriptions.push(sub2);
 
 
     }
-    
-  showModal()
-  {
-      let failImageUrl = 'css/imgs/big_na.png';
-      let img = new Image();
-      let me = this;
-      img.onload = function()
-      {
+
+    showModal()
+    {
+        let failImageUrl = 'css/imgs/big_na.png';
+        let img = new Image();
+        let me = this;
+        img.onload = function ()
+        {
             postal.publish({
             channel: "modal",
             topic: "open",
             data: {}
         });
-        me.refs.imageModal.open(me.state.imageUrl);
-      }
-      img.onerror = function()
-      {
-           me.refs.imageModal.open(failImageUrl);
-      }
-      
-      
-      img.src = this.state.imageUrl;
-      
-      
-     
-  }
+            me.refs.imageModal.open(me.state.imageUrl);
+        }
+        img.onerror = function ()
+        {
+            me.refs.imageModal.open(failImageUrl);
+        }
 
+
+        img.src = this.state.imageUrl;
+
+
+
+    }
 
     componentDidMount()
     {
@@ -102,7 +110,11 @@ export default class Main extends Component {
                 return (
                         <div>
                             <Characters />
-                            <ImageModal ref='imageModal' modalClassName="image-modal" imageUrl={this.state.imageUrl} modalLabel={this.state.imageUrl} />
+                            <ImageModal ref='imageModal' displaceAmt={this.state.displaceAmt} 
+                            modalClassName={this.state.modalClass} 
+                            imageUrl={this.state.imageUrl} 
+                            modalLabel={this.state.imageUrl} />
+                                    
                         </div>)
             }
 

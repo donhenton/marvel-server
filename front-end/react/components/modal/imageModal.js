@@ -48,22 +48,28 @@ export default class ImageModal extends Component {
 
     }
 
-   
+    componentWillReceiveProps(nextProps)
+    {
+
+        this.open(nextProps.imageUrl);
+
+    }
 
     cancel()
     {
 
         this.internalModal.cancel();
-    } 
+    }
 
     open(finalImageUrl)
     {
+        
         let top = $('.main-content').scrollTop();
-        this.setState({imageUrl:finalImageUrl},function() 
+        this.setState({imageUrl: finalImageUrl}, function ()
         {
-             this.internalModal.open(top);
+            this.internalModal.open(top);
         })
-      
+
     }
 
     render()
@@ -72,10 +78,14 @@ export default class ImageModal extends Component {
         var me = this;
 
         return (
-                <Modal modalClassName={this.props.modalClassName} modalLabel={this.state.characterId} ref={(ref) => me.internalModal = ref}>
+                <Modal displaceAmt={this.props.displaceAmt} 
+                       modalClassName={this.props.modalClassName} 
+                       modalLabel={this.state.characterId} 
+                       ref={(ref) => me.internalModal = ref}>
+                       
                     <div className="big-image">
-                    <img src={this.state.imageUrl} />
-                        
+                        <img src={this.state.imageUrl} />
+                
                     </div>
                 </Modal>
                 )

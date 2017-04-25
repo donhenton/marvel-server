@@ -4,11 +4,9 @@ import ReactDOM  from 'react-dom';
 
 
 const IMAGE_REF = 'imageRef';
-const LINK_TYPES =  
-    {'detail': 'Detail',
-        'wiki': 'Wiki Entry',
-        'comiclink': 'Comic Link'}
- ;
+const LINK_TYPES =
+        {'detail': 'Detail',
+            'wiki': 'Wiki Entry'};
 
 export default class CharacterPanel extends Component {
 
@@ -44,26 +42,62 @@ export default class CharacterPanel extends Component {
         let links = [];
         this.state.characterData.urls.forEach(link => {
             let type = LINK_TYPES[link.type];
-         //   console.log("type is " + type)
-            let linkItem = <a className='character-link' target='_blank' href={link.url}>{type}</a>
+            //   console.log("type is " + type)
+            if (type)
+            {
+                let linkItem = <a className='character-link' target='_blank' href={link.url}>{type}</a>
+                links.push(<li  key={link.type}  >{linkItem}</li>);
+            }
 
-            links.push(<li  key={link.type}  >{linkItem}</li>);
         })
 
-
-
-            return <ul>{links}</ul>;
+        links.push(<li key='comic-link'><a  onClick={this.showModal.bind(this)} className='character-link'  href="#">Comics</a></li>)
+        return <ul>{links}</ul>;
     }
-    
-    showModal()
+
+    showModal(ev)
     {
-        
-         postal.publish({
+        ev.preventDefault();
+        postal.publish({
             channel: "character.page",
             topic: "characters.modal",
-            data: {characterData: this.state.characterData }
+            data: {characterData: this.state.characterData}
         });
-        
+
+    }
+
+    showHeroImage()
+    {
+        let imageUrl = this.state.characterData.imageUrl.replace('portrait_medium', 'detail');
+        postal.publish({
+            channel: "image.request",
+            topic: "display.character",
+            data: {imageUrl: imageUrl}
+        });
+    }
+
+    getBigImageLink()
+    {
+        if (window.innerHeight < 600)
+        {
+            return (
+                    <div  className='image-item no-pointer'>
+                        <img ref={IMAGE_REF} src="css/imgs/medium_na.jpg" /> 
+                
+                    </div>
+                    )
+        } else
+        {
+            return (
+                    <div   onClick={this.showHeroImage.bind(this)} className='image-item'>
+                        <img ref={IMAGE_REF} src="css/imgs/medium_na.jpg" /> 
+                
+                        <div className="link-action">(Click To Expand)</div>
+                    </div>
+                    )
+        }
+
+
     }
 
     render()
@@ -71,20 +105,16 @@ export default class CharacterPanel extends Component {
 
         return (
                 <div className='character-panel grouping'>
-                 <div  onClick={this.showModal.bind(this)} className='character-name'>{this.state.characterData.name}</div>
+                    <div  onClick={this.showModal.bind(this)} className='character-name'>{this.state.characterData.name}</div>
                     <div className="character-block grouping">
-                    
-                        <div onClick={this.showModal.bind(this)} className='image-item'>
-                        <img ref={IMAGE_REF} src="css/imgs/medium_na.jpg" /> 
-                       
-                        <div className="link-action">(Click for More)</div>
-                         </div>
+                        {this.getBigImageLink()}
+            
                         <div className="character-link-block">
                             {this.getCharacterLinks()}
                         </div>
                     </div>        
-                
-                   
+            
+            
                 </div>
 
                 )
@@ -92,4 +122,11 @@ export default class CharacterPanel extends Component {
     }
 
 }
-
+/*
+ postal.publish({
+ channel: "image.request",
+ topic: "display.character",
+ data: {imageUrl:  imageUrl}
+ });
+ 
+ */

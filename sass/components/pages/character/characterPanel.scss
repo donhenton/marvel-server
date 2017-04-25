@@ -57,10 +57,7 @@
         margin-top: 5%;
         margin-bottom: 5%;
         //  border: thin solid $comic-dark-blue;
-        .image-item
-        {
-
-        }
+        
 
         .character-link-block
         {
@@ -97,6 +94,10 @@
             //  float: left;
             text-align:center;
             cursor: pointer;
+            &.no-pointer
+            {
+                cursor:default;
+            }
 
         }
     }

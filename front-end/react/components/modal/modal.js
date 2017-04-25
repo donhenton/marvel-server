@@ -46,7 +46,7 @@ export default class Modal extends Component {
 
     componentWillReceiveProps(nextProps)
     {
-        this.setState({isOpen: nextProps.isOpen, displace: nextProps.displace});
+        this.setState({isOpen: nextProps.isOpen, displace: nextProps.displace, });
     }
 
     cancel()
@@ -56,13 +56,13 @@ export default class Modal extends Component {
             topic: "close",
             data: {}
         });
-        this.setState({isOpen: false,displace:0});
+        this.setState({isOpen: false, displace: 0});
     }
 
     open(displace)
     {
 
-        this.setState({isOpen: true, displace: displace})
+        this.setState({isOpen: true, displace:  displace})
     }
 
     backgroundCSS()
@@ -83,8 +83,9 @@ export default class Modal extends Component {
     {
 
         var me = this;
-        let style = {top:this.state.displace};
-         let styleItem = {top:(this.state.displace-15)};
+        let style = {top: this.state.displace};
+        let styleItem = {top: (this.state.displace+this.props.displaceAmt)};
+        
         if (this.state.isOpen)
         {
             return (
@@ -110,7 +111,6 @@ export default class Modal extends Component {
     }
 
 }
-// Modal.defaultProps = {
-//    modalLabel: 'Default Label' ,
-//    modalClassName: 'comparison-modal'
-//};
+ Modal.defaultProps = {
+    displaceAmt: 0
+};

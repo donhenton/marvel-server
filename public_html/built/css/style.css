@@ -416,6 +416,8 @@ blockquote {
       display: inline;
       text-align: center;
       cursor: pointer; }
+      .character-panel .character-block .image-item.no-pointer {
+        cursor: default; }
   .character-panel .character-name {
     margin-bottom: 1rem;
     background-color: #4674ac;
@@ -514,7 +516,7 @@ blockquote {
     float: right;
     margin-right: 5%; }
 
-.image-modal .modal-bkgMask {
+.detail-image-modal .modal-bkgMask {
   background-color: rgba(0, 0, 0, 0.7);
   width: 100%;
   height: 100%;
@@ -522,10 +524,10 @@ blockquote {
   top: 0%;
   left: 0%;
   z-index: 5; }
-  .image-modal .modal-bkgMask.modal-hidden {
+  .detail-image-modal .modal-bkgMask.modal-hidden {
     display: none; }
 
-.image-modal .modal {
+.detail-image-modal .modal {
   position: relative;
   overflow: auto;
   z-index: 10;
@@ -542,45 +544,101 @@ blockquote {
   border: thin solid #f2f6fb;
   padding: 1rem; }
   @media (min-width: 56.25em) {
-    .image-modal .modal {
+    .detail-image-modal .modal {
       height: 95%;
       width: 50%; } }
-  .image-modal .modal .modal-anim-enter {
+  .detail-image-modal .modal .modal-anim-enter {
     opacity: 0.00;
     transform: scale(0.7);
     transition: all 0.2s; }
-  .image-modal .modal .modalHeader {
+  .detail-image-modal .modal .modalHeader {
     background-color: black;
     color: white;
     display: block;
     height: auto; }
-    .image-modal .modal .modalHeader .btnClose {
+    .detail-image-modal .modal .modalHeader .btnClose {
       border: 1px solid white;
       float: right;
       padding: 1rem;
       margin-bottom: 1rem;
       cursor: pointer;
       font-size: 2rem; }
-      .image-modal .modal .modalHeader .btnClose:hover {
+      .detail-image-modal .modal .modalHeader .btnClose:hover {
         background-color: #86aede; }
-  .image-modal .modal .modal-anim-enter.modal-anim-enter-active {
+  .detail-image-modal .modal .modal-anim-enter.modal-anim-enter-active {
     opacity: 1;
     transform: scale(1); }
-  .image-modal .modal .modal-anim-leave {
+  .detail-image-modal .modal .modal-anim-leave {
     opacity: 1;
     transform: scale(1);
     transition: all 0.2s; }
-  .image-modal .modal .modal-anim-leave.modal-anim-leave-active {
+  .detail-image-modal .modal .modal-anim-leave.modal-anim-leave-active {
     opacity: 0.00;
     transform: scale(0.7); }
-  .image-modal .modal .big-image {
+  .detail-image-modal .modal .big-image {
     text-align: center; }
-    .image-modal .modal .big-image img {
+    .detail-image-modal .modal .big-image img {
       width: auto;
       height: 90%; }
       @media (min-width: 56.25em) {
-        .image-modal .modal .big-image img {
+        .detail-image-modal .modal .big-image img {
           height: 80%; } }
+
+.character-image-modal .modal-bkgMask {
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  z-index: 5; }
+  .character-image-modal .modal-bkgMask.modal-hidden {
+    display: none; }
+
+.character-image-modal .modal {
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  overflow: auto;
+  z-index: 40;
+  top: 5%;
+  left: 5%;
+  margin: 0 auto;
+  align-content: center;
+  color: #f2f6fb;
+  background: black;
+  border: thin solid #f2f6fb;
+  padding: 1rem; }
+  .character-image-modal .modal .modal-anim-enter {
+    opacity: 0.00;
+    transform: scale(0.7);
+    transition: all 0.2s; }
+  .character-image-modal .modal .modalHeader {
+    background-color: black;
+    color: white;
+    display: block;
+    height: auto; }
+    .character-image-modal .modal .modalHeader .btnClose {
+      border: 1px solid white;
+      float: right;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      font-size: 2rem; }
+      .character-image-modal .modal .modalHeader .btnClose:hover {
+        background-color: #86aede; }
+  .character-image-modal .modal .modal-anim-enter.modal-anim-enter-active {
+    opacity: 1;
+    transform: scale(1); }
+  .character-image-modal .modal .modal-anim-leave {
+    opacity: 1;
+    transform: scale(1);
+    transition: all 0.2s; }
+  .character-image-modal .modal .modal-anim-leave.modal-anim-leave-active {
+    opacity: 0.00;
+    transform: scale(0.7); }
+  .character-image-modal .modal .big-image {
+    text-align: center; }
 
 .stories-page {
   height: 100%; }
