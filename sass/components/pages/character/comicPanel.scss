@@ -3,9 +3,16 @@
     text-align: center;
     background-color: black;
     padding: 0.5rem;
-
+    width:98%;
     margin: 1%;
+   @include forLargeScreens(500) {
 
+
+
+        max-width: 44%;
+        min-width: 44%;
+        // height: 27.5rem;
+    }
 
     .comic-image
     {
@@ -48,32 +55,7 @@
         }
     }
 
-    @include forLargeScreens($break-640) {
-
-
-
-        max-width: 44%;
-        min-width: 44%;
-        // height: 27.5rem;
-    }
-    /*  @include forLargeScreens(768) {
-  
-  
-          margin : 1%;
-          max-width: 30%;
-  
-      }
-  
-      @include forLargeScreens(1024) {
-  
-  
-          margin : 1%;
-          max-width: 22%;
-  
-      }
-    */
-
-
+ 
 
     .comic-info
     {

@@ -96,7 +96,7 @@
 
 
             flex-direction: column;
-            @include forLargeScreens($break-640) {
+            @include forLargeScreens(500) {
 
 
                 position:relative;

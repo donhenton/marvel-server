@@ -475,7 +475,7 @@ blockquote {
     flex-direction: column; }
     .character-detail .comic-scroll-container .comic-display .no-data-container {
       margin: 5% auto; }
-    @media (min-width: 635px) {
+    @media (min-width: 500px) {
       .character-detail .comic-scroll-container .comic-display {
         position: relative;
         flex-flow: row wrap; } }
@@ -484,23 +484,12 @@ blockquote {
   text-align: center;
   background-color: black;
   padding: 0.5rem;
-  margin: 1%;
-  /*  @include forLargeScreens(768) {
-  
-  
-          margin : 1%;
-          max-width: 30%;
-  
-      }
-  
-      @include forLargeScreens(1024) {
-  
-  
-          margin : 1%;
-          max-width: 22%;
-  
-      }
-    */ }
+  width: 98%;
+  margin: 1%; }
+  @media (min-width: 500px) {
+    .comic-panel {
+      max-width: 44%;
+      min-width: 44%; } }
   .comic-panel .comic-image {
     width: 100%;
     max-width: 100%; }
@@ -515,10 +504,6 @@ blockquote {
         color: #f5af66; }
   .comic-panel .comic-title {
     margin: 1rem  auto; }
-  @media (min-width: 635px) {
-    .comic-panel {
-      max-width: 44%;
-      min-width: 44%; } }
   .comic-panel .comic-info .comic-price {
     float: left;
     margin-left: 5%; }
