@@ -2,6 +2,7 @@ import React from 'react';
 import { Component } from 'react';
 import ReactDOM  from 'react-dom';
 import moment from 'moment';
+import {IMAGE_POPUP_CUTOFF} from './characterPanel';
 
 const COMIC_IMAGE_REF = 'comicImageRef';
 
@@ -29,7 +30,7 @@ export default class ComicPanel extends Component {
     computeAllowLink()
     {
         let allowLink = true;
-        if (window.innerHeight < 600)
+        if (window.innerHeight < IMAGE_POPUP_CUTOFF)
         {
             allowLink = false;
         }
@@ -38,7 +39,7 @@ export default class ComicPanel extends Component {
 
     componentWillMount()
     {
-        console.log("did mount");
+      //  console.log("did mount");
     }
 
     componentWillUnmount() {

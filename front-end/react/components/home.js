@@ -142,9 +142,7 @@ export default class Main extends Component {
                                 Click on a menu option to explore the Marvel Universe!
                         
                             </div>
-                        
-                        
-                        <div>{this.state.orientData}</div>
+                    
                         
                         
                         </div>

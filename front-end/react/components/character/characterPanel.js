@@ -2,7 +2,7 @@ import React from 'react';
 import { Component } from 'react';
 import ReactDOM  from 'react-dom';
 
-
+export const IMAGE_POPUP_CUTOFF = 700;
 const IMAGE_REF = 'imageRef';
 const LINK_TYPES =
         {'detail': 'Detail',
@@ -21,7 +21,7 @@ export default class CharacterPanel extends Component {
     computeAllowLink()
     {
         let allowLink = true;
-        if (window.innerHeight < 600)
+        if (window.innerHeight < IMAGE_POPUP_CUTOFF)
         {
             allowLink = false;
         }
