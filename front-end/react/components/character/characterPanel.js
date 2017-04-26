@@ -2,7 +2,7 @@ import React from 'react';
 import { Component } from 'react';
 import ReactDOM  from 'react-dom';
 
-export const IMAGE_POPUP_CUTOFF = 700;
+export const IMAGE_POPUP_CUTOFF = 800;
 const IMAGE_REF = 'imageRef';
 const LINK_TYPES =
         {'detail': 'Detail',
