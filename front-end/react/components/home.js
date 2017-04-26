@@ -49,7 +49,7 @@ export default class Main extends Component {
             topic: "orientation.change",
             callback: function (data, envelope) {
 
-                me.setState({orientData: {type: data.type,newWidth: data.newWidth}});
+                me.setState({orientData: {type: data.type,newHeight: data.newHeight, newWidth: data.newWidth}});
             }
         });
          
