@@ -220,7 +220,8 @@ blockquote {
       .body-container .main-container header #view-report {
         font-size: 22px;
         color: blue;
-        margin-left: 10rem; }
+        margin-left: 10rem;
+        display: none; }
         @media (orientation: landscape) {
           .body-container .main-container header #view-report #view-portrait {
             display: none; } }
