@@ -36,7 +36,7 @@
         background-color: black;
 
 
-        @include forLargeScreens(640) {
+        @include forLargeScreens($break-640) {
             padding: 1rem;
 
         }
@@ -95,7 +95,7 @@
 
 
             flex-direction: column;
-            @include forLargeScreens(640) {
+            @include forLargeScreens($break-640) {
 
 
                 position:relative;

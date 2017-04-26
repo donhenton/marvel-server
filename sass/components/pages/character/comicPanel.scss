@@ -41,14 +41,14 @@
     img
     {
 
-        @include forLargeScreens(640) {
+        @include forLargeScreens($break-640) {
 
 
             //  width:30%;
         }
     }
 
-    @include forLargeScreens(640) {
+    @include forLargeScreens($break-640) {
 
 
 

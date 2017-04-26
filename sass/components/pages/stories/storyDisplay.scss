@@ -24,7 +24,7 @@
         margin-top: 2%;
         padding: 1%;
         border: 2px solid $orange-highlight;
-        @include forLargeHeight(640) {
+        @include forLargeHeight($break-640) {
 
             height: 82%;
         }
@@ -43,7 +43,7 @@
         margin-left: -10rem;
         margin-top: -2rem;
 
-        @include forLargeScreens(640) {
+        @include forLargeScreens($break-640) {
 
            font-size: ms(3);
             width: 25rem;

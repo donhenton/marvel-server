@@ -20,7 +20,7 @@
     }
     
 
-    @include forLargeScreens(640) {
+    @include forLargeScreens($break-640) {
 
 
         margin : 1%;

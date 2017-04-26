@@ -44,7 +44,7 @@
             overflow-y: auto;
             overflow-x:hidden;
             
-              @include forLargeHeight(640) {
+              @include forLargeHeight($break-640) {
 
                  height: 81%;
             }

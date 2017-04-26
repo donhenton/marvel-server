@@ -99,7 +99,7 @@ body, html {
   font-family: graphikmedium, Arial, Sans-Serif;
   height: 100%;
   font-size: 62.5%; }
-  @media (min-width: 640px) {
+  @media (min-width: 635px) {
     body, html {
       font-size: 75%; } }
 
@@ -140,20 +140,20 @@ blockquote {
       margin: 0;
       max-height: 11%;
       min-height: 11%; }
-      @media (min-width: 640px) {
+      @media (min-width: 635px) {
         .body-container .main-container header {
           display: flex;
           align-content: center;
           max-height: 10%;
           min-height: 10%;
           height: 10%; } }
-      @media (min-width: 640px) {
+      @media (min-width: 635px) {
         .body-container .main-container header .header-item {
           margin: auto  0; } }
       .body-container .main-container header nav {
         display: inline;
         overflow: hidden; }
-        @media (min-width: 640px) {
+        @media (min-width: 635px) {
           .body-container .main-container header nav {
             flex-grow: 1; } }
         .body-container .main-container header nav .menu {
@@ -167,10 +167,10 @@ blockquote {
           left: 0;
           z-index: -100;
           list-style: none; }
-          @media (min-width: 640px) {
+          @media (min-width: 635px) {
             .body-container .main-container header nav .menu {
               flex-grow: 3; } }
-          @media (min-width: 640px) {
+          @media (min-width: 635px) {
             .body-container .main-container header nav .menu {
               z-index: 100;
               display: inline;
@@ -180,29 +180,22 @@ blockquote {
             text-align: left;
             background-color: #86aede;
             border-bottom: 1px solid #f2f6fb; }
-            @media (min-width: 640px) {
+            @media (min-width: 635px) {
               .body-container .main-container header nav .menu li {
                 display: inline; } }
             .body-container .main-container header nav .menu li a {
               display: block;
-              padding: 4rem .75rem;
+              padding: 3rem .75rem;
               font-size: 26px;
               color: #f2f6fb;
               text-decoration: none; }
-              @media (min-width: 650px) {
-                .body-container .main-container header nav .menu li a {
-                  float: inherit;
-                  padding: .5rem 1.25rem; } }
-              @media (min-width: 700px) {
-                .body-container .main-container header nav .menu li a {
-                  float: inherit;
-                  padding: .5rem 2rem; } }
               .body-container .main-container header nav .menu li a:hover {
                 background-color: #f5af66; }
-              @media (min-width: 640px) {
+              @media (min-width: 635px) {
                 .body-container .main-container header nav .menu li a {
                   display: inline-block;
                   font-size: 22px;
+                  padding: 0rem 1.25rem;
                   background-color: #86aede;
                   color: #f2f6fb; } }
               @media (min-width: 800px) {
@@ -212,11 +205,11 @@ blockquote {
         margin-right: 2rem;
         text-align: right;
         float: right;
-        margin-top: -1rem;
-        font-size: 42px; }
-        @media (min-height: 500px) {
+        margin-top: 0.25rem;
+        font-size: 35px; }
+        @media (min-width: 635px) {
           .body-container .main-container header .header-title {
-            margin-top: 0rem; } }
+            font-size: 22px; } }
       .body-container .main-container header #view-report {
         font-size: 22px;
         color: blue;
@@ -273,7 +266,7 @@ blockquote {
     width: 5rem;
     cursor: pointer;
     background: #f2f6fb; }
-    @media (min-width: 640px) {
+    @media (min-width: 635px) {
       .body-container .label-trigger {
         display: none; } }
     .body-container .label-trigger:before {
@@ -297,7 +290,7 @@ blockquote {
   font-size: 35px;
   margin: 3rem 1rem;
   width: 85%; }
-  @media (min-width: 640px) {
+  @media (min-width: 635px) {
     .lead-block {
       width: 65%; } }
 
@@ -364,7 +357,7 @@ blockquote {
     width: 100%;
     display: flex;
     flex-direction: column; }
-    @media (min-width: 640px) {
+    @media (min-width: 635px) {
       .characters-page .flex-container {
         position: relative;
         flex-flow: row wrap;
@@ -397,7 +390,7 @@ blockquote {
     }*/ }
   .character-panel .link-action {
     margin-top: 1.5rem; }
-  @media (min-width: 640px) {
+  @media (min-width: 635px) {
     .character-panel {
       margin: 1%;
       max-width: 30%; } }
@@ -455,7 +448,7 @@ blockquote {
     padding: 0.5rem;
     background-color: black;
     vertical-align: middle; }
-    @media (min-width: 640px) {
+    @media (min-width: 635px) {
       .character-detail .title-area {
         padding: 1rem; } }
     .character-detail .title-area img {
@@ -474,7 +467,7 @@ blockquote {
     flex-direction: column; }
     .character-detail .comic-scroll-container .comic-display .no-data-container .no-data-text {
       margin: 10rem auto; }
-    @media (min-width: 640px) {
+    @media (min-width: 635px) {
       .character-detail .comic-scroll-container .comic-display {
         position: relative;
         flex-flow: row wrap; } }
@@ -514,7 +507,7 @@ blockquote {
         color: #f5af66; }
   .comic-panel .comic-title {
     margin: 1rem  auto; }
-  @media (min-width: 640px) {
+  @media (min-width: 635px) {
     .comic-panel {
       max-width: 44%;
       min-width: 44%; } }
@@ -680,7 +673,7 @@ blockquote {
       width: 99%;
       overflow-y: auto;
       overflow-x: hidden; }
-      @media (min-height: 640px) {
+      @media (min-height: 635px) {
         .character-scroller .scroller-container .infinite-scroll {
           height: 81%; } }
     .character-scroller .scroller-container .scroll-item {
@@ -725,7 +718,7 @@ blockquote {
     margin-top: 2%;
     padding: 1%;
     border: 2px solid #f5af66; }
-    @media (min-height: 640px) {
+    @media (min-height: 635px) {
       .story-display .story-display-container {
         height: 82%; } }
   .story-display .no-data {
@@ -738,7 +731,7 @@ blockquote {
     height: 4rem;
     margin-left: -10rem;
     margin-top: -2rem; }
-    @media (min-width: 640px) {
+    @media (min-width: 635px) {
       .story-display .no-data {
         font-size: 35px;
         width: 25rem;
@@ -769,7 +762,7 @@ blockquote {
       width: 12rem;
       display: inline-table;
       margin-left: 12%; }
-      @media (min-width: 640px) {
+      @media (min-width: 635px) {
         .story-item .creator-list .name {
           margin-left: 8%; } }
     .story-item .creator-list .creator-list-item {

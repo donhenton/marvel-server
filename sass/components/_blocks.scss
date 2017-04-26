@@ -6,7 +6,7 @@
     margin: 3rem 1rem;
     width:85%; 
 
-    @include forLargeScreens(640) {
+    @include forLargeScreens($break-640) {
         width:65%; 
 
     }

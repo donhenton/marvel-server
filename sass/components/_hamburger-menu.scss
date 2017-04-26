@@ -34,7 +34,7 @@
             max-height: 11%;
             min-height: 11%;
             // postition:relative;
-            @include forLargeScreens(640) {
+            @include forLargeScreens($break-640) {
 
                 display:flex;
                 align-content: center;
@@ -45,7 +45,7 @@
 
             .header-item
             {
-                @include forLargeScreens(640) {
+                @include forLargeScreens($break-640) {
 
                     // display:flex;
                     margin: auto  0;
@@ -58,7 +58,7 @@
                 display: inline;
                 overflow:hidden;
 
-                @include forLargeScreens(640) {
+                @include forLargeScreens($break-640) {
                     flex-grow: 1;
                     // border: thin solid green;
                 }
@@ -69,7 +69,7 @@
 
                     padding: 0;
                     position: fixed;
-                    @include forLargeScreens(640) {
+                    @include forLargeScreens($break-640) {
 
                         flex-grow: 3; 
                     }
@@ -81,7 +81,7 @@
                     z-index: -100;
 
                     list-style: none;
-                    @include forLargeScreens(640) {
+                    @include forLargeScreens($break-640) {
 
 
                         // height: 20%;
@@ -102,22 +102,14 @@
                         border-bottom: 1px solid $comic-off-white;
 
 
-                        @include forLargeScreens(640) {
+                        @include forLargeScreens($break-640) {
                             display: inline;
 
                         }
                         //Links themselves
                         a {
                             display: block;
-                            padding: 4rem .75rem;
-                            @include forLargeScreens(650) {
-                                float: inherit;
-                                padding:  .5rem 1.25rem;
-                            }
-                            @include forLargeScreens(700) {
-                                float: inherit;
-                                padding:  .5rem 2rem;
-                            }
+                            padding: 3rem .75rem;           
                             font-size: ms(2);
                             color: $comic-off-white;
                             text-decoration: none;
@@ -127,11 +119,11 @@
                                 background-color: $orange-highlight;
 
                             }
-                            @include forLargeScreens(640) {
+                            @include forLargeScreens($break-640) {
                                 display: inline-block;
-                                // height: 100%;
+                                // float: inherit;
                                 font-size: ms(1);
-                                // padding:   2%;
+                                padding:  0rem 1.25rem;
                                 background-color:$comic-book-blue; 
                                 color:  $comic-off-white   ;    
 
@@ -157,13 +149,14 @@
                 margin-right: 2rem;
                 text-align: right;
                 float: right;
-                margin-top: -1rem;
-                @include forLargeHeight(500) {
-
-                    margin-top:0rem;
+                margin-top: 0.25rem;
+               
+                @include forLargeScreens($break-640) {
+                    
+                    font-size: ms(1);
 
                 }
-               font-size: ms(4);
+                font-size: ms(3);
 
             }
 
@@ -175,7 +168,7 @@
                 color: blue;
                 margin-left: 10rem;
 
-               display:none;
+                display:none;
                 #view-portrait
                 { 
                     @media (orientation: landscape) {
@@ -219,7 +212,7 @@
             background-color: white;
             overflow-x: hidden;
             overflow-y: auto;
-            @include forLargeScreens(640) {
+            @include forLargeScreens($break-640) {
 
             }
 
@@ -260,7 +253,7 @@
     }
     .label-trigger {
 
-        @include forLargeScreens(640) {
+        @include forLargeScreens($break-640) {
             display: none;
 
         }

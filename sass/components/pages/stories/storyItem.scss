@@ -40,7 +40,7 @@
 
             display: inline-table;
             margin-left: 12%;
-            @include forLargeScreens(640) {
+            @include forLargeScreens($break-640) {
                 margin-left: 8%;
             }
 

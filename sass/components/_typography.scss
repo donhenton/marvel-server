@@ -18,7 +18,7 @@ body,html
 
 
 
-    @include forLargeScreens(640) {
+    @include forLargeScreens($break-640) {
         font-size: 75%;
     }
 
