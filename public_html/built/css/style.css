@@ -331,12 +331,15 @@ blockquote {
     vertical-align: central;
     position: relative; }
     .characters-page .character-controls .control-text {
+      display: inline;
       position: absolute;
       left: 50%;
       top: 1%;
       width: 50rem;
       height: 2rem;
       margin: -1rem 0 0 -25rem; }
+      .characters-page .character-controls .control-text .control-text-line {
+        display: inline-table; }
     .characters-page .character-controls .control-box {
       padding: .55rem;
       color: #f2f6fb;

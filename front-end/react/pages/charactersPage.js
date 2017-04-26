@@ -34,15 +34,23 @@ export default class CharactersPage extends Component {
                 me.setState({modalData: data.characterData, showDetail: true})
             }
         });
+        let sub3 = postal.subscribe({
+            channel: "responsive",
+            topic: "orientation.change",
+            callback: function (data, envelope) {
+
+                  me.setState({orientType: data.type});
+            }
+        });
 
 
 
-
-        this.state = {characterData: [], isProcessing: true, showDetail: false,
+        this.state = {characterData: [], isProcessing: true, 
+            showDetail: false, orientType: null,
             count: 0, offset: 0, total: 0, modalData: null};
         this.subscriptions.push(sub1);
         this.subscriptions.push(sub2);
-
+        this.subscriptions.push(sub3);
 
     }
 
@@ -65,7 +73,7 @@ export default class CharactersPage extends Component {
 
     navigate(dir)
     {
-        console.log("navigate " + dir)
+       // console.log("navigate " + dir)
         this.setState({isProcessing: true}, function ()
         {
             postal.publish({
@@ -91,12 +99,24 @@ export default class CharactersPage extends Component {
 
     getDisplayString()
     {
-        let str = "Character "
-        str = str + (this.state.offset + 1) + " To "
+        let breakItem = <br/>
+        if (window.innerWidth > 600)
+        {
+            breakItem = null;
+        }
+        let str = (this.state.offset + 1) + " To "
                 + (this.state.offset + this.state.count)
                 + " Of " + (this.state.total);
+        
+        return (<div   className='control-text'>
+                    <div className='control-text-line'>Character</div> {breakItem}
+        
+            <div className='control-text-line'>{str}</div>
+        
+        </div>)
+ 
 
-        return str;
+
     }
 
     renderPrevBtn()
@@ -129,7 +149,7 @@ export default class CharactersPage extends Component {
         return (
                 <div className='characters-page'>
                     <div className='character-controls grouping'>
-                        <div   className='control-text'>{me.getDisplayString()}</div>
+                        {me.getDisplayString()} 
                         <div>
                             {me.renderPrevBtn()}
                             <span onClick={me.navigate.bind(this, 'next')} 
