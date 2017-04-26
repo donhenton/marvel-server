@@ -10,7 +10,7 @@
         {
             // padding-top: 4%;
             display: inline;
-            //  border: thin solid green;
+
             position: absolute;
             left: 50%;
             top:1%;
@@ -20,7 +20,17 @@
             .control-text-line
             {
                 display: inline-table;
-                //  border: thin solid red;
+                font-size: ms(0);
+                @include forLargeScreens($break-640) {
+
+                    font-size: ms(1)
+                    
+
+                }
+
+
+
+
             }
 
         }

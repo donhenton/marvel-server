@@ -34,7 +34,8 @@
         border-bottom: .5rem double $comic-off-white;
         padding: 0.5rem;
         background-color: black;
-
+        display:flex;
+        
 
         @include forLargeScreens($break-640) {
             padding: 1rem;
@@ -44,7 +45,7 @@
         img
         {
 
-            margin-left: 2rem;
+             
             vertical-align: middle;
         }
         .character-name
@@ -76,17 +77,17 @@
 
             .no-data-container
             { 
-                
+                margin: 5% auto;
                 .no-data-text
                 {
 
-                    margin: 10rem auto;
+                  
 
                 }
             }
 
 
-           // align-items: center;  
+            align-items:flex-start; 
             justify-content: center;
             width:100%;
             //margin-top: .5rem;
