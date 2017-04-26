@@ -27,3 +27,7 @@ https://www.payetteforward.com/my-responsive-website-isnt-working-the-fix-viewpo
 
 ipad portrait 768 x 909
 ipad landscape 1024 x 653
+
+
+http://stackoverflow.com/questions/12452349/mobile-viewport-height-after-orientation-change
+http://stackoverflow.com/questions/11444838/getting-wrong-screen-height-when-trigger-orientationchange-event?noredirect=1&lq=1

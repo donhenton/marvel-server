@@ -82,21 +82,26 @@ $('#view-size').text("[" + window.innerWidth + "," + window.innerHeight + ']')
 
 
 
-window.addEventListener("orientationchange", function () {
-
-    //console.log(screen.orientation.type);
-
-    postal.publish({
-        channel: "responsive",
-        topic: "orientation.change",
-        data: {type: screen.orientation.type,
-            newHeight: window.innerHeight,
-            newWidth:window.innerWidth}
-    });
 
 
-}, false);
+$(window).on("orientationchange", function () {
 
+    var  orientationChange = function()
+    {
+
+        postal.publish({
+            channel: "responsive",
+            topic: "orientation.change",
+            data: {type: screen.orientation.type,
+                newHeight: window.innerHeight,
+                newWidth: window.innerWidth}
+        });
+        $(window).off('resize', orientationChange);
+    }
+    $(window).on('resize', orientationChange);
+
+
+});
 
 
 $(window).resize(function () {
