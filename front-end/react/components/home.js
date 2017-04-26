@@ -44,10 +44,22 @@ export default class Main extends Component {
                 })
             }
         });
-        this.state = {page: 'main', imageUrl: null, modalClass: null,displaceAmt: -15};
+        let sub3 = postal.subscribe({
+            channel: "responsive",
+            topic: "orientation.change",
+            callback: function (data, envelope) {
+
+                me.setState({orientData: data.type});
+            }
+        });
+         
+        
+        
+        this.state = {page: 'main', imageUrl: null, orientData: null,
+            modalClass: null,displaceAmt: -15};
         this.subscriptions.push(sub1);
         this.subscriptions.push(sub2);
-
+        this.subscriptions.push(sub3);
 
     }
 
@@ -132,7 +144,7 @@ export default class Main extends Component {
                             </div>
                         
                         
-                        
+                        <div>{this.state.orientData}</div>
                         
                         
                         </div>
