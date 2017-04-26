@@ -389,11 +389,11 @@ blockquote {
     .character-panel {
       margin: 1%;
       max-width: 44%; } }
-  @media (min-width: 48em) {
+  @media (min-width: 47.5em) {
     .character-panel {
       margin: 1%;
       max-width: 30%; } }
-  @media (min-width: 64em) {
+  @media (min-width: 63.875em) {
     .character-panel {
       margin: 1%;
       max-width: 22%; } }

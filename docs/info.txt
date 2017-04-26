@@ -25,5 +25,5 @@ viewport stuff:
 
 https://www.payetteforward.com/my-responsive-website-isnt-working-the-fix-viewport/
 
-ipad portrait 768 x 653
+ipad portrait 768 x 909
 ipad landscape 1024 x 653
