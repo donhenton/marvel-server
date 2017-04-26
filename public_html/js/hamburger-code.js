@@ -89,7 +89,9 @@ window.addEventListener("orientationchange", function () {
     postal.publish({
         channel: "responsive",
         topic: "orientation.change",
-        data: {type: screen.orientation.type}
+        data: {type: screen.orientation.type,
+            newHeight: window.innerHeight,
+            newWidth:window.innerWidth}
     });
 
 

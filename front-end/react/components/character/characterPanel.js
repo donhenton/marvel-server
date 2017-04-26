@@ -14,14 +14,18 @@ export default class CharacterPanel extends Component {
     {
         super();
         this.state = {characterData: props.characterData, 
-            allowLink: this.computeAllowLink()};
+            allowLink: this.computeAllowLink(window.innerHeight)};
         this.subscriptions = [];
     }
     
-    computeAllowLink()
+    computeAllowLink(wHeight)
     {
         let allowLink = true;
-        if (window.innerHeight < IMAGE_POPUP_CUTOFF)
+        if (!wHeight)
+        {
+            wHeight = window.innerHeight;
+        }
+        if (wHeight < IMAGE_POPUP_CUTOFF)
         {
             allowLink = false;
         }
@@ -37,7 +41,7 @@ export default class CharacterPanel extends Component {
             topic: "orientation.change",
             callback: function (data, envelope) {
                 
-                     me.setState({allowLink: me.computeAllowLink()});
+                     me.setState({allowLink: me.computeAllowLink(data.newHeight)});
             }
         });
 

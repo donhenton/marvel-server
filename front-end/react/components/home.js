@@ -49,13 +49,13 @@ export default class Main extends Component {
             topic: "orientation.change",
             callback: function (data, envelope) {
 
-                me.setState({orientData: data.type});
+                me.setState({orientData: {type: data.type,newWidth: data.newWidth}});
             }
         });
          
         
         
-        this.state = {page: 'main', imageUrl: null, orientData: null,
+        this.state = {page: 'main', imageUrl: null, orientData: {},
             modalClass: null,displaceAmt: -15};
         this.subscriptions.push(sub1);
         this.subscriptions.push(sub2);
@@ -143,7 +143,7 @@ export default class Main extends Component {
                         
                             </div>
                     
-                        
+                <div>{JSON.stringify(this.state.orientData)}</div>
                         
                         </div>
                         )
