@@ -1,22 +1,22 @@
 
 document.body.style.transform = 'scale(1)';
 let sub1 = postal.subscribe({
-            channel: "modal",
-            topic: "#",
-            callback: function (data, envelope) {
-                if (envelope.topic === 'open')
-                {
-                    $('.main-content').addClass('no-scroll');
-                }
-                if (envelope.topic === 'close')
-                {
-                    $('.main-content').removeClass('no-scroll');
-                }
-            }
-        });
+    channel: "modal",
+    topic: "#",
+    callback: function (data, envelope) {
+        if (envelope.topic === 'open')
+        {
+            $('.main-content').addClass('no-scroll');
+        }
+        if (envelope.topic === 'close')
+        {
+            $('.main-content').removeClass('no-scroll');
+        }
+    }
+});
 
- 
- //
+
+//
 function menuCall(callValue)
 {
 
@@ -78,13 +78,29 @@ $(function () {
 
 });
 
-$('#view-size').text("["+window.innerWidth+","+window.innerHeight+']')
+$('#view-size').text("[" + window.innerWidth + "," + window.innerHeight + ']')
+
+
+
+window.addEventListener("orientationchange", function () {
+
+    //console.log(screen.orientation.type);
+
+    postal.publish({
+        channel: "responsive",
+        topic: "orientation.change",
+        data: {type: screen.orientation.type}
+    });
+
+
+}, false);
+
 
 
 $(window).resize(function () {
     //console.log($(window).width());
     var w = window.innerWidth;
-    $('#view-size').text("["+window.innerWidth+","+window.innerHeight+']')
+    $('#view-size').text("[" + window.innerWidth + "," + window.innerHeight + ']')
     var mainContainer = $('.main-content');
     if (w > 640)
     {

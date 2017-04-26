@@ -13,14 +13,45 @@ export default class CharacterPanel extends Component {
     constructor(props)
     {
         super();
-        this.state = {characterData: props.characterData};
-
+        this.state = {characterData: props.characterData, 
+            allowLink: this.computeAllowLink()};
+        this.subscriptions = [];
+    }
+    
+    computeAllowLink()
+    {
+        let allowLink = true;
+        if (window.innerHeight < 600)
+        {
+            allowLink = false;
+        }
+        return allowLink;
     }
 
     componentWillMount()
     {
 
+        let me = this;
+        let sub1 = postal.subscribe({
+            channel: "responsive",
+            topic: "orientation.change",
+            callback: function (data, envelope) {
+                
+                     me.setState({allowLink: me.computeAllowLink()});
+            }
+        });
+
+        this.subscriptions.push(sub1);
     }
+
+    componentWillUnmount() {
+
+        this.subscriptions.forEach((s) => s.unsubscribe());
+        this.subscriptions = [];
+
+
+    }
+
     componentDidMount()
     {
         let imageRef = ReactDOM.findDOMNode(this.refs[IMAGE_REF]);
@@ -78,23 +109,25 @@ export default class CharacterPanel extends Component {
 
     getBigImageLink()
     {
-        
-       var nAIdx = this.state.characterData.imageUrl.indexOf("image_not_available");
-        
-        if (window.innerHeight < 600 || nAIdx > 0)
+
+        var nAIdx = this.state.characterData.imageUrl.indexOf("image_not_available");
+
+        if ((!this.state.allowLink) || nAIdx > 0)
         {
             return (
                     <div  className='image-item no-pointer'>
+                    
                         <img ref={IMAGE_REF} src="css/imgs/medium_na.jpg" /> 
-                
+                                        
                     </div>
                     )
         } else
         {
             return (
                     <div   onClick={this.showHeroImage.bind(this)} className='image-item'>
+                    
                         <img ref={IMAGE_REF} src="css/imgs/medium_na.jpg" /> 
-                
+                    
                         <div className="link-action">(Click To Expand)</div>
                     </div>
                     )
@@ -111,13 +144,13 @@ export default class CharacterPanel extends Component {
                     <div  onClick={this.showModal.bind(this)} className='character-name'>{this.state.characterData.name}</div>
                     <div className="character-block grouping">
                         {this.getBigImageLink()}
-            
+                
                         <div className="character-link-block">
                             {this.getCharacterLinks()}
                         </div>
                     </div>        
-            
-            
+                
+                
                 </div>
 
                 )

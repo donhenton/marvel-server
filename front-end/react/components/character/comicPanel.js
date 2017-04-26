@@ -11,14 +11,45 @@ export default class ComicPanel extends Component {
     constructor(props)
     {
         super();
-        this.state = {comicData: props.comicData};
-
+         
+        this.state = {comicData: props.comicData,allowLink: this.computeAllowLink()};
+        this.subscriptions = [];
+    }
+    
+    
+     computeAllowLink()
+    {
+        let allowLink = true;
+        if (window.innerHeight < 600)
+        {
+            allowLink = false;
+        }
+        return allowLink;
     }
 
     componentWillMount()
     {
+        let me = this;
+        let sub1 = postal.subscribe({
+            channel: "responsive",
+            topic: "orientation.change",
+            callback: function (data, envelope) {
+
+                  me.setState({allowLink: me.computeAllowLink()});
+            }
+        });
+
+        this.subscriptions.push(sub1);
+    }
+
+    componentWillUnmount() {
+
+        this.subscriptions.forEach((s) => s.unsubscribe());
+        this.subscriptions = [];
+
 
     }
+
     componentDidMount()
     {
 
@@ -56,7 +87,7 @@ export default class ComicPanel extends Component {
     getBigImageLink()
     {
         if (this.state.comicData.thumbnail.indexOf('image_not_available') > 0
-                || window.innerHeight < 600  )
+                || !this.state.allowLink)
         {
             return <img ref={COMIC_IMAGE_REF} src="css/imgs/xlarge_na.jpg" />;
         } else
