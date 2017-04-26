@@ -26,14 +26,14 @@
     }
     
 
-    @include forLargeScreens(640) {
+    @include forLargeScreens(440) {
 
 
         margin : 1%;
         max-width: 44%;
       
     }
-    @include forLargeScreens(760) {
+    @include forLargeScreens(560) {
 
 
         margin : 1%;
@@ -41,7 +41,7 @@
 
     }
 
-    @include forLargeScreens(1022) {
+    @include forLargeScreens(822) {
 
 
         margin : 1%;
