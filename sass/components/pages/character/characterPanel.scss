@@ -8,17 +8,11 @@
     margin-top: 4%;
      
     width:75%;
-    
+     
     //landscape
     height: auto;
     min-height:auto;
-    @include forLargeHeight(700) {
-
-        height: 75%;
-        min-height:75%;
-        
-      
-    }
+   
     
     .link-action 
     {
@@ -26,13 +20,14 @@
     }
     
 
-    @include forLargeScreens(440) {
+    @include forLargeScreens(640) {
 
 
         margin : 1%;
-        max-width: 44%;
+        max-width: 30%;
       
     }
+    /*
     @include forLargeScreens(560) {
 
 
@@ -47,7 +42,7 @@
         margin : 1%;
         max-width: 22%;
 
-    }
+    }*/
 
     .character-block
     { 
