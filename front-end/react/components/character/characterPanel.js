@@ -162,11 +162,4 @@ export default class CharacterPanel extends Component {
     }
 
 }
-/*
- postal.publish({
- channel: "image.request",
- topic: "display.character",
- data: {imageUrl:  imageUrl}
- });
  
- */

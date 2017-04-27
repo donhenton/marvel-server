@@ -57,18 +57,28 @@ export default class ImageModal extends Component {
 
     cancel()
     {
-
-        this.internalModal.cancel();
+        this.setState({imageUrl: null}, function ()
+        {
+            postal.publish({
+                channel: "image.request",
+                topic: "display.cancel",
+                data: {}
+            });
+            this.internalModal.cancel();
+        });
     }
-
+    
     open(finalImageUrl)
     {
-        
+        if (!finalImageUrl)
+        {
+            return;
+        }
         let top = $('.main-content').scrollTop();
         this.setState({imageUrl: finalImageUrl}, function ()
         {
             this.internalModal.open(top);
-        })
+        });
 
     }
 
@@ -76,21 +86,26 @@ export default class ImageModal extends Component {
     {
 
         var me = this;
+        if (this.state.imageUrl)
+        {
+            return (
+                    <Modal displaceAmt={this.props.displaceAmt} 
+                           modalClassName={this.props.modalClassName} 
+                           modalLabel={this.state.characterId} 
+                           ref={(ref) => me.internalModal = ref}>
+                    
+                        <div className="big-image">
+                            <img src={this.state.imageUrl} />
+                    
+                        </div>
+                    </Modal>
+                    )
 
-        return (
-                <Modal displaceAmt={this.props.displaceAmt} 
-                       modalClassName={this.props.modalClassName} 
-                       modalLabel={this.state.characterId} 
-                       ref={(ref) => me.internalModal = ref}>
-                       
-                    <div className="big-image">
-                        <img src={this.state.imageUrl} />
-                
-                    </div>
-                </Modal>
-                )
-
-
+        }
+        else
+        {
+           return <div></div>
+        }
     }
 
 }

@@ -51,18 +51,21 @@ export default class Modal extends Component {
 
     cancel()
     {
-        postal.publish({
-            channel: "modal",
-            topic: "close",
-            data: {}
+
+        this.setState({isOpen: false, displace: 0}, function ()
+        {
+            postal.publish({
+                channel: "modal",
+                topic: "close",
+                data: {}
+            });
         });
-        this.setState({isOpen: false, displace: 0});
     }
 
     open(displace)
     {
 
-        this.setState({isOpen: true, displace:  displace})
+        this.setState({isOpen: true, displace: displace})
     }
 
     backgroundCSS()
@@ -78,14 +81,14 @@ export default class Modal extends Component {
 
 
     }
-
+    
     render()
     {
 
         var me = this;
         let style = {top: this.state.displace};
-        let styleItem = {top: (this.state.displace+this.props.displaceAmt)};
-        
+        let styleItem = {top: (this.state.displace + this.props.displaceAmt)};
+
         if (this.state.isOpen)
         {
             return (
@@ -104,13 +107,15 @@ export default class Modal extends Component {
                         </ReactCSSTransitionGroup>
                     </div>
                     )
-        } else {
-            return <ReactCSSTransitionGroup  transitionName="modal-anim" transitionEnterTimeout={5} transitionLeaveTimeout={5} />
+        } 
+        else
+        {
+            return <div></div>
         }
 
     }
 
 }
- Modal.defaultProps = {
+Modal.defaultProps = {
     displaceAmt: 0
 };

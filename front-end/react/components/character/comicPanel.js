@@ -88,7 +88,7 @@ export default class ComicPanel extends Component {
      componentDidUpdate(nextProps, nextState)
     {
         
-         console.log("did update")
+       //  console.log("did update")
           let imageRef = ReactDOM.findDOMNode(this.refs[COMIC_IMAGE_REF]);
         let newSrc = this.state.comicData.thumbnail;
        

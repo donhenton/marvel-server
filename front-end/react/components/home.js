@@ -32,6 +32,17 @@ export default class Main extends Component {
             channel: "image.request",
             topic: "display.#",
             callback: function (data, envelope) {
+
+                if (envelope.topic === 'display.cancel')
+                {
+                    me.setState({imageUrl: null});
+
+                    return;
+                }
+
+
+
+
                 let modalClass = "detail-image-modal";
                 let displaceAmt = 0;
                 if (envelope.topic === 'display.character')
@@ -39,7 +50,7 @@ export default class Main extends Component {
                     modalClass = 'character-image-modal';
                     displaceAmt = 10;
                 }
-                me.setState({modalClass: modalClass, imageUrl: data.imageUrl,displaceAmt:displaceAmt}, function () {
+                me.setState({modalClass: modalClass, imageUrl: data.imageUrl, displaceAmt: displaceAmt}, function () {
                     showBind()
                 })
             }
@@ -49,14 +60,24 @@ export default class Main extends Component {
             topic: "orientation.change",
             callback: function (data, envelope) {
 
-                me.setState({orientData: {type: data.type,newHeight: data.newHeight, newWidth: data.newWidth}});
+
+                postal.publish({
+                    channel: "modal",
+                    topic: "close",
+                    data: {}
+                });
+
+                me.setState({imageUrl: null, 
+                    orientData: {type: data.type, 
+                        newHeight: data.newHeight, 
+                        newWidth: data.newWidth}});
             }
         });
-         
-        
-        
+
+
+
         this.state = {page: 'main', imageUrl: null, orientData: {},
-            modalClass: null,displaceAmt: -15};
+            modalClass: null, displaceAmt: -15};
         this.subscriptions.push(sub1);
         this.subscriptions.push(sub2);
         this.subscriptions.push(sub3);
@@ -71,10 +92,10 @@ export default class Main extends Component {
         img.onload = function ()
         {
             postal.publish({
-            channel: "modal",
-            topic: "open",
-            data: {}
-        });
+                channel: "modal",
+                topic: "open",
+                data: {}
+            });
             me.refs.imageModal.open(me.state.imageUrl);
         }
         img.onerror = function ()
@@ -123,10 +144,10 @@ export default class Main extends Component {
                         <div>
                             <Characters />
                             <ImageModal ref='imageModal' displaceAmt={this.state.displaceAmt} 
-                            modalClassName={this.state.modalClass} 
-                            imageUrl={this.state.imageUrl} 
-                            modalLabel={this.state.imageUrl} />
-                                    
+                                        modalClassName={this.state.modalClass} 
+                                        imageUrl={this.state.imageUrl} 
+                                        modalLabel={this.state.imageUrl} />
+                        
                         </div>)
             }
 
@@ -142,8 +163,8 @@ export default class Main extends Component {
                                 Click on a menu option to explore the Marvel Universe!
                         
                             </div>
-                    
-                <div>{JSON.stringify(this.state.orientData)}</div>
+                        
+                            <div>{JSON.stringify(this.state.orientData)}</div>
                         
                         </div>
                         )
