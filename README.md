@@ -13,12 +13,6 @@ See config/env/production.js for how to create the development.js file with your
 You will also need to set up a local mongodb instance, and configure the connection url in the
 development.js file
 
-### Users and Mongo data
-* models/code/run.js is a utility for creating users 
-* for right now entries into the morgueFiles collection
-must be manually entered
-* collections are users and morgueFiles
-* see models/mongo_data.zip for examples
 
 ### Starting the Server
 
