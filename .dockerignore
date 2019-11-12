@@ -7,3 +7,9 @@
 .gitignore
 package*.json
 gulpfile.js
+Procfile
+README.md
+*.sh
+Dockerfile
+/config/env/development.js
+docker-compose.yml

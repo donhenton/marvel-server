@@ -6,7 +6,6 @@
 
 module.exports =  {
      publicKey: process.env.publicKey,
-     privateKey: process.env.privateKey,
-     deviantStorageDB: process.env.deviantStorageDB,
+     privateKey: process.env.privateKey, 
      sessionSecret: process.env.sessionSecret
 }

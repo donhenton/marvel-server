@@ -4,3 +4,5 @@
 /public/js/react/
 /config/env/development.js
 .DS_Store
+/docker-run.sh
+/docker-compose.yml
