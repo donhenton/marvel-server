@@ -1,0 +1,16 @@
+version: '3.0'
+ ## ports <EXPOSED PORT>:<PORT INSIDE DOCKER>
+services:
+  marvel-server:
+    image:  donhenton/marvel-server:1.0.0
+    container_name: marvel-server
+   
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    environment:
+      - publicKey=<marvel public key>  
+      - privateKey=<marvel private key>
+      - sessionSecret=249792892437893423 
+## session Secret is hokum
+## no quootes around public or private key
